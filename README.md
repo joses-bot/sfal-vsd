@@ -213,17 +213,8 @@ gtkwave will show the waveforms from VCD
 
 ### LAB1 -  Good Mux (combinatorial mux)
 
-```
-module good_mux (input i0 , input i1 , input sel , output reg y);
-always @ (*)
-begin
-        if(sel)
-                y <= i1;
-        else
-                y <= i0;
-end
-endmodule
-```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8a574296-026a-49b1-9ef2-11f770a0cddd)
+
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4895c157-64ec-4ae9-8d68-04923f7bcf6b)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f2a415e3-91cf-438d-ae1a-52dc859e7ebc)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/afd5dc46-02e3-4e6c-a667-4630673e1178)
