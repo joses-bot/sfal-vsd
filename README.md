@@ -190,6 +190,20 @@ make
 make test
 ```
 
+# Day 1 - Introduction to Verilog Design an Synthesis
+
+### Test bench block diagram
+
+Design can have more than one primary input and output:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9f5a27d9-db4c-48b0-8708-c7dc489f2f0b)
+
+### iverilog simulation flow: Tool only check for changes in the inputs and show the corresponding changes in the outputs
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ab678167-3814-46fc-9270-bccb4a613bdc)
+
+
+
 
 
 
