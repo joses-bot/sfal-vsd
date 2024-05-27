@@ -192,15 +192,45 @@ make test
 
 # Day 1 - Introduction to Verilog Design an Synthesis
 
-### Test bench block diagram
+RTL Design: Implementation of a spec. The design has the verilog code which implements the intended functionality to meet the specifications
+RTL simulation: Check the design for the adherance of the spec using the simulator
+Simulator: Tools used to simulate the design
+Test Bench: Setup used (using some verilog code) to apply certain stimulus (test vectors) to check the design meets the required functionality
 
-Design can have more than one primary input and output:
+
+### Test bench (TB) set up: Simulator Tool looks only for changes in the inputs and show the corresponding changes in the outputs
+
+Design is instantiated in the test bench. Design can have more than one primary input and output.
+There are two other main end blocks in the test bench, the stimulus generator and the stimulus obseerver (checker)
+The TB itself does not have a primary input or primary output
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9f5a27d9-db4c-48b0-8708-c7dc489f2f0b)
 
-### iverilog simulation flow: Tool only check for changes in the inputs and show the corresponding changes in the outputs
+### iverilog simulation flow: Any simulator Tool looks only for changes in the inputs and show the changes in the outputs (VCD - value change dump)
+gtkwave will show the waveforms from VCD
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ab678167-3814-46fc-9270-bccb4a613bdc)
+
+### LAB1 -  Good Mux (combinatorial mux)
+
+```
+module good_mux (input i0 , input i1 , input sel , output reg y);
+always @ (*)
+begin
+        if(sel)
+                y <= i1;
+        else
+                y <= i0;
+end
+endmodule
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4895c157-64ec-4ae9-8d68-04923f7bcf6b)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f2a415e3-91cf-438d-ae1a-52dc859e7ebc)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/afd5dc46-02e3-4e6c-a667-4630673e1178)
+
+
+
+
 
 
 
