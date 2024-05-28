@@ -249,10 +249,24 @@ Synthesis result:
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d10ab18c-089a-4841-a40b-f1d0c46c4534)
 
 #### Next step is to use ABC program which will take file generated and used specified library to generate the netlist
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0f332c88-64bf-42a8-8b99-d6e9ec2fae8b)
 
 ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output y
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7188e364-4a03-4c29-84f0-7249e13daeb3)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fcdc6d49-35d8-4872-92a2-bf5fc1cd8214)
+
+MUX 2x1 library used:
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5f82ec6b-5c1f-40c3-a65a-d7ccfbb0d407)
+
+### Creating the netlist (removing attributes to make it more readable)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/512f664f-a24b-4e35-b146-dd878f64aa5d)
+
+
+
+
+
+
 
 
 
