@@ -298,6 +298,24 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 #### 1. When we have multiple instances of the same module
 #### 2. Massif design (divice and conquer approach)
 
+### Example: Synthesizing only sub_module1 in design multiple_modules.v
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/586789ad-8c18-43dc-95ae-b6bb26cbcf38)
+
+### Flops and Flop coding styles
+#### Combinatorial circuits can generate glitches when cascading them in the circuit until settle to a final value. We need FLip FLops to store those final values and allow to change the value with an external signal calculated so that combinatorial logic has already settle to a value. The output Q of the Flip Flop is shielded from changes in on the input D. The Set/reset signals are used to initialize the value of the FF so at the beginning the intial output of Q is a known value.
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/43e2994f-4406-4e09-aa39-9b9e80fd4593)
+
+Showing different coding styles for asynch/synch reset/set - asynch logic has precedence over clock in synch logic the if/else will determine the priority
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b564e781-2d20-4d6c-9489-ab3be3ab98f7)
+
+
+
+
+
+
+
 
    
 
