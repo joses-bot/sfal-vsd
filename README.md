@@ -349,10 +349,13 @@ In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(syn
 #### b)Multiplying a 3 bit number by 9 (8 +1) which is equivalent to have 2 consecutive versions of the number
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e917256f-2733-4a64-8241-657b54e1d5d9)
 
-#### In this ABC has nothing to do as only a shift right of the input vector is needed
+#### In the firt case, after synth ABC has nothing to do (no mapping) as only a shift right of the input vector is needed
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0932b717-2b83-4c34-9df6-d080b11fc252)
-in the second case
+#### In the second case
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3f081f49-adf5-4063-9cfa-289e0f402715)
+#### final rtl also show the expected output for case b
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ec06f1bf-6d70-4473-9a50-61650afaa214)
+
 
 
 
