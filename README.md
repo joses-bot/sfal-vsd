@@ -306,9 +306,9 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/43e2994f-4406-4e09-aa39-9b9e80fd4593)
 
-Showing different coding styles for asynch/synch reset/set - asynch logic has precedence over clock in synch logic the if/else will determine the priority
+#### Showing different coding styles for asynch/synch reset/set - asynch logic has precedence over clock (acts irrespective of clock) in synch logic the if/else will determine the priority
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7482aa02-6006-4a87-ba6a-75c612e9a51e)
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b564e781-2d20-4d6c-9489-ab3be3ab98f7)
 
 
 
