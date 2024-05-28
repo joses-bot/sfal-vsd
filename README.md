@@ -341,8 +341,14 @@ Showing final netlist and FF cell included, an inverter is added to asynch input
 
 Repeating the same process for the case with synch_reset 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5cacc7b6-bca7-48eb-8ca7-fcd969077750)
-In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = NOT(sync_reset) AND d which implements a MUX on input d of FF
+In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(sync_reset) AND d) which implements a MUX on input d of FF
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c41c9a6f-14d0-41e8-a335-fb75038be47d)
+
+Special cases: Multiplying by 2^n is equivalent to shift left by n bits
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8bf49c2e-6137-4fa3-b15e-7979d55207c7)
+
+
+
 
 
 
