@@ -309,6 +309,51 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 #### Showing different coding styles for asynch/synch reset/set - asynch logic has precedence over clock (acts irrespective of clock) in synch logic the if/else will determine the priority
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ddc522e5-232e-49da-8a5b-5e2b38fcb5ed)
 
+#### Showing the case of both synch and asynch reset
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4d923f41-3a31-4980-8635-2c7e61663b4b)
+
+#### LAB - Showing synch_reset simulation (see markers where rest happens and next time FF goes to 1 again
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9e6a772a-0dbe-4506-94b0-d6d360385983)
+
+#### LAB - Showing the case for asynch reset simulation (in this case Q goes to low irrespective of the clock)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7ea98927-4cb8-462e-a5c0-14ae66ffaf5f)
+
+#### LAB - Showing the case for asynch set simulation (in this case Q goes to high irrespective of the clock)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c4eb3a98-f486-481e-9cf6-2f36bfeb2b3d)
+
+#### LAB - Showing the case for synch and asynch reset simulation (asynch reset has precedence of synch reset and clock)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/196f7eb1-b2e4-4094-a5e2-f8cca0188f99)
+
+#### when asynch reset is low, synch reset controls the reset behavior and waits for clk
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d1ad662e-272c-4553-9339-66dd8d63e33e)
+
+#### Synthesizing files
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/bb533434-6098-41be-8edf-b980803ce941)
+
+#### As flop's are present, telling the tool which library use to link them
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e1b323c6-1ea4-4aaa-a42d-92de0b0de582)
+
+Then invoking abc to finish synthesis
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ef64763b-c8fa-491a-b8df-faae622df88d)
+
+Showing final netlist and FF cell included, an inverter is added to asynch input as internal reset of FF has the opposite polarity
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e993848d-d9bf-4b85-9498-961ed59cb855)
+
+Repeating the same process for the case with synch_reset 
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5cacc7b6-bca7-48eb-8ca7-fcd969077750)
+In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = NOT(sync_reset) AND d which implements a MUX on input d of FF
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c41c9a6f-14d0-41e8-a335-fb75038be47d)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
