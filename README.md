@@ -333,19 +333,30 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 #### As flop's are present, telling the tool which library use to link them
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e1b323c6-1ea4-4aaa-a42d-92de0b0de582)
 
-Then invoking abc to finish synthesis
+#### Then invoking abc to finish synthesis
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ef64763b-c8fa-491a-b8df-faae622df88d)
 
-Showing final netlist and FF cell included, an inverter is added to asynch input as internal reset of FF has the opposite polarity
+#### Showing final netlist and FF cell included, an inverter is added to asynch input as internal reset of FF has the opposite polarity
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e993848d-d9bf-4b85-9498-961ed59cb855)
 
-Repeating the same process for the case with synch_reset 
+#### Repeating the same process for the case with synch_reset 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5cacc7b6-bca7-48eb-8ca7-fcd969077750)
 In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(sync_reset) AND d) which implements a MUX on input d of FF
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c41c9a6f-14d0-41e8-a335-fb75038be47d)
 
-Special cases: Multiplying by 2^n is equivalent to shift left by n bits
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8bf49c2e-6137-4fa3-b15e-7979d55207c7)
+#### Special cases: 
+#### a)Multiplying by 2^n is equivalent to shift left by n bits
+#### b)Multiplying a 3 bit number by 9 (8 +1) which is equivalent to have 2 consecutive versions of the number
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e917256f-2733-4a64-8241-657b54e1d5d9)
+
+#### In this ABC has nothing to do as only a shift right of the input vector is needed
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0932b717-2b83-4c34-9df6-d080b11fc252)
+in the second case
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3f081f49-adf5-4063-9cfa-289e0f402715)
+
+
+
+
 
 
 
