@@ -255,12 +255,60 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fcdc6d49-35d8-4872-92a2-bf5fc1cd8214)
 
-MUX 2x1 library used:
+#### MUX 2x1 library used:
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5f82ec6b-5c1f-40c3-a65a-d7ccfbb0d407)
 
 ### Creating the netlist (removing attributes to make it more readable)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/512f664f-a24b-4e35-b146-dd878f64aa5d)
+
+# Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
+
+### 3 Important parameters determine the operating condition:
+### P : Process (variations due to fabrication)  V : Voltage  T : Temperature
+### In the sk130 example:  tt = typical process  25 = temperature  1v00 = voltage
+### Comparing for the and2 cell case showing different flaviors: when using wider/narrower cells (wider = faster but more power consumptiom)
+### In the snapshot below we observe from left to right the increase in area and increase in power but decrease in delay of the cell
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7114b297-7c4b-4a18-9fa0-bff85aa34f0f)ab
+
+### Hierarchical vs Flat Synthesis Lab
+
+### Invoking yosys to synthesize example multiple_modules.v
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c7a9eee3-c3ca-4ced-a4c0-0117e5a5e9fc)
+
+### Final statistics
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e6e348d6-e26d-4e19-b560-3fd5a550d788)
+
+### Invoking abc to link libraries - showing hierarchical view (internal sub-modules)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a80e1299-d098-4b72-a81d-325c8ad2253b)
+
+### Details of the hierarchical implementation
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0d435723-1bdb-4285-9041-c612f8a18c93)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/58059b91-5f52-42db-8a78-69d7ae29cc10)
+
+### After flattening the netlist
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1e36bcd4-2f23-47d6-86c9-1e1f4d81fd55)
+
+### Details of flattened netlist (no more sub-modules, only present primitive cells)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6e07504e-cef0-40ca-86e8-bc215650f172)
+
+### On which cases is more convenient a hierarchical (sub module based synthesis)
+#### 1. When we have multiple instances of the same module
+#### 2. Massif design (divice and conquer approach)
+
+
+   
+
+
+
+
+
+
+
+
+
 
 
 
