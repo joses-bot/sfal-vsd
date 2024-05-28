@@ -227,12 +227,45 @@ Verifying the design. Using the Test becnh using in RTL phase (Using the same st
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b5c69994-cd9a-4ef0-9d92-3f27012b6463)
 
 ### Synthesis 
-Process to do RTL to gate level translation, a netlist is generated
+### Process to do RTL to gate level translation, a netlist is generated
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/002bff08-3c1a-48be-bd48-98d1037a289d)
 
-### .lib - Collection of different flaviors of stanadard cells, different functionalities, inputs, etc and different models (slow, medium, high), they can implement any logic functionality
+### .lib - Collection of different flaviors of stanadard cells, different functionalities, inputs, etc and different models (speed: slow, medium, high), they can implement any logic functionality
+
+### Max clock = Propagation delay of FF + Tcombinatorial + setup time (data estable before clk arrives)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dd3dd6f1-38fc-47c0-b118-ea3e99d4c077)
+
+### Library has different models as not all cells required need to be fast, there is also  a need for slow cells. In general a circuit needs to fullfill 2 requirements cells have to fast enough to meet setup time but some others cells have to be slow enough to meet hold time (hold time - time the data need to be remain stable after clock happens)
+
+### Faster cells vs slower cells -> need to propagate the output faster so its capacitance is such that charges/discharges fast so transistors sourcing more current (wider transistor), therefore wider transistors imply low delay but more area and power and narrow transistors imply longer delays but less area and power
+### We need to guide the synthesizer, providing some constraints, so it can use the adequate model of the library cells and the final design meets setup time and hold time
+### Illustrative example showing the work of the synthesizer, translating RTL spec into logic gates (netlist)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fc664017-5e4f-4bc6-91d0-1a15f7737ba7)
+
+#### Using yosys
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/75e085a4-85c4-4f9b-b1d8-276ab2195d2a)
+Synthesis result:
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d10ab18c-089a-4841-a40b-f1d0c46c4534)
+
+#### Next step is to use ABC program which will take file generated and used specified library to generate the netlist
+
+ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output y
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7188e364-4a03-4c29-84f0-7249e13daeb3)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
