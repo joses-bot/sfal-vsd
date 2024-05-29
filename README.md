@@ -475,6 +475,10 @@ In this example a 4 bit counter is modeled in RTL but the output only uses the L
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/77d57f29-08fc-45b2-8b05-d8161341607a)
 ```
+Changing the code to generate an output dependent of the 4 bits of the counter in this case
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/078b0aaa-2db4-4a76-8459-4fb0a6a48796)
+```
 In this case all the 4 bits of the counter are required to formed the final output so all four FF's are kept and we see the combinatorial logic used to form the output
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6d9fd49b-dc66-4be7-96df-768e0d656dd9)
