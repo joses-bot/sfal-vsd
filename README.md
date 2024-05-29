@@ -394,7 +394,8 @@ y2  = /c
 ```
 Using  opt_clean -purge (simplify logic)
 ```
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ce50cfca-4fb5-496d-8bd4-d82ef8dff0e7)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/aa084887-46db-4844-9e16-95419b666f58)
+
 
 #### Advanced 
 ```
