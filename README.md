@@ -567,6 +567,18 @@ Adds complexity to the design flow
 Increase area, power and package pins
 Increases Design time
 ```
+```
+Basic Terminology
+
+Controllability - 0's and 1's are propagated to all the nodes of the target device
+A node is controllable if both 0's and 1's propagate through scan patterns
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/89d5f06a-e79c-4bd1-93d0-077d5c0b5846)
+```
+In the example adding a simple MUX in between, makes the node accessible but adds more complexity (Changes power, area and performance)
+```
+
+
 
 
 
