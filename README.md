@@ -510,7 +510,21 @@ Using "=" to make assigments will create a Blocking statement and all the statem
 Using "<=" to make assigments will create a non-Blocking statement and all the statements in RHS (right hand side) will be evaluated in parallel. Non blocking will be used everytime we want to create a sequential circuit
 Caveats with blocking statements
 ```
-#### Non standard verilog coding
+#### Non standard verilog coding - using weird verilog constructions
+```
+Example of a blocking statement Lab - MUX 2x1
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9cce1cdb-f476-470b-bc80-0dd69af7736a)
+```
+synthesis also shows a mux is infered
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/194571b7-3a74-4bdd-89c1-2f0ec369d42d)
+```
+GLS simulation. Write netlist and use iverilog to simulate the design using: this neetlist, the behavioral models of cells and the same test bench used with RTL. We see the same MUX behavior which confirms what was obsrved using RTL simulation
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b9d60e7a-67e1-42a5-b27e-98406a6130e3)
+
+
 
 
 
