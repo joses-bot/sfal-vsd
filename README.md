@@ -540,6 +540,44 @@ GLS simulation shows the correct MUX behavior
 In summary because of the problem with sensitivity list RTL simulation does not match GLS simulation
 ```
 
+# Day 5 - Design for Testability
+
+#### Testability A characteristics of an item's design which allows to know the status (operable, inoperable, degraded) of that item to be confidently and quickly determined. In VLSI the design is well controllable and observable
+```
+DFT (Design for Testability) - Techniques used to faciitate the testing of the design once it is manufactured. (Adding an extra design to make sure the design can be tested after being fabricated). e.g MBist Test (Memory built in test - A self-testing and repair mechanism which tests the devices using an effective set of algorithms to detect possibly all the faults
+DFT makes testing easier after tape out. 
+```
+```
+3 level of testing:
+Chip level
+Board level
+System level
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b87cd2ac-480c-49e0-8650-83b9beb22c17)
+```
+Pro's
+
+Reduces Tester complexity
+Reduces Tester time
+Reduces the chances of going into loss due to a faulty device
+
+Con's
+
+Adds complexity to the design flow
+Increase area, power and package pins
+Increases Design time
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
