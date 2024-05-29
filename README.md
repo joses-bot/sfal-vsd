@@ -408,6 +408,11 @@ y = a? (c? b:0) :0 ;
 simplifying y = abc;
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1a39bb03-b849-4d96-ba03-2271fc431e94)
+```
+Example with multiple modules
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/412fea9b-727a-4ab9-8bd8-618f16d0773e)
+
 
 
 #### Advanced 
