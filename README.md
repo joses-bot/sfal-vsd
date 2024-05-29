@@ -397,6 +397,12 @@ Using  opt_clean -purge (simplify logic)
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/aa084887-46db-4844-9e16-95419b666f58)
 
+Second example:
+y = a? 1:b ;
+simplifying  y = a + b;
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/88bb6d0d-155d-48a8-b212-b067d05a0ae7)
+
 
 #### Advanced 
 ```
