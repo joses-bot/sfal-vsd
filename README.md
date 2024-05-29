@@ -298,7 +298,7 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 #### 1. When we have multiple instances of the same module
 #### 2. Massif design (divice and conquer approach)
 
-### Example: Synthesizing only sub_module1 in design multiple_modules.v
+### Example: Synthesizing only sub_module1 in design multiple_modules.v 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/586789ad-8c18-43dc-95ae-b6bb26cbcf38)
 
 ### Flops and Flop coding styles
