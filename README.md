@@ -420,6 +420,22 @@ After synthesis and flatten
 ```
 which corresponds to the simplify equations
 ```
+```
+Sequential logic optimizations lab
+```
+```
+In this case D input of FF is stuck to high (simulation shown below) but changes after clk so a FF will be infered
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f5542bbb-9e74-4d77-b252-6e77088a2d94)
+```
+Running synthesis and mapping and showing result, a FF was infered
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1c8fbe5a-bc56-4274-b195-0ab8b890f482)
+
+
+
+
+
 #### Advanced 
 ```
 State Optimization - Removing unused states
