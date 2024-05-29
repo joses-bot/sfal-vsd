@@ -432,9 +432,36 @@ Running synthesis and mapping and showing result, a FF was infered
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1c8fbe5a-bc56-4274-b195-0ab8b890f482)
 
-
-
-
+Second example, in this case the output i always stuck to high regardless of clk, simulation is shown below
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ad601c51-0859-4290-938c-37e08cba2167)
+```
+Running synthesis and mapping and showing result in this case no FF is inferred
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/471c92a1-a9f2-480b-a6e5-c6a7bcf1300d)
+```
+Third example - A cascade of two FF's on with D input stuck to high and the output of this FF going into another FF which is first set to high asynch. Simulation results:
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/09b06bba-9047-415b-8e45-ecf366115da5)
+```
+In this case 2 FF's are infered 
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0c8e8688-1a42-4069-a06d-c23ea9211374)
+```
+Fourth example - A cascade of two FF's on with D input stuck to high and both FF asynchronously are set to high at the beginning. In this case we expect the FF's Q outputs to be constant high regardless of the clk
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dd880d64-eca7-4ffd-9157-31ed58b7dd52)
+```
+In this case No FF's is infered 
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3faef3a2-064e-46f9-b1db-d7533e5ee1a5)
+```
+Fifth example - A cascade of two FF's being reset at the begining, one FF with D input tied to high and output Q cascading to the next FF. In this case we expect 2 FF's being inferred.
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1e00343a-3672-423a-96b0-6d96bb4f393e)
+```
+In this case 2 FF's are infered 
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/290607ca-46c4-4796-9f0e-ffa21f04ea16)
 
 #### Advanced 
 ```
