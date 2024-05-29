@@ -411,7 +411,8 @@ simplifying y = abc;
 ```
 Example with multiple modules
 ```
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/412fea9b-727a-4ab9-8bd8-618f16d0773e)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c7b7b5bf-ef9b-4f8e-8def-08cc545d7a4b)
+
 ```
 After synthesis and flatten
 ```
