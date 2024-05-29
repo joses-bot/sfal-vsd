@@ -401,8 +401,7 @@ Second example:
 y = a? 1:b ;
 simplifying  y = a + b;
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/88bb6d0d-155d-48a8-b212-b067d05a0ae7)
-
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fc66e323-1fd0-4b20-8085-903f8f94eb1f)
 
 #### Advanced 
 ```
