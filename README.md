@@ -390,7 +390,8 @@ Optimizations:
 y1 = a and b
 y2  = /c
 ```
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/945719e6-6846-4e80-8615-51a1711bbcf0)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/77cb151b-6e8e-44af-b657-9334b41d896e)
+
 ```
 Using  opt_clean -purge (simplify logic)
 ```
