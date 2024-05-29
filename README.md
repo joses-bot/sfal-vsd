@@ -523,6 +523,24 @@ synthesis also shows a mux is infered
 GLS simulation. Write netlist and use iverilog to simulate the design using: this neetlist, the behavioral models of cells and the same test bench used with RTL. We see the same MUX behavior which confirms what was obsrved using RTL simulation
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b9d60e7a-67e1-42a5-b27e-98406a6130e3)
+```
+Example showing a missmatch (Bad MUX with onlly sel in sensitivity list of always block)
+In this case RTL simulation does not behave completely as a MUX. It does not folloe I0 and I1 and output behaves as a latch, keeping previous value.
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4faf10ad-c6b0-4e11-a84e-51c99ecdd0cf)
+```
+synthesis infers the correct MUX
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/68d194af-f951-43b5-baad-507b89518485)
+```
+GLS simulation shows the correct MUX behavior
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9c805352-8114-433e-941a-102ca8121f98)
+```
+In summary because of the problem with sensitivity list RTL simulation does not match GLS simulation
+```
+
+
 
 
 
