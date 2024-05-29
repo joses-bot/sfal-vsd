@@ -1,5 +1,5 @@
 # Day 0 - Tools Installation
-# Yosys
+### Yosys
 ```
 $ sudo apt-get update
 $ git clone https://github.com/YosysHQ/yosys.git
@@ -25,7 +25,7 @@ josep@josep-VirtualBox:~/Desktop$ yosys
 
 yosys> 
 ```
-# Iverilog
+### Iverilog
 ```
 Steps to install iverilog
 sudo apt-get update
@@ -43,7 +43,7 @@ Usage: iverilog [-EiSuvV] [-B base] [-c cmdfile|-f cmdfile]
 
 See the man page for details.
 ```
-# gtkwave
+### gtkwave
 ```
 Steps to install gtkwave
 sudo apt-get update
@@ -51,7 +51,7 @@ sudo apt install gtkwave
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/367e34c5-bba1-4285-ba17-7d27ab235b0a)
 
-# OpenSTA
+### OpenSTA
 ```
 https://github.com/The-OpenROAD-Project/OpenSTA
 
@@ -65,7 +65,7 @@ cd build
 cmake ..
 make
 ```
-# ngspice
+### ngspice
 ```
 After downloading the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory, unpack it using:
 sudo apt-get install libxaw7-dev
@@ -92,7 +92,7 @@ josep@josep-VirtualBox:~/Desktop$ ngspice
 ngspice 1 -> 
 ```
 
-# magic
+### magic
 ```
 $   sudo apt-get install m4
 $   sudo apt-get install tcsh
@@ -111,7 +111,7 @@ make install
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e0b57d05-ddda-40ce-9183-7cfa8fd2b869)
 
-# OpenLANE
+### OpenLANE
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -133,7 +133,7 @@ sudo usermod -aG docker $USER
 sudo reboot 
 
 ###################################
-# To run openlane
+###  To run openlane
 
 cd OpenLane
 make mount
@@ -181,7 +181,7 @@ Available under the Apache License, version 2.0. See the LICENSE file for more d
 [INFO]: Running Single-Corner Static Timing Analysis (log: designs/spm/runs/RUN_2024.05.23_06.15.26/logs/synthesis/2-sta.log)...
 % 
 ```
-# Installs PDKs and Tools
+### Installs PDKs and Tools
 ```
 cd $HOME
 git clone https://github.com/The-OpenROAD-Project/OpenLane
@@ -357,6 +357,7 @@ In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(syn
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ec06f1bf-6d70-4473-9a50-61650afaa214)
 
 
+# Day 3 - Combinational and sequential optmizations
 
 
 
