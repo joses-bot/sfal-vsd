@@ -479,9 +479,45 @@ Changing the code to generate an output dependent of the 4 bits of the counter i
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/078b0aaa-2db4-4a76-8459-4fb0a6a48796)
 ```
-In this case all the 4 bits of the counter are required to formed the final output so all four FF's are kept and we see the combinatorial logic used to form the output
+In this case all the 4 bits of the counter are required to formed the final output so all four FF's are kept and we see the combinatorial logic used to form the output and the combinatorial logic to implement the incrementing logic
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6d9fd49b-dc66-4be7-96df-768e0d656dd9)
+
+# Day 4 - GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch
+```
+Running the test bench using the Netlist (generated after syntheis) as Design under test (DUT)
+Netlist is logically equivalent to RTL
+GLS is used to verify logical correctness of the design after syntheis and to verify timing is met (adding delay annotation to GLS). GLS flow using iverilog (If gate level models are time annotated then GLS can be used for timing verification)
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/712d3d5d-2afc-458a-8236-495e1af96164)
+
+```
+Gate level verilog models are used with Netlist to run simulation. Models can be only functional (behavioral) or timing aware (in that case a timing validation is possible)
+```
+### Synthesis-Simulation mismatch (probably causes)
+```
+Simulator looks for activity (any change on the signals) and as result evaluate the outputs to reflect the change in the inputs
+```
+#### Missing sensitivity list 
+```I
+n simulation Always blocks are only evaluated when one of the signals in the sensitivity list changes. Wild characters can be used in case we need to evaluate the always block when any signal changes e.g always@(*) . Otherwise if a signal is not included in the senstivity list will not trigger the evaluation of the always block and acts as a latch (value does not change). 
+In synthesis the compiler looks for the functionality not the sensitivity list, so it will infer the right components. If a missing signal in the sensitiviy list exist there will be differences between the simulation and synthesis.
+```
+#### Blocking vs Non-blocking assigment
+```
+BlockingAndNonBlockingStatementsInVerilog (only when we use an always block)
+Using "=" to make assigments will create a Blocking statement and all the statements will be executed sequentially (like in C). so order where the statements are written is important. 
+Using "<=" to make assigments will create a non-Blocking statement and all the statements in RHS (right hand side) will be evaluated in parallel. Non blocking will be used everytime we want to create a sequential circuit
+Caveats with blocking statements
+```
+#### Non standard verilog coding
+
+
+
+
+
+
+
 
 
 
