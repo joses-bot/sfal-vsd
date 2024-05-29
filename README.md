@@ -412,8 +412,11 @@ simplifying y = abc;
 Example with multiple modules
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/412fea9b-727a-4ab9-8bd8-618f16d0773e)
-
-
+```
+After synthesis and flatten
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d3acd5ac-8a2d-4c52-b2cd-01585905a78f)
+which corresponds to the simplify equations
 
 #### Advanced 
 ```
