@@ -359,6 +359,50 @@ In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(syn
 
 # Day 3 - Combinational and sequential optmizations
 
+#### Constant propagation - One or mor inputs are stuck to a fixed logic value, equation can be simplified
+```
+Y = /((AB) + C)
+
+where A = 0 (input A is stuck at 0)
+Y = /C (output got reduced to an inverter - less area and power)
+```
+#### Boolean Optimization 
+
+#### Combinatorial - Simplifying logic equations
+```
+assign y = a? (b? c:(c? a:0)): (!c)
+
+equation is composed of 3 muxes, which is equivalent to: 
+1st mux ac
+2nd mux /bac +bc
+3rd mux /a/c + a[bc + /bac]
+
+simpifying  y = /a/c + ac = a xor c (got reduced to an xor)
+```
+#### Sequential
+#### Basic - Sequential constant propagation
+```
+One of the sequential element e.g FF is stuck to a constant value and that is propagated to the output
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a93523c8-a9ec-4696-a2b6-fab227785e08)
+```
+Optimizations:
+y1 = a and b
+y2  = /c
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/945719e6-6846-4e80-8615-51a1711bbcf0)
+```
+Using  opt_clean -purge (simplify logic)
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ce50cfca-4fb5-496d-8bd4-d82ef8dff0e7)
+
+#### Advanced 
+```
+State Optimization - Removing unused states
+Retiming - Improving performance of the circuit (frequency), by balancing intermediate combinatorial logic delays between paths of sequential pipelining
+Sequential logic cloning - replicating portions of sequential logic to reduce the fan out and creating parallel paths to ease meet timing
+```
+
 
 
 
