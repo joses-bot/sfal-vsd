@@ -525,7 +525,7 @@ GLS simulation. Write netlist and use iverilog to simulate the design using: thi
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b9d60e7a-67e1-42a5-b27e-98406a6130e3)
 ```
 Example showing a missmatch (Bad MUX with onlly sel in sensitivity list of always block)
-In this case RTL simulation does not behave completely as a MUX. It does not folloe I0 and I1 and output behaves as a latch, keeping previous value.
+In this case RTL simulation does not behave completely as a MUX. Output does not follow I0 and I1 and output behaves as a latch, keeping previous value.
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4faf10ad-c6b0-4e11-a84e-51c99ecdd0cf)
 ```
