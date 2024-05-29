@@ -396,12 +396,19 @@ y2  = /c
 Using  opt_clean -purge (simplify logic)
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/aa084887-46db-4844-9e16-95419b666f58)
-
+```
 Second example:
 y = a? 1:b ;
 simplifying  y = a + b;
-
+```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fc66e323-1fd0-4b20-8085-903f8f94eb1f)
+```
+Third example:
+y = a? (c? b:0) :0 ;
+simplifying y = abc;
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1a39bb03-b849-4d96-ba03-2271fc431e94)
+
 
 #### Advanced 
 ```
