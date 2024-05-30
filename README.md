@@ -610,6 +610,24 @@ There are three times of of scan flops configurations: multiplexed, clocked, lss
 example multiplexed scan flop
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/19ef898c-fda0-4d7f-bc4a-db8f7da8607b)
+```
+Purpose of the scan Flops
+Test stuck-at faults in manufactured devices
+Test the paths in the manufactured devices for delay - test if the path is working at the required functional frequency
+(if there are metastability issues they can be captured by reading the sequence of test pattern on the output)
+```
+```
+FAQ for scan chain
+How long one single scan chain can be: (the numner of FF's in a single scan chain)
+The larger the chain the more number of cycles is required to shift the data in and out. Smaller chains means more number of input/output ports required. Try to keep all the chains more or less equal in size.
+Number of ports required = 2 x Number of scan chains (affecting area)
+Number of cycles required to run a pattern = lenght of the largest scan chain in the design.
+As the number of pattern combinations grows exponentially as the number of FF's present in chain increases, in order to generate the test pattern we use the ATPG (Automatic test Pattern generator) and ATE (Automatic test equipment)
+```
+```
+DFT compiler - tool used to insert the scan chains in the design
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0820c299-0d4c-48f0-8c18-f3beac02843a)
 
 
 
