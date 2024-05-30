@@ -598,7 +598,13 @@ Specifying thee scan constraint
 Specifying scan ports and scan enables
 Compiling the dft
 Identifying the number of scan chains
-DFT compiler converts normal FF's into scan FF's so they can be accessed through a scan chain
+```
+```
+DFT compiler tool converts normal FF's into scan FF's so they can be accessed through a scan chain
+Scan chain are the elements in scan-based designs that are used to shif-in and shift-out the test pattern
+A scan chain is formed by FF's connected back to back in a chain where the output of one FF is connected to input of another one
+The input of the first FF is connected to the input pin of th chip (scan-in) where the scan data is fed. The output of the last flop is connected to the output pin of the chip (scan-out) that is used to shift data out
+There are three times of of scan flops configurations: multiplexed, clocked, lssd (level sensitive scan)
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/19ef898c-fda0-4d7f-bc4a-db8f7da8607b)
 
