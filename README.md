@@ -547,29 +547,29 @@ In summary because of the problem with sensitivity list RTL simulation does not 
 DFT (Design for Testability) - Techniques used to faciitate the testing of the design once it is manufactured. (Adding an extra design to make sure the design can be tested after being fabricated). e.g MBist Test (Memory built in test - A self-testing and repair mechanism which tests the devices using an effective set of algorithms to detect possibly all the faults
 DFT makes testing easier after tape out. 
 ```
+#### 3 level of testing:
 ```
-3 level of testing:
 Chip level
 Board level
 System level
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b87cd2ac-480c-49e0-8650-83b9beb22c17)
+#### Pro's
 ```
-Pro's
-
 Reduces Tester complexity
 Reduces Tester time
 Reduces the chances of going into loss due to a faulty device
-
-Con's
-
+```
+#### Con's
+```
 Adds complexity to the design flow
 Increase area, power and package pins
 Increases Design time
 ```
-```
-Basic Terminology
 
+#### Basic Terminology
+
+```
 Controllability - 0's and 1's are propagated to all the nodes of the target device
 A node is controllable if both 0's and 1's propagate through scan patterns
 ```
@@ -577,6 +577,34 @@ A node is controllable if both 0's and 1's propagate through scan patterns
 ```
 In the example adding a simple MUX in between, makes the node accessible but adds more complexity (Changes power, area and performance)
 ```
+```
+Observability -  Be able to observe each node and measure the logical value at that node. We say that a node is observable if its value can be shifted out through scan chains and can be observed through scan out ports.
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/54d6fd0a-eb5e-4fe8-b164-b08c0e54c869)
+```
+In the snapshot a register was added to observe the value of the node if the circuitry present after the node fails and its output gets stuck to a certain value with this added register we can observe the internal behabior of the node and get a better idea of what is happening. This added-regisger does not affect the timing but the area and power of the entire module
+```
+```
+Fault - stuck at a logic value becausse of a physical damage or a defect
+Error - Caused by  fault. System goe into an error state condition
+Failure - The system does not provide the expected service
+Chain of events: A fault causes and error and that leads to a failure
+Fault coverage - Percentage of the total number of faults that can be tested with a given test set
+Defect Level - similar to yield. Fraction of shipped parts that are defective. The proportion of faulty chips that were missclasiffied as good ones
+```
+#### Scan chain Technique
+missclasiffied as good ones
+```
+Specifying thee scan constraint
+Specifying scan ports and scan enables
+Compiling the dft
+Identifying the number of scan chains
+DFT compiler converts normal FF's into scan FF's so they can be accessed through a scan chain
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/19ef898c-fda0-4d7f-bc4a-db8f7da8607b)
+
+
+
 
 
 
