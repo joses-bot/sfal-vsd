@@ -593,7 +593,6 @@ Fault coverage - Percentage of the total number of faults that can be tested wit
 Defect Level - similar to yield. Fraction of shipped parts that are defective. The proportion of faulty chips that were missclasiffied as good ones
 ```
 #### Scan chain Technique
-missclasiffied as good ones
 ```
 Specifying thee scan constraint
 Specifying scan ports and scan enables
