@@ -625,9 +625,19 @@ Number of cycles required to run a pattern = lenght of the largest scan chain in
 As the number of pattern combinations grows exponentially as the number of FF's present in chain increases, in order to generate the test pattern we use the ATPG (Automatic test Pattern generator) and ATE (Automatic test equipment)
 ```
 ```
-DFT compiler - tool used to insert the scan chains in the design
+DFT compiler - tool used to insert the scan chains in the design - some commands for the tool
+- set scan configuration
+- preview scan
+- insert scan
+- set scan_path
+- set scan_signal
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0820c299-0d4c-48f0-8c18-f3beac02843a)
+
+- circuit to analyze
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e5cc0dd8-bff1-458e-a544-53ee7cc84cf7)
+
+
 
 
 
