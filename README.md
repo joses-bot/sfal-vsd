@@ -542,9 +542,9 @@ In summary because of the problem with sensitivity list RTL simulation does not 
 
 # Day 5 - Design for Testability
 
-#### Testability A characteristics of an item's design which allows to know the status (operable, inoperable, degraded) of that item to be confidently and quickly determined. In VLSI the design is well controllable and observable
+#### Testability A characteristics of an item's design which allows to know the status (operable, inoperable, degraded) of that item to be confident we are in control of the operation of the circuit. In VLSI a design should be well controllable and observable
 ```
-DFT (Design for Testability) - Techniques used to faciitate the testing of the design once it is manufactured. (Adding an extra design to make sure the design can be tested after being fabricated). e.g MBist Test (Memory built in test - A self-testing and repair mechanism which tests the devices using an effective set of algorithms to detect possibly all the faults
+DFT (Design for Testability) - Techniques used to facilitate the testing of the design once it is manufactured. (Adding an extra design to make sure the design can be tested after being fabricated). e.g MBist Test (Memory built in test - A self-testing and repair mechanism which tests the devices using an effective set of algorithms to detect all the faults
 DFT makes testing easier after tape out. 
 ```
 #### 3 level of testing:
@@ -564,7 +564,8 @@ Reduces the chances of going into loss due to a faulty device
 ```
 Adds complexity to the design flow
 Increase area, power and package pins
-Increases Design time
+Decreases performance (max speed of overall design)
+Increases Design time/effort
 ```
 
 #### Basic Terminology
@@ -582,11 +583,11 @@ Observability -  Be able to observe each node and measure the logical value at t
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/54d6fd0a-eb5e-4fe8-b164-b08c0e54c869)
 ```
-In the snapshot a register was added to observe the value of the node if the circuitry present after the node fails and its output gets stuck to a certain value with this added register we can observe the internal behabior of the node and get a better idea of what is happening. This added-regisger does not affect the timing but the area and power of the entire module
+In the snapshot a register was added to observe the value of the node if the circuitry that is located after the node fails and its output gets stuck to a certain value with this added register we can observe the internal behavior of the node and get a better idea of what is happening. This added-regisger does not affect the timing but the area and power of the entire module
 ```
 ```
 Fault - stuck at a logic value becausse of a physical damage or a defect
-Error - Caused by  fault. System goe into an error state condition
+Error - Caused by  fault. System goes into an error state condition
 Failure - The system does not provide the expected service
 Chain of events: A fault causes and error and that leads to a failure
 Fault coverage - Percentage of the total number of faults that can be tested with a given test set
@@ -601,28 +602,31 @@ Identifying the number of scan chains
 ```
 ```
 DFT compiler tool converts normal FF's into scan FF's so they can be accessed through a scan chain
-Scan chain are the elements in scan-based designs that are used to shif-in and shift-out the test pattern
+Scan chain are the elements in scan-based designs that are used to shif-in and shift-out the test patterns
 A scan chain is formed by FF's connected back to back in a chain where the output of one FF is connected to input of another one
 The input of the first FF is connected to the input pin of th chip (scan-in) where the scan data is fed. The output of the last flop is connected to the output pin of the chip (scan-out) that is used to shift data out
-There are three times of of scan flops configurations: multiplexed, clocked, lssd (level sensitive scan)
+There are three different scan flops configurations: multiplexed, clocked, lssd (level sensitive scan)
 ```
 ```
-example multiplexed scan flop
+example multiplexed scan flop (MUX functional data and test data)
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/19ef898c-fda0-4d7f-bc4a-db8f7da8607b)
 ```
 Purpose of the scan Flops
 Test stuck-at faults in manufactured devices
 Test the paths in the manufactured devices for delay - test if the path is working at the required functional frequency
-(if there are metastability issues they can be captured by reading the sequence of test pattern on the output)
+(if there are metastability issues they can be captured by reading the sequence of test pattern obtained on the output)
 ```
 ```
 FAQ for scan chain
 How long one single scan chain can be: (the numner of FF's in a single scan chain)
-The larger the chain the more number of cycles is required to shift the data in and out. Smaller chains means more number of input/output ports required. Try to keep all the chains more or less equal in size.
-Number of ports required = 2 x Number of scan chains (affecting area)
+The larger the chain the more number of cycles is required to shift the data in and out. Smaller chains means more number of input/output ports required.
+```
+#### Try to keep all the chains more or less equal in size.
+```
+Number of ports required = 2 x Number of scan chains (basically affecting overall area)
 Number of cycles required to run a pattern = lenght of the largest scan chain in the design.
-As the number of pattern combinations grows exponentially as the number of FF's present in chain increases, in order to generate the test pattern we use the ATPG (Automatic test Pattern generator) and ATE (Automatic test equipment)
+As the number of pattern combinations grows exponentially when the number of FF's present in chain increases, in order to generate the test pattern we use the ATPG (Automatic test Pattern generator) and ATE (Automatic test equipment)
 ```
 ```
 DFT compiler - tool used to insert the scan chains in the design - some commands for the tool
@@ -634,11 +638,11 @@ DFT compiler - tool used to insert the scan chains in the design - some commands
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0820c299-0d4c-48f0-8c18-f3beac02843a)
 
-- circuit to analyze
+#### circuit to analyze
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e5cc0dd8-bff1-458e-a544-53ee7cc84cf7)
-
-
-
+```
+MUX controls where to run functional data or a test pattern. When test data is enabled (scan_enable), Start sending data from FF which is furthest to the left and keep shifting that data to FF number 2 and number 3 (FF furthest to the right) then data can be captured on the output port. To test intermediate nodes de-assert scan_enable for one or two clock pulses depending on the output we want to capture (data will pass through the combinatorial logic associated to that FF and then it will be captured
+```
 
 
 
