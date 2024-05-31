@@ -726,7 +726,7 @@ Elements used in Design Compiler
 
 General Flow for ASIC Implementation
 
-![image](https://github.com/joses-bot/sfal-vsd/asse![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5ba76bb0-8671-4215-b261-abcb69edfa6e)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/59963956-38b4-45f4-bd1a-1e53362cdfaf)
 
 DC deals with Synthesis portion of the flow
 
