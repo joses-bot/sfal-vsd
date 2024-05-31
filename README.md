@@ -643,6 +643,106 @@ DFT compiler - tool used to insert the scan chains in the design - some commands
 ```
 MUX controls where to run functional data or a test pattern. When test data is enabled (scan_enable), Start sending data from FF which is furthest to the left and keep shifting that data to FF number 2 and number 3 (FF furthest to the right) then data can be captured on the output port. To test intermediate nodes de-assert scan_enable for one or two clock pulses depending on the output we want to capture (data will pass through the combinatorial logic associated to that FF and then it will be captured
 ```
+# Day 5 - Introduction to Synthosis Logic
+```
+FLOW  RTL Source -> Translatee (HDL compiler) -> Optimize & Mapping (Design Compiler)
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f4f15383-fea1-41ac-a554-2e68103577df)
+
+```
+Drsign Compiler (Synopsys tool)
+dc_shell (text)  Design Vision (GUI)
+Format used for libraries  .db
+Format design Information .ddc
+SDC (constraints file TCL) Power, timing and areaa constraints
+FLOW : sset and link .db -> Read verilog HDL -> Read constraints (SDC) - >  Integrate design Info & Cell Libraries -> Synthesize -> Obtain Reports -> QOR (Quality of Report) - > write Netlist
+```
+```
+The design is writen in terms of standard cells (gates, FF's mux's, etc)  .db format 
+The Target library (Standard cell library database) binary format locatedd in  cell area/ins/timing/data  (Specifie for specific Process, Temperature and Voltage) PVT corner
+Other libraries can be appended with  link library
+```
+```
+Difference from open compiler: Need to specify target, link library taking care of other formats while writing nrtlist or ddc
+e.g  write -format ddc -hierarchie -o file.ddc
+```
+```
+Invoking compiler
+dc_shell (text)  gui_start
+design_vision (GUI)
+Uses GTECH lib when verilog is read when no libraries specified
+Multiple libraries with PVT corners and cell elements can be specified
+.synposis_dc.setup  (can provide libraries without any additional commands to automate process)
+```
+
+#### BASICS OF DIGITAL LOGIC DESIGN AND SYNTHESIS
+```
+Digital Logic (switching, Automation & Decision making )  -> Behavioral Model of the design using HDL (VHDL, Verilog, System Verilog)  RTL
+RTL Translation to gate level + include libraries (Synthesis) -> includes all interconnections among the different elements -> final product of this step is the netlist
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/084d802a-3115-4042-a605-6a22f9a18d9a)
+```
+.lib (collection of logical modules inchuding different flaviors of same gate
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ebe3f863-02a3-4e03-ac7b-02e80298d128)
+```
+Dealing with different flaviors of libraries. In snapshot the max delay constraint path is shown
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d9bd8955-653f-4480-8276-6058e332597f)
+
+```
+Timing labels: TCQ clock to Q delay   TCOMBI (delay combinatorial logic)   TSETUP (Setpup time FF)
+Mosfet equation in all operating regios  ID ~ [W/L]
+For Setup -> fastest logic cells (Wider transistors, decrease delay, increase area, increase current and power)
+For Hold -> slowest logic cells(Narror transistors, increase delay, decrease area, decrease current and power)
+
+Need to guide the Syntheesizer to select cells to optimize design using constraints
+
+Goal of Design synthesis:  Logically and electrically correct and Meeting Timing
+```
+```
+Comparing Different implementation of the same logic specification
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c576f055-2b59-44d7-9c38-b52b7b78aac3)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d07378b8-990a-407a-a566-dbd25b091847)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/28c26780-ae45-4f1b-af76-3007e5e87e45)
+```
+Implementation 3 seems to be the better one but there would be cases where this design in in the critical hold path and required hold time is bigger than the propagation delay and buffers will have to added to meet hold time which at the same time will increase area, so, for this particular case maybe implementaion 2 might be the best one
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
 
 
 
