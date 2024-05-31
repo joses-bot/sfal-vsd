@@ -649,14 +649,14 @@ FLOW  RTL Source -> Translatee (HDL compiler) -> Optimize & Mapping (Design Comp
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f4f15383-fea1-41ac-a554-2e68103577df)
 
-```
+
 Drsign Compiler (Synopsys tool)
 dc_shell (text)  Design Vision (GUI)
 Format used for libraries  .db
 Format design Information .ddc
 SDC (constraints file TCL) Power, timing and areaa constraints
 FLOW : sset and link .db -> Read verilog HDL -> Read constraints (SDC) - >  Integrate design Info & Cell Libraries -> Synthesize -> Obtain Reports -> QOR (Quality of Report) - > write Netlist
-```
+
 ```
 The design is writen in terms of standard cells (gates, FF's mux's, etc)  .db format 
 The Target library (Standard cell library database) binary format locatedd in  cell area/ins/timing/data
@@ -708,10 +708,10 @@ Comparing Different implementation of the same logic specification
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c576f055-2b59-44d7-9c38-b52b7b78aac3)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d07378b8-990a-407a-a566-dbd25b091847)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/28c26780-ae45-4f1b-af76-3007e5e87e45)
-```
+
 Implementation 3 seems to be the better one but there would be cases where this design in in the critical hold path and required hold time is bigger than the propagation delay and buffers
 will have to added to meet hold time which at the same time will increase area, so, for this particular case maybe implementaion 2 might be the best one
-```
+
 
 
 
