@@ -543,10 +543,10 @@ In summary because of the problem with sensitivity list RTL simulation does not 
 # Day 5 - Design for Testability
 
 #### Testability A characteristics of an item's design which allows to know the status (operable, inoperable, degraded) of that item to be confident we are in control of the operation of the circuit. In VLSI a design should be well controllable and observable
-```
+
 DFT (Design for Testability) - Techniques used to facilitate the testing of the design once it is manufactured. (Adding an extra design to make sure the design can be tested after being fabricated). e.g MBist Test (Memory built in test - A self-testing and repair mechanism which tests the devices using an effective set of algorithms to detect all the faults
 DFT makes testing easier after tape out. 
-```
+
 #### 3 level of testing:
 ```
 Chip level
