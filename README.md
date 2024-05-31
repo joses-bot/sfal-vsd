@@ -575,24 +575,23 @@ Controllability - 0's and 1's are propagated to all the nodes of the target devi
 A node is controllable if both 0's and 1's propagate through scan patterns
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/89d5f06a-e79c-4bd1-93d0-077d5c0b5846)
-```
+
 In the example adding a simple MUX in between, makes the node accessible but adds more complexity (Changes power, area and performance)
-```
-```
+
 Observability -  Be able to observe each node and measure the logical value at that node. We say that a node is observable if its value can be shifted out through scan chains and can be observed through scan out ports.
-```
+
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/54d6fd0a-eb5e-4fe8-b164-b08c0e54c869)
 ```
 In the snapshot a register was added to observe the value of the node if the circuitry that is located after the node fails and its output gets stuck to a certain value with this added register we can observe the internal behavior of the node and get a better idea of what is happening. This added-regisger does not affect the timing but the area and power of the entire module
 ```
-```
+
 Fault - stuck at a logic value becausse of a physical damage or a defect
 Error - Caused by  fault. System goes into an error state condition
 Failure - The system does not provide the expected service
 Chain of events: A fault causes and error and that leads to a failure
 Fault coverage - Percentage of the total number of faults that can be tested with a given test set
 Defect Level - similar to yield. Fraction of shipped parts that are defective. The proportion of faulty chips that were missclasiffied as good ones
-```
+
 #### Scan chain Technique
 ```
 Specifying thee scan constraint
@@ -628,21 +627,21 @@ Number of ports required = 2 x Number of scan chains (basically affecting overal
 Number of cycles required to run a pattern = lenght of the largest scan chain in the design.
 As the number of pattern combinations grows exponentially when the number of FF's present in chain increases, in order to generate the test pattern we use the ATPG (Automatic test Pattern generator) and ATE (Automatic test equipment)
 ```
-```
+
 DFT compiler - tool used to insert the scan chains in the design - some commands for the tool
 - set scan configuration
 - preview scan
 - insert scan
 - set scan_path
 - set scan_signal
-```
+
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0820c299-0d4c-48f0-8c18-f3beac02843a)
 
 #### circuit to analyze
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e5cc0dd8-bff1-458e-a544-53ee7cc84cf7)
-```
+
 MUX controls where to run functional data or a test pattern. When test data is enabled (scan_enable), Start sending data from FF which is furthest to the left and keep shifting that data to FF number 2 and number 3 (FF furthest to the right) then data can be captured on the output port. To test intermediate nodes de-assert scan_enable for one or two clock pulses depending on the output we want to capture (data will pass through the combinatorial logic associated to that FF and then it will be captured
-```
+
 # Day 5 - Introduction to Synthosis Logic
 ```
 FLOW  RTL Source -> Translatee (HDL compiler) -> Optimize & Mapping (Design Compiler)
