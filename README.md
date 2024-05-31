@@ -659,7 +659,8 @@ FLOW : sset and link .db -> Read verilog HDL -> Read constraints (SDC) - >  Inte
 ```
 ```
 The design is writen in terms of standard cells (gates, FF's mux's, etc)  .db format 
-The Target library (Standard cell library database) binary format locatedd in  cell area/ins/timing/data  (Specifie for specific Process, Temperature and Voltage) PVT corner
+The Target library (Standard cell library database) binary format locatedd in  cell area/ins/timing/data
+(Specifie for specific Process, Temperature and Voltage) PVT corner
 Other libraries can be appended with  link library
 ```
 ```
@@ -678,7 +679,8 @@ Multiple libraries with PVT corners and cell elements can be specified
 #### BASICS OF DIGITAL LOGIC DESIGN AND SYNTHESIS
 ```
 Digital Logic (switching, Automation & Decision making )  -> Behavioral Model of the design using HDL (VHDL, Verilog, System Verilog)  RTL
-RTL Translation to gate level + include libraries (Synthesis) -> includes all interconnections among the different elements -> final product of this step is the netlist
+RTL Translation to gate level + include libraries (Synthesis) -> includes all interconnections among the different elements
+-> final product of this step is the netlist
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/084d802a-3115-4042-a605-6a22f9a18d9a)
 ```
@@ -707,7 +709,8 @@ Comparing Different implementation of the same logic specification
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d07378b8-990a-407a-a566-dbd25b091847)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/28c26780-ae45-4f1b-af76-3007e5e87e45)
 ```
-Implementation 3 seems to be the better one but there would be cases where this design in in the critical hold path and required hold time is bigger than the propagation delay and buffers will have to added to meet hold time which at the same time will increase area, so, for this particular case maybe implementaion 2 might be the best one
+Implementation 3 seems to be the better one but there would be cases where this design in in the critical hold path and required hold time is bigger than the propagation delay and buffers
+will have to added to meet hold time which at the same time will increase area, so, for this particular case maybe implementaion 2 might be the best one
 ```
 
 
