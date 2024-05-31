@@ -677,11 +677,11 @@ Multiple libraries with PVT corners and cell elements can be specified
 ```
 
 #### BASICS OF DIGITAL LOGIC DESIGN AND SYNTHESIS
-```
+
 Digital Logic (switching, Automation & Decision making )  -> Behavioral Model of the design using HDL (VHDL, Verilog, System Verilog)  RTL
 RTL Translation to gate level + include libraries (Synthesis) -> includes all interconnections among the different elements
 -> final product of this step is the netlist
-```
+
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/084d802a-3115-4042-a605-6a22f9a18d9a)
 ```
 .lib (collection of logical modules inchuding different flaviors of same gate
