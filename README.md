@@ -709,6 +709,41 @@ Comparing Different implementation of the same logic specification
 Implementation 3 seems to be the better one but there would be cases where this design in in the critical hold path and required hold time is bigger than the propagation delay and buffers
 will have to added to meet hold time which at the same time will increase area, so, for this particular case maybe implementaion 2 might be the best one
 
+#### Terminology used in DC compiler
+    SDC (synopsys design constraints) used across EDA implementation tools
+    .LIB library which contains standard cells
+    .DB same as LIB but different format DC uses .db format for cell libraries
+    .DDC format to store design information  .DC can read and write out in .DDC
+    .DESIGN  RTL models
+
+#### SDC Format
+    Constraints for power, area and timing
+    SDC syntax is based on TCL
+    
+Elements used in Design Compiler
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/85fd431c-68d1-4273-826f-3c9a2da341d5)
+
+General Flow for ASIC Implementation
+
+![image](https://github.com/joses-bot/sfal-vsd/asse![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5ba76bb0-8671-4215-b261-abcb69edfa6e)
+
+DC deals with Synthesis portion of the flow
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9c5bf9b4-9232-45f0-905c-ba71ab00a9e1)
+
+ #### lab1 - Invoking dc basic setup 
+
+
+
+
+
+    
+
+    
+    
+    
+
 
 
 
