@@ -662,10 +662,9 @@ The Target library (Standard cell library database) binary format locatedd in  c
 (Specifie for specific Process, Temperature and Voltage) PVT corner
 Other libraries can be appended with  link library
 ```
-```
-Difference from open compiler: Need to specify target, link library taking care of other formats while writing nrtlist or ddc 
-e.g  write -format ddc -hierarchie -o file.ddc
-```
+
+Difference from open compiler: Need to specify target, link library taking care of other formats while writing nrtlist or ddc e.g  write -format ddc -hierarchie -o file.ddc
+
 ```
 Invoking compiler
 dc_shell (text)  gui_start
