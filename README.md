@@ -581,9 +581,9 @@ In the example adding a simple MUX in between, makes the node accessible but add
 Observability -  Be able to observe each node and measure the logical value at that node. We say that a node is observable if its value can be shifted out through scan chains and can be observed through scan out ports.
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/54d6fd0a-eb5e-4fe8-b164-b08c0e54c869)
-```
+
 In the snapshot a register was added to observe the value of the node if the circuitry that is located after the node fails and its output gets stuck to a certain value with this added register we can observe the internal behavior of the node and get a better idea of what is happening. This added-regisger does not affect the timing but the area and power of the entire module
-```
+
 
 Fault - stuck at a logic value becausse of a physical damage or a defect
 Error - Caused by  fault. System goes into an error state condition
@@ -599,13 +599,13 @@ Specifying scan ports and scan enables
 Compiling the dft
 Identifying the number of scan chains
 ```
-```
+
 DFT compiler tool converts normal FF's into scan FF's so they can be accessed through a scan chain
 Scan chain are the elements in scan-based designs that are used to shif-in and shift-out the test patterns
 A scan chain is formed by FF's connected back to back in a chain where the output of one FF is connected to input of another one
 The input of the first FF is connected to the input pin of th chip (scan-in) where the scan data is fed. The output of the last flop is connected to the output pin of the chip (scan-out) that is used to shift data out
 There are three different scan flops configurations: multiplexed, clocked, lssd (level sensitive scan)
-```
+
 ```
 example multiplexed scan flop (MUX functional data and test data)
 ```
