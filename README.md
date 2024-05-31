@@ -616,17 +616,17 @@ Test stuck-at faults in manufactured devices
 Test the paths in the manufactured devices for delay - test if the path is working at the required functional frequency
 (if there are metastability issues they can be captured by reading the sequence of test pattern obtained on the output)
 ```
-```
+
 FAQ for scan chain
 How long one single scan chain can be: (the numner of FF's in a single scan chain)
 The larger the chain the more number of cycles is required to shift the data in and out. Smaller chains means more number of input/output ports required.
-```
+
 #### Try to keep all the chains more or less equal in size.
-```
+
 Number of ports required = 2 x Number of scan chains (basically affecting overall area)
 Number of cycles required to run a pattern = lenght of the largest scan chain in the design.
 As the number of pattern combinations grows exponentially when the number of FF's present in chain increases, in order to generate the test pattern we use the ATPG (Automatic test Pattern generator) and ATE (Automatic test equipment)
-```
+
 
 DFT compiler - tool used to insert the scan chains in the design - some commands for the tool
 - set scan configuration
@@ -663,7 +663,7 @@ The Target library (Standard cell library database) binary format locatedd in  c
 Other libraries can be appended with  link library
 ```
 ```
-Difference from open compiler: Need to specify target, link library taking care of other formats while writing nrtlist or ddc
+Difference from open compiler: Need to specify target, link library taking care of other formats while writing nrtlist or ddc 
 e.g  write -format ddc -hierarchie -o file.ddc
 ```
 ```
@@ -678,8 +678,7 @@ Multiple libraries with PVT corners and cell elements can be specified
 #### BASICS OF DIGITAL LOGIC DESIGN AND SYNTHESIS
 
 Digital Logic (switching, Automation & Decision making )  -> Behavioral Model of the design using HDL (VHDL, Verilog, System Verilog)  RTL
-RTL Translation to gate level + include libraries (Synthesis) -> includes all interconnections among the different elements
--> final product of this step is the netlist
+RTL Translation to gate level + include libraries (Synthesis) -> includes all interconnections among the different elements -> final product of this step is the netlist
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/084d802a-3115-4042-a605-6a22f9a18d9a)
 ```
