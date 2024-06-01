@@ -732,7 +732,7 @@ DC deals with Synthesis portion of the flow
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9c5bf9b4-9232-45f0-905c-ba71ab00a9e1)
 
- #### lab1 - Invoking dc basic setup 
+ #### lab - Invoking dc basic setup 
 ```
  csh
  dc_shell
@@ -767,9 +767,19 @@ First writing synposis information file to open it up with GUI (DCC file has all
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7750fd33-b1c9-4bd3-a3bb-fa6097a72bcf)
 
-Loading the design ddc in GUI
+Loading the design in GUI, showing schematics and cells used
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9e440368-908d-4840-a1b6-dfeb4fb13f5a)
+
+Intialization script all takss needed for setup the tool: .synposis_dc.setup
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ad147d04-eb91-4d8c-a259-5ae91358a915)
+
+
+ #### lTCL QUick refresher
+
+
+
 
 
 
