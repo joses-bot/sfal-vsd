@@ -776,7 +776,13 @@ Intialization script all takss needed for setup the tool: .synposis_dc.setup
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ad147d04-eb91-4d8c-a259-5ae91358a915)
 
 
- #### lTCL QUick refresher
+### TCL QUick refresher
+
+## BASIC COMMNANDS
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0921f38e-e790-495d-819e-472297160d34)
+
+
 
 
 
