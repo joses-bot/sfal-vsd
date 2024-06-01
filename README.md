@@ -733,6 +733,58 @@ DC deals with Synthesis portion of the flow
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9c5bf9b4-9232-45f0-905c-ba71ab00a9e1)
 
  #### lab1 - Invoking dc basic setup 
+```
+ csh
+ dc_shell
+```
+ ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d9d2b596-8c36-45e9-8428-0e2a2e24b2fe)
+
+ Find out pointers to libraries
+
+echo $target_library
+echo $link_library
+
+Responses for your_library.db (dummy pointers to Non existing library, need to initialize properly). Libraries not intialized
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2e6dd3a9-95f2-47e6-a452-ac21d628089d)
+
+Libraries properly intialiazied (link command shouls show libraries used), {*  ] used to indicate to preserve previous existing licenses and do not overrride them with the new setting
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e0a89874-c732-401b-9716-e91cb3ced580)
+
+after compiling (cmd: compile) and writing netlist, file shows the correct libraries are taken
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fb9dce6a-15e7-4f44-b1ef-6811b8f841d5)
+
+Invoking the Synposis compiler GUI
+```
+csh
+design_vision
+```
+First writing synposis information file to open it up with GUI (DCC file has all the information required for the project including libraries)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f0901c4f-a0d9-4e63-9050-af882a3b37bd)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7750fd33-b1c9-4bd3-a3bb-fa6097a72bcf)
+
+Loading the design ddc in GUI
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9e440368-908d-4840-a1b6-dfeb4fb13f5a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 
 
 
