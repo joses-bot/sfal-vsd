@@ -782,7 +782,7 @@ Intialization script all takss needed for setup the tool: .synposis_dc.setup
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0921f38e-e790-495d-819e-472297160d34)
 
-#### Basics of STA
+## Basics of STA
 
 Edge Trigerred FF setup/hold time
 
@@ -802,7 +802,7 @@ Timing ARCS
 Indicate where the different sources of delays can come from
 
 COMB LOGIC:  From any input or combination of inputs to output
-SEQ  LOGIC: Delay from CLK to Q from D to Q (for a latch)
+SEQ  LOGIC: Delay from CLK to Q from D to Q (for a latch)  A latch is level sensitive only operates when level is active (low or high) othrwise latch is transpararent
 
 Table for sequential elements indicating where to measure setup/hold (FF's LATCH)
 
