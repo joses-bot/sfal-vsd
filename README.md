@@ -778,9 +778,45 @@ Intialization script all takss needed for setup the tool: .synposis_dc.setup
 
 ### TCL QUick refresher
 
-## BASIC COMMNANDS
+### BASIC COMMNANDS
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0921f38e-e790-495d-819e-472297160d34)
+
+#### Basics of STA
+
+Edge Trigerred FF setup/hold time
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d735672d-a67f-4f7f-9c47-f01afd6d1ded)
+
+MAX MIN DELAY Constraints
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/40feb9da-b77c-4198-af08-cd56f8f3e2a0)
+
+TCK   > TCQ + TMAX + TS
+THOLD < TCQ + TMIN
+
+Delay of a gate cell = function( input transition and output capacitance)
+
+Timing ARCS
+
+Indicate where the different sources of delays can come from
+
+COMB LOGIC:  From any input or combination of inputs to output
+SEQ  LOGIC: Delay from CLK to Q from D to Q (for a latch)
+
+Table for sequential elements indicating where to measure setup/hold (FF's LATCH)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ce22a890-ec91-4fe3-8977-0084291e17a6)
+
+
+
+
+
+
+
+
+
+
 
 
 
