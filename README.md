@@ -808,6 +808,24 @@ Table for sequential elements indicating where to measure setup/hold (FF's LATCH
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ce22a890-ec91-4fe3-8977-0084291e17a6)
 
+Example showing timing paths
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a0ecd4f6-7996-4f04-9117-d0a0349b86ed)
+
+For the 2 paths:
+
+tck1 < 0.5 + 1.2 + 0.5 = 2.2 ns
+tck2 < 0.5 + 0.7 + 0.5 = 1.7 ns
+
+tck1 > tck2  (tck1 critical path)
+
+To reduce the critical path and increase the frquency we use the constraints to tell the tool to choose logical cell with adequate delay to meet the require timning
+
+
+
+
+
+
 
 
 
