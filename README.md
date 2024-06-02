@@ -748,7 +748,7 @@ Responses for your_library.db (dummy pointers to Non existing library, need to i
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2e6dd3a9-95f2-47e6-a452-ac21d628089d)
 
-Libraries properly intialiazied (link command shouls show libraries used), {*  ] used to indicate to preserve previous existing licenses and do not overrride them with the new setting
+Libraries properly intialiazied (link command should show libraries used), {*  ] used to indicate to preserve previous existing licenses and do not overrride them with the new setting
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e0a89874-c732-401b-9716-e91cb3ced580)
 
@@ -841,6 +841,50 @@ All synchronous paths using the same clock needs to be constraint. Summary of co
 
 REG 2 OUT (output External Delay) In 2 REG (Input External Delay)
 External delays IO Delay Modeling -> Std Interface Speficication (coming from tht external module manufacturer)
+
+## LAB  Timing .lib
+
+Checking library parameters (technology, delay/power model, capacity, fanout, , type). For every pin in the cell (power, timing information)
+For every cell
+Delay mode lookup table (LUT)  f(input transition, ouput capacitance)
+Power consumed by the cell (input/output) LUT
+From tables real values are found by interpolation 
+
+Comparaison between similar cells, example cells nand2 -> nand_2 faster than nand_0 (bigger area, leakage, power consumption)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d15bd1ed-3db8-4d7b-91b2-a65ffa50f868)
+
+Unate concept: (Tool uses this concept to propagate the transition (indicated on the functionallity of output of cell) - Combinatorial cells (timing type combinatorial)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ca5d488f-22fa-4f4b-972a-0d80954c3c24)
+
+For sequential cells (rising/falling edge). Setup time will have to specify also if it is measure with respect to positive/negative edge
+SETUP time is always measured before sampling point (depending on type of FF it can be pos-edge or neg-edge, same for LATCHES) 
+
+Case of FF's
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7bd76aa6-1a15-4d51-8e71-dbc9306e76e4)
+
+
+Cases of latches:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/967d1744-522d-41de-9b93-715b1808f114)
+
+## LAB  Query Properties of libraries inside .dc_shell
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
