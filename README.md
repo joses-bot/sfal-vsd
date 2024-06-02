@@ -826,8 +826,8 @@ TIMING PARTS
 Timing paths start at an input point and ends at an output port
 
 clk to D       -> reg to reg timing constraint (constraints by clk) 
-clk to output  -> input to output constraints (IO constriants)
-input to D     -> input to output constraints (IO constriants)
+clk to output  -> input to output constraints  ReG 2 OUTPUT (IO constriants)
+input to D     -> input to output constraints  REG 2 INPUT (IO constriants)
 input to Output -> IO PATH (ideally the y should not be part of the constraints)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/642a7b2b-8166-47df-bfdf-89f77c4993a0)
@@ -838,6 +838,10 @@ To meet the perior the toll will try to optimize all the logic around (choose ap
 All synchronous paths using the same clock needs to be constraint. Summary of constraints to apply
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/68b14d7e-7bcc-41ea-9b6a-ecefda7484bf)
+
+REG 2 OUT (output External Delay) In 2 REG (Input External Delay)
+External delays IO Delay Modeling -> Std Interface Speficication (coming from tht external module manufacturer)
+
 
 
 
