@@ -821,6 +821,37 @@ tck1 > tck2  (tck1 critical path)
 
 To reduce the critical path and increase the frquency we use the constraints to tell the tool to choose logical cell with adequate delay to meet the require timning
 
+TIMING PARTS
+
+Timing paths start at an input point and ends at an output port
+
+clk to D       -> reg to reg timing constraint (constraints by clk) 
+clk to output  -> input to output constraints (IO constriants)
+input to D     -> input to output constraints (IO constriants)
+input to Output -> IO PATH (ideally the y should not be part of the constraints)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/642a7b2b-8166-47df-bfdf-89f77c4993a0)
+
+Once the dessired frequency (period) of operation is set all the reg to reg path will be limited by that value
+To meet the perior the toll will try to optimize all the logic around (choose appropriate cells)
+
+All synchronous paths using the same clock needs to be constraint. Summary of constraints to apply
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/68b14d7e-7bcc-41ea-9b6a-ecefda7484bf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
