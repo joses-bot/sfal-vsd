@@ -994,6 +994,342 @@ IO's: (Will depend on particular design or type of IO)
 
 ## Constraint LABS
 
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c69ce6bc-030f-4576-a964-6d7db5822097)
+
+Performing some queries on compiled design:
+
+get_ports rst
+get_attribute [get_ports rst] direction
+
+foreach_in_collection my_port [get_ports *] {
+set my_port_name [get_object_name $my_port];
+set dir [get_attribute [get_ports $my_port_name] direction];
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/85a80154-9a04-4e94-aa35-6786e276cf43)
+
+Get reference name of cells used in design
+
+foreach_in_collection my_cell [get_cells * -hier] { \
+set my_cell_name [get_object_name $my_cell]; \
+set rname [get_attribute [get_cells $my_cell_name] ref_name]; \
+echo $my_cell_name $rname; }
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/416dd816-d9a3-4c0b-81b6-56a296d7cfa8)
+
+Looking at the design in the GUI
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7356b655-4bc1-4eb3-a6d7-ee52950eab65)
+
+No Multidriver NETS in logical design. e.g check net connections, only one driver for each net (in/out)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/57be870d-c887-40a6-852f-31bbda620385)
+
+List of all the pins in design:
+
+foreach_in_collection my_pin [get_pins *] {
+set pin_name [get_object_name $my_pin];
+echo $pin_name;
+}
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e796c31e-8bf0-4fe5-8009-f64109ec02fc)
+
+Find clock capable pins:  (Need to define a clock before in SDC)
+
+get_attribute [get_pins REGC_reg/RESET_B] clock
+get_attribute [get_pins REGC_reg/CLK] clock
+
+foreach_in_collection my_pin [get_pins *] {
+set my_pin_name [get_object_name $my_pin];
+set dir [get_attribute [get_pins $my_pin_name] direction];
+if { [regexp $dir in] } {
+if { [get_attribute [get_pins $my_pin_name] clock] } {
+echo $my_pin_name;
+}
+}
+}
+
+create_clock -name MYCLK -per 10 [get_ports clk]
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3353134b-c13c-4e0c-8360-b713d075d0f6)
+
+report_clocks (show all clocks in design)
+remove a clock:  remove_clk clk_name
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/48f6b81b-0a77-4dc3-b68c-678eeedbb336)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e17029c8-626f-4e70-879a-e5f8136a4887)
+
+After creating clock and adding uncertaintues, Timing slack got reduced
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/35bc76f8-84c4-4996-8cf5-dfe9c4a39080)
+
+```
+dc_shell> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: T-2022.03-SP5-6
+Date   : Mon Jun  3 10:21:53 2024
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop)
+  Endpoint: OUT_Y (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                        Incr       Path
+  ---------------------------------------------------------------
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)      0.00       0.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)        0.34       0.34 f
+  U10/Y (sky130_fd_sc_hd__clkinv_1)            0.03       0.36 r
+  OUT_Y (out)                                  0.00       0.36 r
+  data arrival time                                       0.36
+  ---------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+dc_shell> 
+
+
+After defyning main clock
+
+
+dc_shell> create_clock -name MYCLK -per 10 [get_ports clk]
+1
+dc_shell> 
+dc_shell> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: T-2022.03-SP5-6
+Date   : Mon Jun  3 10:23:30 2024
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGB_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                        Incr       Path
+  ---------------------------------------------------------------
+  clock MYCLK (rise edge)                      0.00       0.00
+  clock network delay (ideal)                  0.00       0.00
+  REGB_reg/CLK (sky130_fd_sc_hd__dfrtp_1)      0.00       0.00 r
+  REGB_reg/Q (sky130_fd_sc_hd__dfrtp_1)        0.29       0.29 r
+  U14/Y (sky130_fd_sc_hd__nand2_1)             0.04       0.34 f
+  REGC_reg/D (sky130_fd_sc_hd__dfrtp_1)        0.00       0.34 f
+  data arrival time                                       0.34
+
+  clock MYCLK (rise edge)                     10.00      10.00
+  clock network delay (ideal)                  0.00      10.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)      0.00      10.00 r
+  library setup time                          -0.12       9.88
+  data required time                                      9.88
+  ---------------------------------------------------------------
+  data required time                                      9.88
+  data arrival time                                      -0.34
+  ---------------------------------------------------------------
+  slack (MET)                                             9.55
+
+
+1
+dc_shell> 
+
+
+After adding uncertainties
+
+dc_shell> set_clock_latency -source 2 [get_clocks MYCLK]        
+1
+dc_shell> 
+dc_shell> set_clock_latency 1         [get_clocks MYCLK]       
+1
+dc_shell> 
+dc_shell> set_clock_uncertainty -setup 0.5  [get_clocks MYCLK] 
+1
+dc_shell> 
+dc_shell> set_clock_uncertainty -hold 0.1  [get_clocks MYCLK]
+1
+
+dc_shell> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: T-2022.03-SP5-6
+Date   : Mon Jun  3 10:26:26 2024
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGB_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                        Incr       Path
+  ---------------------------------------------------------------
+  clock MYCLK (rise edge)                      0.00       0.00
+  clock network delay (ideal)                  3.00       3.00
+  REGB_reg/CLK (sky130_fd_sc_hd__dfrtp_1)      0.00       3.00 r
+  REGB_reg/Q (sky130_fd_sc_hd__dfrtp_1)        0.29       3.29 r
+  U14/Y (sky130_fd_sc_hd__nand2_1)             0.04       3.34 f
+  REGC_reg/D (sky130_fd_sc_hd__dfrtp_1)        0.00       3.34 f
+  data arrival time                                       3.34
+
+  clock MYCLK (rise edge)                     10.00      10.00
+  clock network delay (ideal)                  3.00      13.00
+  clock uncertainty                           -0.50      12.50
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)      0.00      12.50 r
+  library setup time                          -0.12      12.38
+  data required time                                     12.38
+  ---------------------------------------------------------------
+  data required time                                     12.38
+  data arrival time                                      -3.34
+  ---------------------------------------------------------------
+  slack (MET)                                             9.05
+
+
+1
+dc_shell> 
+
+```
+
+Comparing timing report for max and min delay (setup/hold) uncertainties substracted and added depending on the report chosen 
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b8d4777f-220e-436b-90c5-14ca33ca98f0)
+
+Relevant Equations
+
+TCQ + TCOMBI + Tsetup <= Tclk
+TCQ + TCOMBI = arrival time
+TCK - Tsetup = required time
+
+Thold + Tskew < (TCQ + TCOMBI) min  (For hold time skew is getting added)  Skew is helping hold
+
+Overall report should show which ports are constraints and which do not
+
+```
+dc_shell> report_port -verbose
+ 
+****************************************
+Report : port
+        -verbose
+Design : lab8_circuit
+Version: T-2022.03-SP5-6
+Date   : Mon Jun  3 10:37:05 2024
+****************************************
+
+
+                       Pin      Wire     Max     Max     Connection
+Port           Dir     Load     Load     Trans   Cap     Class      Attrs
+--------------------------------------------------------------------------------
+IN_A           in      0.0000   0.0000   --      --      --         
+IN_B           in      0.0000   0.0000   --      --      --         
+clk            in      0.0000   0.0000   --      --      --         
+rst            in      0.0000   0.0000   --      --      --         
+OUT_Y          out     0.0000   0.0000   --      --      --         
+out_clk        out     0.0000   0.0000   --      --      --         
+
+
+              External  Max             Min                Min       Min
+              Number    Wireload        Wireload           Pin       Wire
+Port          Points    Model           Model              Load      Load
+--------------------------------------------------------------------------------
+IN_A               1      --              --              --        -- 
+IN_B               1      --              --              --        -- 
+clk                1      --              --              --        -- 
+rst                1      --              --              --        -- 
+OUT_Y              1      --              --              --        -- 
+out_clk            1      --              --              --        -- 
+
+                    Input Delay
+                  Min             Max       Related   Max
+Input Port    Rise    Fall    Rise    Fall   Clock  Fanout
+--------------------------------------------------------------------------------
+IN_A          --      --      --      --      --      -- 
+IN_B          --      --      --      --      --      -- 
+clk           --      --      --      --      --      -- 
+rst           --      --      --      --      --      -- 
+
+
+               Max Drive      Min Drive      Resistance    Min    Min       Cell
+Input Port    Rise    Fall   Rise    Fall   Max     Min    Cap    Fanout    Deg
+--------------------------------------------------------------------------------
+IN_A          --      --     --      --     --      --     --     --        -- 
+IN_B          --      --     --      --     --      --     --     --        -- 
+clk           --      --     --      --     --      --     --     --        -- 
+rst           --      --     --      --     --      --     --     --        -- 
+
+
+               Max Tran        Min Tran
+Input Port    Rise    Fall    Rise    Fall
+--------------------------------------------------------------------------------
+IN_A          --      --      --      -- 
+IN_B          --      --      --      -- 
+clk           --      --      --      -- 
+rst           --      --      --      -- 
+
+
+                    Output Delay
+                  Min             Max      Related  Fanout
+Output Port   Rise    Fall    Rise    Fall  Clock     Load
+--------------------------------------------------------------------------------
+OUT_Y         --      --      --      --      --      0.00
+out_clk       --      --      --      --      --      0.00
+
+1
+dc_shell>
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
