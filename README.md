@@ -870,6 +870,40 @@ Cases of latches:
 
 ## LAB  Query Properties of libraries inside .dc_shell
 
+List different flaviors of and gates
+
+list_lib
+get_lib_cells */*and*
+
+foreach_in_collection my_lib_cell [get_lib_cells */*and*] {
+set my_lib_cell_name [get_object_name $my_lib_cell]; echo $my_lib_cell_name;
+}
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/140c311a-c12b-432a-8821-5fb3c064e841)
+
+get_lib_pins sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/*  (response is a collection -> getting pin attributes)
+
+foreach_in_collection my_pins [get_lib_pins sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/*] {
+set my_pin_name [get_object_name $my_pins];
+set pin_dir [get_lib_attribute $my_pin_name direction];
+echo $my_pin_name $pin_dir;
+}
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/bbe4ed4a-9d0b-4800-b84b-e3924b0c5253)
+
+Doing different queries on the attributes on example cells obtained
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b43ce39c-7ee3-47d7-a473-12c839e9f9af)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
