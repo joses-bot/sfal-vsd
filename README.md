@@ -934,6 +934,16 @@ List_attributes -app
 
 ## Clock Tree Modelling - Uncertainty 
 
+CLK Generation (All are affected by jitter - random noise)
+
+PLL
+Oscillator
+External Source
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a6de2125-d909-4b0c-b50f-e996abebe974)
+
+
+
 
 
 
