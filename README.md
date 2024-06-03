@@ -940,7 +940,89 @@ PLL
 Oscillator
 External Source
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a6de2125-d909-4b0c-b50f-e996abebe974)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4af3cc7b-3c35-49e9-ab48-9ae1a1373061)
+
+To include jitter setup equation is modified:
+
+After CTS and buffer insertion CLK SKEW cnan happen, besides that to take into account the random nature of clk generation Tck - Tskew + Tjitter >= (Tcq + T combi + T setup)  
+
+Synthesis ->  Jitter + Skew
+Post CTS  -> Only Jiteer
+In Summary for clkc constraint -> Period, Latency, Uncertainty (Skew + Jitter Synthesis)  & Jitter (Post CTS)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a278a7a5-c25e-4a8d-913a-f12e0c9a4a34)
+
+Writing SDC constraints. Design terminology:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/aeec1890-ca06-4b33-aeb8-ceddac0d1014)
+
+Net -> Connection of 2 pins or connection IO pins to internal pins of design
+
+Get Commands (ports, clock, cells)
+
+get_ports * -filter  condition
+
+get_clocks * -filter  condition
+get_attribute objet attribute -? get_attribute [get_clocks *] period
+report_clocks *
+
+Querying cells:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/100e4a10-e175-4951-94bf-478d833f2959)
+
+When specifying Cells, in the example (combo logic) are specified indicating weather they are a phyisical cell (exist in design) or part of another block (hyerarchical cell), using  -hier  for that 
+
+Writing Constraints:
+
+CLK: (Only on clock geenrated (PLL, OSC, External IO pins) (hierachical pins can be created)
+create_clock -name my_clk -per 5 [get_ports CLK]
+set_clock_latency 3 my_clock
+set_clock_uncertainty 0.5 my_clk
+
+For Post CTS (Only jitter)
+set_clock_uncertainty 0.5 my_clk
+
+Varying intial Phase and duty cycle:
+
+create_clock -name my_clk -per 10 [get_ports CLK] -wave {5 10}   # -wave {first rise edge, next false edge}
+with perod tool will create the rest of edges
+create_clock -name my_clk -per 10 [get_ports CLK] -wave {0 2.5}  # DC = 2.5/10
+
+IO's: (Will depend on particular design or type of IO)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/898bd902-b392-48d1-b0be-0ec58c73c33c)
+
+## Constraint LABS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
