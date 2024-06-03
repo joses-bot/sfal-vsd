@@ -894,6 +894,55 @@ Doing different queries on the attributes on example cells obtained
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b43ce39c-7ee3-47d7-a473-12c839e9f9af)
 
+### More examples for other types of cells NAND
+get_lib_pins sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2_8/* 
+
+foreach_in_collection my_pins [get_lib_pins sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2_8/*] {
+set my_pin_name [get_object_name $my_pins];
+set pin_dir [get_lib_attribute $my_pin_name direction];
+echo $my_pin_name $pin_dir;
+}
+
+get_lib_attribute sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2_8/Y function 
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5d907554-2797-47ed-bf43-a52ba2c12bde)
+
+sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and3_4 (another example for and3 cell
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8082598a-7606-4902-868c-658321b3ed33)
+
+More examples on cells:
+
+sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4b_1
+sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4bb_1
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/07eb657b-92ab-4d2f-b435-3b0c973503f1)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8e9a5717-0f1a-4ea6-920f-5e60f2744b28)
+
+Querying other attributes:
+get_lib_attribute get_lib_attribute sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4bb_1 area
+get_lib_attribute sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4bb_1/X capacitance
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4adc9564-205a-4854-8dc0-2081f2769481)
+
+
+List_attributes -amp
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/eb7788bc-b984-419b-9b88-83e2f7c0067d)
+
+
+## Advanced Constraints
+
+
+
+
+
+
+
+
+
+
+
 
 
 
