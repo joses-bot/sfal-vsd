@@ -1672,7 +1672,57 @@ In the first case launch and capture points are rising edges of consecutive cloc
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3a559d7b-a1ac-405e-8b8a-d90dcff3a70c)
 
+There is a recommendation to indicate the constraint for a load on a particular IO input depending on where the IO is located:
 
+- For TOP level primary io's (board level for example)
+  set-input_transition -max 3 (get_port IN_A)   # (If value considereed is meaningfull it could also be used for the case below but that second constraint is closer to reality)
+- For module level IO (Internal interconnection between modules of the design)
+   set_driving_cell -lib_cell <lib_cell_name>  <ports>
+
+### LAB Set_Max_delay
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4c09553c-9fea-48e8-8c7f-a06b1d38c45d)
+
+New commands:
+
+all_inputs
+all_outputs
+all_clocks
+all_registers
+
+all_registers -clock MYGEN_DIV_CLK
+all_registers -clock MYGEN_CLK
+all_registers -clock MYCLK
+
+all_fanout from - IN_A
+all_fanout -flat -endpoints_only -from IN_A
+all_fanin  -to REGA_reg/D -flat -startpoints_only
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a87d90de-914d-43cb-b87c-0471d4be2af8)
+
+New combinatorial path added in lab14 from input to output only combinatorial. Assoaciated constraint:
+
+set_max_delay 0.1 -from [all_inputs] -to [get_port OUT_Z]
+report_timing -to OUT_Z  -sig 4
+Then linking and compile_ultra to check timing report: 
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4c3c8026-24fd-4ed6-bacf-5fa7de25a1e6)
+
+Timing is met in this case. (constraint max_delay is taken)
+
+## OPTIMIZATIONS
+
+
+
+
+
+
+
+
+
+
+
+   
 
 
 
