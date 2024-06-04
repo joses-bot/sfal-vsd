@@ -1597,6 +1597,98 @@ out_clk       --      --      --      --      --      0.00
 
 ``` 
 
+### SDC Part3 generated_clk 
+
+Output CLK out of our module (from a master clock in our desoign)
+
+In the snapshot: create_generated_clock -name MY_GEN_CLK - master [get_clocks MY_CLK] -source [get_ports CLK] =div 1 [get_ports OUT_CLK]
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6ee75c07-d2df-4a3f-962c-2b9d6b8fb908)
+
+In case of several sources of clock driving a pin by a selection line, constraint is done for one path at a time, never simultaneously
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8aa5cbd5-6301-4d79-a9d5-223709c4b6c1)
+
+### LAB
+
+create_generated_clock -name MY_GEN_CLK -master [get_clocks MYCLK] -source [get_ports clk] -div 1 [get_ports out_clk]
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0d80d591-fb61-42da-a88f-a1e8b9b0a2e7)
+
+The generated clkc is defined, master source is specified, also division ratio
+
+set_clock_latency -max 5 [get_clocks MY_GEN_CLK]
+
+next step annotate the delay
+
+set_output_delay -max 5 [get_ports OUT_Y] -clock [get_clocks MY_GEN_CLK]
+set_output_delay -min 1 [get_ports OUT_Y] -clock [get_clocks MY_GEN_CLK]
+
+report_port -verbose  # Showing output port
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c87ac6d8-0f31-4592-9824-d792eead6353)
+
+report_timing -to OUT_Y -trans -net -cap -nosplit  ## Now showing the capture FF with respect to the new generated clock
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/87559086-347b-4fef-b09b-17ffc20b4384)
+
+After adding a new output clk (div/2) with respect to master clock
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0db6650f-8321-433e-bb0e-471ca138fa22)
+
+#### vclk, max_latency, rise_fall IODelays 
+
+INPUTS:
+
+POS DELAY -> Data comes after  clock
+NEG DELAY -> Data comes before clock
+
+Input delay MAX (setup)
+Negative delay for max is relaxing time  Availabletime = [clk_period - Uncert - input_delay]
+Posiive delay for max is tighten time  
+Input delay MIN (hold)
+Negative delay for min -> needs to delay data to meet hold (tighten)
+Posiive delay for min ease hold timing  (relax) 
+
+OUTPUTS:
+
+OUTPUTS:
+
+Availabletime = [clk_period - Uncert - ext_delay]
+
+output delay MAX (setup)
+Negative delay for max is relaxing time  Availabletime = [clk_period - Uncert - input_delay]
+Posiive delay for max is tighten time  
+output delay MIN (hold)
+Negative delay for min -> needs to delay data to meet hold (tighten)
+Posiive delay for min ease hold timing  (relax)
+
+For virtual clocks there is no latency and no actual definition of it. The tool infers a virtual clock (In the snapshot the combo logic is just specificed from input to output)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/15035d9a-50f8-4667-ba97-4867515d453c)
+
+Revised IO constraints -> considering the source path of the data for inputs and destination path for outputs:
+In the first case launch and capture points are rising edges of consecutive clock pulses while in the second example the launch happens in the negative edge (clk neg) and capture happens in the rising edge  (the argument -fall tells the tool to use falling edge of clock) -add (append this constraint and do not override any previous one to this path). The same is valid for the output path (second FF is also a negative-edge triggered)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3a559d7b-a1ac-405e-8b8a-d90dcff3a70c)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
