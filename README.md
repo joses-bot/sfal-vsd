@@ -1710,7 +1710,25 @@ Then linking and compile_ultra to check timing report:
 
 Timing is met in this case. (constraint max_delay is taken)
 
+Showing in GUI new combinatorial path added and optmization done by compiler adding inverter in path:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/80333af2-077f-42ac-9de9-fc191ef573a1)
+
+2nd methid: Adding a virtual clock
+
+Setting all atributes with respect to that virtual clock
+create_clock -name MYVCLK -per 10
+set_input_delay -max 5 [get_ports IN_C] -clock [get_clocks MYVCLK]
+set_input_delay -max 5 [get_ports IN_D] -clock [get_clocks MYVCLK]
+set_output_delay -max 4.9 [get_ports OUT_Z] -clock [get_clocks MYVCLK]
+
+Timing is met. Same as previous method
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4af5eeab-69cd-47a7-aa04-df5a1d69a63a)
+
 ## OPTIMIZATIONS
+
+
 
 
 
