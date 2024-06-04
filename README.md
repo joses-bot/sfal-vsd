@@ -1727,6 +1727,30 @@ Timing is met. Same as previous method
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4af5eeab-69cd-47a7-aa04-df5a1d69a63a)
 
 ## OPTIMIZATIONS
+Optimiztion parameters: Tool will try to find the optimal way for the implementation so that the three parameters are meet (timing, area, power). Each parameter has its own cost function, all of them are analyzed and the best values are chosen.
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a35d3c92-e83c-45b9-bfa0-2d5de71a7ec1)
+
+timing -> cost function iodelay, period
+area   -> set value
+power  -> set value and related to the other 2
+
+Combinatorial Optimization
+- Constant propagation (use fix logic values and see how they propagate through out the design to reduce logic)
+- Boolean Optimization (Resource sharing, logic sharing, simplify equations)
+- Balance vs preferential implementation (Right impelementation will depend on what is acceptable and margens in term of parameters needed to meet)
+
+Sequential Optimization
+- Sequential constant propagaton
+- Retiming
+- Unused FLop removal
+- Clock gating
+- Sequential Logic cloning
+- State optimization
+
+
+
+  
 
 
 
