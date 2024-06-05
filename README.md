@@ -1760,9 +1760,11 @@ Lab example -> Optimization of a mux and combo logic
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/61819682-ac3e-4bc7-839a-0049af88db94)
 
+After titghen the sel line the logic get spread - area increases a bit set_max_delay 0.1 -from sel -to [all_outputs]
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ca08b065-dfdf-4f13-b33e-e7bef43105d6)
 
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/165649ee-1d33-48d1-a05f-a859c80fffe2)
 
 
 
