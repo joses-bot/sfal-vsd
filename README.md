@@ -1763,7 +1763,18 @@ Lab example -> Optimization of a mux and combo logic
 After titghen the sel line the logic get spread - area increases a bit (set_max_delay 0.1 -from sel -to [all_outputs])
 select goes directly to the output instead of staying in the input stages a before  (mux are close to the output)
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ca08b065-dfdf-4f13-b33e-e7bef43105d6)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/53eff487-570e-4a55-b300-c7f47d837c83)
+
+Constrainng the area to 800 (set_max_area 800) Tool gives better results for are (sel still tight) and still meeting timing 
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/efc9246a-5e21-42d7-a263-ac06ce3dfdea)
+
+
+
+
+
+
+
 
 
 
