@@ -1769,6 +1769,75 @@ Constrainng the area to 800 (set_max_area 800) Tool gives better results for are
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/efc9246a-5e21-42d7-a263-ac06ce3dfdea)
 
+Lab example ->  DFF sequential optimization
+
+To avoid gate of FF's to be connected directly to VDD/GND to prevent any transients or surges to damage the cells. Use TIE CELLS for driving directly 1'b1/1'b0
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2e5bce1b-7c72-47bd-80e0-b103cc383eef)
+
+In this other case the design is optimized to a constant high (a TIE CELL is used for that purpose)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dc7bb0ff-b542-42eb-8241-5910174cecb5)
+
+If in the previous case we had instructed the tools not to the constant optimization (set compile_seqmap_propagate_constant false) FF would still be there
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/777b6202-4db2-4383-9fcd-cedd618d55b5)
+
+In this case the FF's cells are present and D tied to a constant high using a TIE CELL
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3c663b71-5bc7-428a-9fb4-cee4848ab859)
+
+### Special optimizations
+
+- Retiming case -> Brake down a large combo logic into small pieces and distributted to sequential consecutive FF's (Disadvantage as we are braking the logic we are modifying the original 
+netlist). Can create issues with Functional DV (design verifiation)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/be8ed823-75a2-43bc-b1f5-6ddbd3bd3f7e)
+
+- Boundary optimization (Disolve boundaries in modules and merge them) It changes the hierarchie and netlist.  Can create issues with Functional DV (design verifiation)
+   set_boundary_optimization module_1 false/true
+  
+- Multicycle paths
+
+- In this particular design the enable to the MUX (D input of FF) comes also from another FF, this enable will last for one entire clock cycle (inputs A and B are supposed to be estable all that time)
+- In this case we do not expect any changes on main FF (PROD_REG) adter the next cycle so effecively we can expect a response after the second clock cycle. This is indicated in the constraint showing 
+   multicyle 2 cycles (logic is sampled only once every 2 clock samples). Otherwise the tool will try to over=optimize that path in just one cycle.
+
+  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a217ab02-f27c-4837-a00a-d7aaeba33cdb)
+
+  - False Paths
+    No temporal correlation between two clocks, path become a false path (In the example clk1 and clk2  and clkA and clkB)
+
+    ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ac0b9752-b2ee-4c89-8a0d-5983e278f059)
+
+- External loads vs Internal loads
+- In the cuitcuit shown, if an external module is added, it will increase the overall load of output and increase the delay. A consraint (set isolate_ports -type buffer [get_ports OUT_Y]) can be added to 
+  isolate the output, adding a buffer to prevent the load to affect the timing path of the circuit.
+- 
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8596432a-e7b3-44c3-8a1a-dd8b4a2dae16)
+
+
+
+
+
+
+    
+  
+
+
+  
+- 
+  
+
+
+
+
+
+
+
+
+
+
 
 
 
