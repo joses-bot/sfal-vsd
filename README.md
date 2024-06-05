@@ -1748,6 +1748,28 @@ Sequential Optimization
 - Sequential Logic cloning
 - State optimization
 
+  Examples of optimization by constant propagation on sequential circuits
+
+  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2d421e8c-5e22-4989-8221-8f97204494a6)
+
+Lab example -> Optimization of a mux and combo logic
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c577d7ca-87e7-4c50-b06f-614f091bf8c9)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f5a5ba8f-e5f3-4f9e-8bc3-edc8f815d574)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/61819682-ac3e-4bc7-839a-0049af88db94)
+
+
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/165649ee-1d33-48d1-a05f-a859c80fffe2)
+
+
+
+
+  
+
+
 
 
   
