@@ -1817,6 +1817,50 @@ netlist). Can create issues with Functional DV (design verifiation)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8596432a-e7b3-44c3-8a1a-dd8b4a2dae16)
 
 
+# Day 11 - INTRODUCTION TO BABY SOC
+
+- SOC single die chip that has different IP cores
+- The design of an SOC includes a CPU, memory, IO's secondary storage devices and peripheral interfaces like timers, usb, bluetooth, uart
+- Depending on the requirements in summary it can consist of a digital/analog mixed signal units, fixed/floating point unit
+  Used on mobile computing, communications, control
+
+- Functional comoponents: Processor cores, memories DSP's 
+- Intermodule communication:  Bus-based communication, netowrk on a chip. Network interface module
+
+  Basic flow to build an SoC
+  - Specification requirements
+  - Basic Logic Design (Using an HDL language)
+  - Logic verification and iteration if issues found
+  - Physical design (including libraries and cells)
+  - Physical verification and iteration if differences found
+  - Chip Fabrication     
+  
+  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/aeead06a-5234-44dc-887f-3997b6e8a2bd)
+  
+### example: snapdragon soc - arm architecture 
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/49e42a7f-22e0-428c-99c2-3338cfa4dfee)
+
+
+### Types of SOC
+- SOC build around a microcontroller
+- SOC's build around microprocessors, often found in cell  phones
+- Spsciaalized ASIC's SOC's designed for very specific applications
+
+### Baby SoC components:
+
+- Wrapper SoC
+- RVMYTH: Simple RISC SOC core
+- PLL : Phase-lock loop, generates an output whose phase is in sync with input phase. It is used for Clock generation, synchronization and distribution
+- DAC: Converts a digital signal into an analog one used in communiction systems
+
+  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/45f0e00d-5464-4967-af97-090258311986)
+  
+
+
+
+
+
+
 
 
 
