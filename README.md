@@ -1855,6 +1855,8 @@ netlist). Can create issues with Functional DV (design verifiation)
 
   ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/45f0e00d-5464-4967-af97-090258311986)
 
+
+# Day 12 - BABYSOC MODELING
 ### Modeling Baby SoC (3 basic components)
 - PLL
 - - DAC
@@ -1955,6 +1957,42 @@ gtkwave pre_synth_sim.vcd         - to open simulation waveform in gtkwave tool.
 zoom of the previous output
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9e094893-fe0c-4b80-bc1b-b7454cb06437)
+
+# Day 12 - POST-SYNTHESIS
+`
+Pre-synthesis: Simulatiom is done according to the logic we designed it is only Functional Simulation. So, after synthesis we need to hook up again pll & dac and check again.
+
+Post syntheesis simulation or gate level simulation (GLS) is done after synthesis considering each and every gate delays into account, it reports violations in functionality and timing. It shows also the mismatches due to wrong usage of operators and the inference of latches. 
+Nomencalture: Using X in simulation and Unknown/Don't care in synthesis.
+
+Gate level refers to the netlist view of a circuit produced by logic synthesis. So RTL simulation is pre-synthesis, GLS is post-synthesis. The netlsit view is a list showing the complete connection of gates and IP models with full functionality and timing behavior.
+
+RTL simulation is a zero delay simulation, GLS can be also zero delay but it is mostly used in unit delay or full timing mode Gate level simulation. Bassically improves the confidence we have in the implementation of a design and it can help verify dynamic behavior, thing that can not be achieved using static methods.
+
+We will use design compier for post-synthesis simulation
+
+e.g rvmyth_avsddac.v
+
+Invoke DC and Read the verilog file -> rvmyth_avsddac.v
+Read .db file and set target_lib -> sky130_fd_sc_hd__tt_025C_1v80.lib, 
+avsddac.lib
+
+Using synopsys’s lc_shell(Library Compiler)
+Follow these commands to convert .lib to .dc
+1. lc_shell
+2. read_lib library.lib(if in the same directory as the .lib) 
+Else - > read_lib <your_path>/library.lib
+3. write_lib library -format db -output library.db
+
+read_lib sky130_fd_sc_hd__tt_025C_1v80.lib
+write_lib -output sky130_fd_sc_hd__tt_025C_1v80.db sky130_fd_sc_hd__tt_025C_1v80
+
+Library Conversion
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1606a9c3-0a60-4a60-b270-a29efddeafd8)
+
+
+
 
 
 
