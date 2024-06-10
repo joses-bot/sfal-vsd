@@ -1958,6 +1958,17 @@ zoom of the previous output
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9e094893-fe0c-4b80-bc1b-b7454cb06437)
 
+- PLL basic sim
+```
+iverilog avsd_pll_1v8.v pll_tb.v
+./a.out
+gtkwave test.vcd
+```
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/65e1d000-31af-4951-adfc-d8c23cab6fcf)
+
+
+
 # Day 12 - POST-SYNTHESIS
 `
 Pre-synthesis: Simulatiom is done according to the logic we designed it is only Functional Simulation. So, after synthesis we need to hook up again pll & dac and check again.
