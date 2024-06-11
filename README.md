@@ -2018,6 +2018,29 @@ Fixing issues:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0c7edbef-ea8e-4bf0-a83a-2e1b78e8f8b1)
 
+Compiling with Synopsys DC Compiler
+
+ set target_library /home/jose/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+ set link_library {* /home/jose/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db /home/jose/VSDBabySoC/src/lib/avsdpll.db /home/jose/VSDBabySoC/src/lib/avsddac.db}
+ 
+ set search_path {/home/jose/VSDBabySoC/src/include /home/jose/VSDBabySoC/src/module} # Include all paths where tool will search for design modules/files.
+ read_file {sandpiper_gen.vh  sandpiper.vh  sp_default.vh  sp_verilog.vh clk_gate.v rvmyth.v rvmyth_gen.v vsdbabysoc.v} -autoread -top vsdbabysoc # read 
+ and indicated files and set top to `vsdbabysoc`
+ link #link design with library and resolve all references
+ compile_ultra #Problem found only compile seems to work
+ write_file -format verilog -hierarchy -output /home/subhasis/VSDBabySoC/output/vsdbabysoc_net.v # write out netlist file in verilog format at specified output location
+
+ when using compile_ultra an issue is found -> power optimiztion kicks in and a insufficient physical memory error happens
+
+ ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8c14518b-32ac-4539-b211-3a8ea178bbfc)
+
+ Using compile alone it seems to work
+
+ ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1a84fe08-cf03-4d68-84f3-9e348336b91d)
+ 
+
+
+
 
 
 
