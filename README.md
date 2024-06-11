@@ -2037,6 +2037,19 @@ Compiling with Synopsys DC Compiler
  Using compile alone it seems to work
 
  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1a84fe08-cf03-4d68-84f3-9e348336b91d)
+
+ Compiling netlist with iverilog for post-synthesis simulation:
+
+ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 -o ./output/post_synth_sim.out -I src/include -I src/module -I src/gls_model ./output/vsdbabysoc_net.v  ./src/module/testbench.v
+ cd output
+ ./post_synth_sim.out
+ gtkwave post_synth_sim.vcd
+
+ Showing both simulations pre-synthesis and post-syntheis, they look similar
+
+ ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2c100e71-fc13-47be-9b06-3ebb2efefe15)
+ 
+
  
 
 
