@@ -2002,6 +2002,29 @@ Library Conversion
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1606a9c3-0a60-4a60-b270-a29efddeafd8)
 
+Same for DAC and PLL libraries
+read_lib avsddac.lib
+write_lib -output avsddac.db avsddac
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b7f6fe55-91fa-4c2d-8de4-971a93b9f90d)
+
+Found errors when traslating PLL library:
+read_lib avsdpll.lib 
+write_lib -output avsdpll.db avsdpll
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6df12722-2ea1-43bd-bbc3-e4e54b65b38f)
+
+Fixing issues:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0c7edbef-ea8e-4bf0-a83a-2e1b78e8f8b1)
+
+
+
+
+
+
+
+
 
 
 
