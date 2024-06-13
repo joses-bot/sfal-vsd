@@ -2028,7 +2028,7 @@ Compiling with Synopsys DC Compiler
  read_file {sandpiper_gen.vh  sandpiper.vh  sp_default.vh  sp_verilog.vh clk_gate.v rvmyth.v rvmyth_gen.v vsdbabysoc.v} -autoread -top vsdbabysoc # read 
  and indicated files and set top to `vsdbabysoc`
  link #link design with library and resolve all references
- compile_ultra #Problem found only compile seems to work
+ compile_ultra #Problem found only compile seems to work (fixed)
  write_file -format verilog -hierarchy -output /home/jose/VSDBabySoC/output/vsdbabysoc_net.v # write out netlist file in verilog format at specified output location
 ```
  when using compile_ultra an issue is found -> power optimiztion kicks in and a insufficient physical memory error happens
@@ -2051,6 +2051,20 @@ Compiling with Synopsys DC Compiler
  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2c100e71-fc13-47be-9b06-3ebb2efefe15)
 
  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0190abb7-f828-49e7-a97d-24a3e161e11d)
+
+### After resetting computer from Prof. Kunal compile_ultra seems to be working fine. Trying again with new netlist and compile_ultra
+
+ ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dde24b79-5a82-47f2-a934-2ddd7c34a56c)
+
+```
+ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 -o ./output/post_synth_sim.out -I src/include -I src/module -I src/gls_model ./output/vsdbabysoc_net.v  ./src/module/testbench.v
+ cd output
+ ./post_synth_sim.out
+ gtkwave post_synth_sim.vcd
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/42ac83ce-120f-4ee3-aef9-a72cbe4651c5)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e269dd30-8b00-4aaa-9273-313e9ccee008)
 
 
 
