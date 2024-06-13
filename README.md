@@ -2046,7 +2046,7 @@ Compiling with Synopsys DC Compiler
  ./post_synth_sim.out
  gtkwave post_synth_sim.vcd
 ```
- Showing both simulations pre-synthesis and post-syntheis, they look similar (second snapshot is a zoom version)
+ Showing both simulations pre-synthesis and post-synthesis, they look similar (second snapshot is a zoom version)
 
  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2c100e71-fc13-47be-9b06-3ebb2efefe15)
 
@@ -2062,9 +2062,12 @@ Compiling with Synopsys DC Compiler
  ./post_synth_sim.out
  gtkwave post_synth_sim.vcd
 ```
+Simulations for post-synthesis seem similar to the ones obtained in pre-synthesis
+
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/42ac83ce-120f-4ee3-aef9-a72cbe4651c5)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e269dd30-8b00-4aaa-9273-313e9ccee008)
+
 
 
 
