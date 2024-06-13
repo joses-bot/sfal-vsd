@@ -1940,7 +1940,7 @@ modifying .profile  export PATH=$PATH:$HOME/.local/bin
 ```
 ```
 git clone https://github.com/manili/VSDBabySoC.git       - clone this repo containing VSDBabySoC design files and testbench.
-cd /home/subhasis/VSDBabySoC
+cd /home/jose/VSDBabySoC
 sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/   - to translate .tlv definition of rvmyth into .v definition.
 
 iverilog -o output/pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module   - to compile and simulate vsdbabysoc design.
