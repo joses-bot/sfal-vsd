@@ -2029,7 +2029,7 @@ Compiling with Synopsys DC Compiler
  and indicated files and set top to `vsdbabysoc`
  link #link design with library and resolve all references
  compile_ultra #Problem found only compile seems to work
- write_file -format verilog -hierarchy -output /home/subhasis/VSDBabySoC/output/vsdbabysoc_net.v # write out netlist file in verilog format at specified output location
+ write_file -format verilog -hierarchy -output /home/jose/VSDBabySoC/output/vsdbabysoc_net.v # write out netlist file in verilog format at specified output location
 ```
  when using compile_ultra an issue is found -> power optimiztion kicks in and a insufficient physical memory error happens
 
