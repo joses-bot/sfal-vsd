@@ -2068,6 +2068,24 @@ Simulations for post-synthesis seem similar to the ones obtained in pre-synthesi
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e269dd30-8b00-4aaa-9273-313e9ccee008)
 
+# Day 13 - Synposys DC And timing Analysis
+
+### TCL scripts were created to facilitate the repetitive work:
+
+TCL script to run in lc_shell to convert all libraries sky130*.lib copied to BabySoc/src/lib
+
+```
+
+set libfiles [glob *.lib]
+foreach f $libfiles {
+    read_lib $f
+    set fblib [file rootname [file tail $f]]
+    write_lib $fblib  -format db -output $fblib.db
+}
+
+```
+
+
 
 
 
