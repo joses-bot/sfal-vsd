@@ -2136,6 +2136,12 @@ Data obtained after running the scripts:
  
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2447e727-958e-4a9a-81b7-9930c537534a)
 
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d70b9a80-0d50-4015-9a39-dbc3835e433a)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/158f6ae1-cf64-4e9b-8ce5-26c5749e77a9)
+
+
+
 
 
 
