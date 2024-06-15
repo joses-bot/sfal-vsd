@@ -2113,27 +2113,8 @@ reset_design
 remove_design -all
 }
 ```
-Data obtained after running the scripts:
-			
-	Library	        WNS	WHS
-			
-	ff_100c_1v65	0.24	82.68
-	ff_100c_1v95	0.3	127.56
-	ff_n40C_1v56	0.2	46.31
-	ff_n40C_1v65	0.24	74.31
-	ff_n40C_1v76	0.27	99.08
-	ff_n40C_1v95	0.31	135.22
-	tt_025C_1v80	0.18	29.21
-	tt_100C_1v80	0.18	23.92
-	ss_100C_1v40	0	0
-	ss_100C_1v60	0	0
-	ss_n40C_1v28	0	0
-	ss_n40C_1v35	0	0
-	ss_n40C_1v40	0	0
-	ss_n40C_1v44	0	0
-	ss_n40C_1v60	0	0
-	ss_n40C_1v76	0	0
- 
+Data obtained after running the scripts:			
+
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2447e727-958e-4a9a-81b7-9930c537534a)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d70b9a80-0d50-4015-9a39-dbc3835e433a)
