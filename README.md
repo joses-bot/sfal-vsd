@@ -2113,7 +2113,29 @@ reset_design
 remove_design -all
 }
 ```
+
+Constraints that are being considered at this point:
+```
+set_units -time ns
+create_clock [get_pins pll/CLK] -name clk -period 12 -waveform {0 5}
+set_load -pin_load 0.5 [get_ports OUT]
+set_load -min -pin_load 0.1 [get_ports OUT]
+set_clock_latency 2 [get_clocks clk]
+set_clock_latency -source 2 [get_clocks clk]
+set_clock_uncertainty 0.5  [get_clocks clk]
+#set_max_delay 10 -from [get_pins dac/OUT] -to [get_ports OUT]
+#set_input_delay -clock clk -max 4 [get_ports VCO_IN]
+#set_input_delay -clock clk -min 1 [get_ports VCO_IN]
+#set_input_delay -clock clk -max 4 [get_ports ENb_CP]
+#set_input_delay -clock clk -min 1 [get_ports ENb_CP]
+#set_input_transition -max 0.4 [get_ports VCO_IN]
+#set_input_transition -min 0.1 [get_ports VCO_IN]
+#set_input_transition -max 0.4 [get_ports ENb_CP]
+#set_input_transition -min 0.1 [get_ports ENb_CP]
 Data obtained after running the scripts:			
+```
+
+We might need to tight a bit more the constraints if we want to get smaller and negative numbers
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2447e727-958e-4a9a-81b7-9930c537534a)
 
