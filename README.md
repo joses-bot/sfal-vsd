@@ -1,4 +1,4 @@
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ac5870b0-f90b-49ad-b66e-f83cda334fc7)# Day 0 - Tools Installation
+# Day 0 - Tools Installation
 ### Yosys
 ```
 $ sudo apt-get update
