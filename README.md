@@ -2141,7 +2141,7 @@ Data obtained after running the scripts:
 We might need to tight a bit more the constraints if we want to get smaller and negative numbers
 
 			
-	library	WNS	TNS
+	library	         WNS	TNS
 			
 	ff_100c_1v65	0.24	82.68
 	ff_100c_1v95	0.3	127.56
