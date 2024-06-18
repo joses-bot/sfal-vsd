@@ -1,4 +1,4 @@
-# Day 0 - Tools Installation
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ac5870b0-f90b-49ad-b66e-f83cda334fc7)# Day 0 - Tools Installation
 ### Yosys
 ```
 $ sudo apt-get update
@@ -2123,17 +2123,20 @@ set_load -min -pin_load 0.1 [get_ports OUT]
 set_clock_latency 2 [get_clocks clk]
 set_clock_latency -source 2 [get_clocks clk]
 set_clock_uncertainty 0.5  [get_clocks clk]
-#set_max_delay 10 -from [get_pins dac/OUT] -to [get_ports OUT]
-#set_input_delay -clock clk -max 4 [get_ports VCO_IN]
-#set_input_delay -clock clk -min 1 [get_ports VCO_IN]
-#set_input_delay -clock clk -max 4 [get_ports ENb_CP]
-#set_input_delay -clock clk -min 1 [get_ports ENb_CP]
-#set_input_transition -max 0.4 [get_ports VCO_IN]
-#set_input_transition -min 0.1 [get_ports VCO_IN]
-#set_input_transition -max 0.4 [get_ports ENb_CP]
-#set_input_transition -min 0.1 [get_ports ENb_CP]
-Data obtained after running the scripts:			
+set_clock_uncertainty -setup 0.5  [get_clocks clk]
+set_clock_uncertainty -hold 0.5  [get_clocks clk]
+set_max_delay 10 -from [get_pins dac/OUT] -to [get_ports OUT]
+set_input_delay -clock clk -max 4 [get_ports VCO_IN]
+set_input_delay -clock clk -min 1 [get_ports VCO_IN]
+set_input_delay -clock clk -max 4 [get_ports ENb_CP]
+set_input_delay -clock clk -min 1 [get_ports ENb_CP]
+set_input_transition -max 0.4 [get_ports VCO_IN]
+set_input_transition -min 0.1 [get_ports VCO_IN]
+set_input_transition -max 0.4 [get_ports ENb_CP]
+set_input_transition -min 0.1 [get_ports ENb_CP]
 ```
+
+Data obtained after running the scripts:			
 
 We might need to tight a bit more the constraints if we want to get smaller and negative numbers
 
@@ -2142,12 +2145,12 @@ We might need to tight a bit more the constraints if we want to get smaller and 
 			
 	ff_100c_1v65	0.24	82.68
 	ff_100c_1v95	0.3	127.56
-	ff_n40C_1v56	0.2	46.31
+	ff_n40C_1v56	0.2	43.94
 	ff_n40C_1v65	0.24	74.31
 	ff_n40C_1v76	0.27	99.08
 	ff_n40C_1v95	0.31	135.22
-	tt_025C_1v80	0.18	29.21
-	tt_100C_1v80	0.18	23.92
+	tt_025C_1v80	0.18	28.22
+	tt_100C_1v80	0.18	23.41
 	ss_100C_1v40	0	0
 	ss_100C_1v60	0	0
 	ss_n40C_1v28	0	0
@@ -2155,14 +2158,11 @@ We might need to tight a bit more the constraints if we want to get smaller and 
 	ss_n40C_1v40	0	0
 	ss_n40C_1v44	0	0
 	ss_n40C_1v60	0	0
-	ss_n40C_1v76	0	0
+	ss_n40C_1v76	0.01	0
  
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/10b32b0b-447a-4c3a-9e95-0ea54291b094)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fe6b22a1-51de-4e78-af0d-6c42519c90fb)
 
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d70b9a80-0d50-4015-9a39-dbc3835e433a)
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/640967e1-726a-4132-83bd-25ff549d6cb7)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9bfccf87-0c94-4d31-8d2d-9995c5a9f562)
 
 
 
