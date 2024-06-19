@@ -2164,6 +2164,37 @@ We might need to tight a bit more the constraints if we want to get smaller and 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9bfccf87-0c94-4d31-8d2d-9995c5a9f562)
 
+# Day 14 - Inception of EDA and PDK
+
+Reviewing BabySOC design using opencore tools
+
+Pre-synthesis:
+
+make pre_synth_sim
+gtkwave output/pre_synth_sim/pre_synth_sim.vcd
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/622c3337-72b6-48aa-95e9-00caf0ef8e61)
+
+Post-synthesis:  Netlist generated
+
+ make synth
+ output/synth/vsdbabysoc.synth.v
+GLS sim
+
+make post_synth_sim
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b60b7226-cba6-458f-9ff1-1fff98910467)
+
+Yosys report:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6a3a12fa-48bc-4ddc-8c48-5bb1ed8179f2)
+
+
+
+
+
+
+
 
 
 
