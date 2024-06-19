@@ -2166,16 +2166,16 @@ We might need to tight a bit more the constraints if we want to get smaller and 
 
 # Day 14 - Inception of EDA and PDK
 
-Reviewing BabySOC design using opencore tools
+Reviewing BabySOC process using opencore tools
 
-Pre-synthesis:
+### Pre-synthesis:
 
 make pre_synth_sim
 gtkwave output/pre_synth_sim/pre_synth_sim.vcd
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/622c3337-72b6-48aa-95e9-00caf0ef8e61)
 
-Post-synthesis:  Netlist generated
+### Post-synthesis:  Netlist generated
 
  make synth
  output/synth/vsdbabysoc.synth.v
@@ -2188,6 +2188,17 @@ make post_synth_sim
 Yosys report:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6a3a12fa-48bc-4ddc-8c48-5bb1ed8179f2)
+
+### Static timing analysis:
+
+make sta
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8341f8df-b6fb-49e9-b0c2-333a9069ea02)
+
+
+
+
+
 
 
 
