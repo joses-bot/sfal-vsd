@@ -2308,6 +2308,8 @@ Files involved in this flow:
 
 ### Getting files needed:
 
+grdgenxo -itf2TLUplus -i <.ITF file> -o  <.TLU+ file> (command to get TLU files from ITF)  
+
 LEF/DEF/.db(.lib file) file from Skywater github repo/ few .db files specific to the design
 
 (https://github.com/google/skywater-pdk.git)
@@ -2315,6 +2317,15 @@ LEF/DEF/.db(.lib file) file from Skywater github repo/ few .db files specific to
 (https://github.com/bharath19-gs/synopsys_ICC2flow_130nm)
 
 Gate level netlist - is the RTL synthesized file(post-synthesis RTL file) done with DC compiler
+
+### Running icc2 in linux
+```
+iccs_shell
+after the prompt to launch gui  start_gui
+```
+
+
+
 
 
 
