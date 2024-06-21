@@ -10,7 +10,7 @@ $ sudo apt-get install build-essential clang bison flex \
     graphviz xdot pkg-config python3 libboost-system-dev \
     libboost-python-dev libboost-filesystem-dev zlib1g-dev
 $ make config-gcc
-$ make 
+$ make TCL script to run on lc_shell to convert all libraries sky130*.lib copied to BabySoc/src/lib
 $ sudo make install
 ```
 ```
@@ -2082,7 +2082,7 @@ foreach f $libfiles {
     write_lib $fblib  -format db -output $fblib.db
 }
 
-C
+```
 The second script runs on dc_shell and genrates the synthesis, apply the constraint and generate the reports:
 
 ```
