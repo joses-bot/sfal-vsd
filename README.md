@@ -2196,6 +2196,146 @@ make sta
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8341f8df-b6fb-49e9-b0c2-333a9069ea02)
 
 
+# Day 15 - Floor Planning and Power Planning Labs using ICC2 tool
+
+### ASIC Design flow
+
+Starting the cycle with Design specification -> customer input -> functionality wanted
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8cc821bc-2c4c-4436-8e08-9aaac256c97f)
+
+### Basically two cycles types in this flow are identified:
+
+• Front end design -> design spec, rtl descriotion, rtl verification
+• Backend design   -> logic design (logic synthesis gate level) , physical design (used open source tools in previous course, now using synposys) -> ncluding floorplaning and Place and Route
+
+Figure showing areas included in physical design:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/068eee67-be5b-443b-8fea-0be245a4b3e1)
+
+### Design using ICC2 Synopsys too:
+
+Synopsys IC Compiler™ II is the industry leading place and route solution that delivers best-in-class quality-of-results (QoR). Synopsys IC Compiler II includes innovations for flat and hierarchical design planning, early design exploration, congestion aware placement and optimization, clock tree synthesis, advanced node routing convergence, manufacturing compliance, and signoff closure.
+
+### Input/Output files used by the tool to perform Physical Design:
+
+• Inputs:
+• Technology file (.tf or .db, mostly describing parasitics resistances, cpacitamces in the components ..etc)
+• Physical Libraries (In general Lef of GDS file for all design elements like macro, std Cell, IO pads etc)
+• Timing, Logical and Power Libraries
+• TDF file (.tdf or .io mostly describing pads pin arragements) 
+• Constraints (.sdc : time, area) 
+
+• Physical Design Exchange Format –PDEF (optional)  (describing some placemnnt locations)
+• Design Exchange Format –DEF (optional)
+
+• Outputs:
+• Standard delay format (.sdf -> timing detais information, reference libraires)
+• Parasitic format (.spef, .dspf -> (resitance and cpacitances of cells nets))
+• Post routed Netlist (.v -> (connectivity information of all the cells, it can be flatten or unflatten)
+• Physical Layout (.gds -> files to foundry)
+• Design Excahnge format (.def -> raw placemeent locations)
+
+Libraries uses in Physical Design:
+• Technology File Libraries (describes the basic characteristic of cell library pertaining to a particular technology)
+• Standard Cell Libraries, I/O Cell Libraries, Special Cell Libraries (collection of pre designed layout of basic logic gates like inverters, buffers, ANDs, ORs, NANDs etc)
+
+### Floorplaong Goal
+
+Plan the sillicon area and create a robust and clear power distribution network to power every component (input to this stage is the syntheisized netlist including macos, libs, etc). To achieve that purpose power routing includes thr creation of Power ring, Stripes, Rails
+
+  In Summary Power Planning involves:
+• Calculating number of power pins required
+• Number of Rings, Stripes
+• Width of Rings and Stripes
+• IR Drop
+
+### Objectives\ of Floorplanning: (core area is calculated by the tool)
+• Minimize Area
+• Reducing the wire length
+• Making routing easy
+• Minimizing delay
+• Less IR Drop
+```
+The power supply (VDD and VSS) in a chip is uniformly distributed through the metal rails and stripes which is called Power Delivery Network (PDN) or power grid. Each metal layers used in PDN has finite resistivity. When current flow through the power delivery network, a part of the applied voltage will be dropped in PDN as per the Ohm’s law. The amount of voltage drop will be V = I.R, which is called the IR drop. Figure-1 shows the IR drop in the Power net. Any metal net can be assumed as a combination of small R and C. If the resistivity of metal wire is high or the amount of current following through the power net is high, A significant amount of voltage may be dropped in the power delivery network which will cause a lesser amount of voltage available to the standard cells than the actual amount of voltage applied, this phenomenon is call IR Drop.
+When the IO's are not switching it is called Static IR Drop and when the IO's are switching at a certain rate is called Dynamoc IR Drop
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/98c64f9c-4473-4500-b35e-81f96070ea13)
+
+• Issues with Bad Floor plan: Congestion, IR Drop, Reduced lifespan of IC, Noise, Increased Area, Routing, etc 
+
+Floorplaning main parameters: 
+• Aspect ratio   (Horizontal routing resources/vertical routing resources)
+• Core utilization (Area of STD cells + macros + PAD's)/Area of the Chip
+
+ Types:
+• Abutted
+• Non-Abutted
+• Mixed
+
+### Some examples with figures found online concerning floorplan types:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/14470f65-6d7c-4fa7-81ce-c19f9eb17ded)
+
+Steps followed in floorplanning (This is should generic regardless of the tool used)
+
+• Links Netlist with physical library
+• Creates initial core
+• Creates I/O pin placement and pad rings
+• Place macros and standard cells
+• Creates placement blockages
+• Specifies power nets and ground nets
+• Creates power rings and macro rings
+• Creates power and ground nets
+• Routes power and ground nets
+• Checks for violations
+
+### Getting the example repository synopsys_ICC2flow_130nm (synopsys icc2 flow for skywater 130nm PDK)
+
+Steps to setup the environment:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/96fc81d4-98ab-446d-bc42-5feb6cbce23f)
+
+Files involved in this flow:
+
+• LEF file - The LEF file is the abstract view of cells. It only gives the idea about PR boundary, pin position and metal layer information of a cell.
+• Milkyway file/ Technology file.
+• Interconnet technology file(.itf) - It defines cross section profile of the process this is an ordered list of conductor and dielectric layer definition statements the layers are defined from topmost dielectric layer to the bottom most dielectric layer excluding substrate.
+• Technology file(.tf) - Technology File is the most critical input for physical design tools. It provides technology-specific information like the names and physical and electrical characteristics of each metal/via layers and the routing design rules.
+• TLU/TLU+ files - These modles are set of models contains advanced process effects that can be used by parasitic extractor in PnR tools for modelling these are generated from ITF filesTLUPlus is a binary table format that stores the RC coefficients. The TLUPlus models enable accurate RC extraction results by including the effects of width, space, density, and temperature on the resistance coefficients.(.itf is used to generate these files)
+
+### Getting files needed:
+
+LEF/DEF/.db(.lib file) file from Skywater github repo/ few .db files specific to the design
+
+https://github.com/google/skywater-pdk.git
+(https://github.com/bharath19-gs/synopsys_ICC2flow_130nm)
+
+Gate level netlist - is the RTL synthesized file(post-synthesis RTL file) done with DC compiler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
