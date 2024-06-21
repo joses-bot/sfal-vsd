@@ -2082,7 +2082,7 @@ foreach f $libfiles {
     write_lib $fblib  -format db -output $fblib.db
 }
 
-```
+C
 The second script runs on dc_shell and genrates the synthesis, apply the constraint and generate the reports:
 
 ```
@@ -2205,11 +2205,13 @@ Starting the cycle with Design specification -> customer input -> functionality 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8cc821bc-2c4c-4436-8e08-9aaac256c97f)
 
 ### Basically two cycles types in this flow are identified:
-
+```
 • Front end design -> design spec, rtl descriotion, rtl verification
-• Backend design   -> logic design (logic synthesis gate level) , physical design (used open source tools in previous course, now using synposys) -> ncluding floorplaning and Place and Route
+• Backend design   -> logic design (logic synthesis gate level) , physical design
+  (used open source tools in previous course, now using synposys) -> ncluding floorplaning and Place and Route
+```
 
-Figure showing areas included in physical design:
+Figure showing areas included in physical design flow:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/068eee67-be5b-443b-8fea-0be245a4b3e1)
 
@@ -2308,7 +2310,8 @@ Files involved in this flow:
 
 LEF/DEF/.db(.lib file) file from Skywater github repo/ few .db files specific to the design
 
-https://github.com/google/skywater-pdk.git
+(https://github.com/google/skywater-pdk.git)
+
 (https://github.com/bharath19-gs/synopsys_ICC2flow_130nm)
 
 Gate level netlist - is the RTL synthesized file(post-synthesis RTL file) done with DC compiler
