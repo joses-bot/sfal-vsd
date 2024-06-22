@@ -2324,6 +2324,13 @@ iccs_shell
 after the prompt to launch gui  start_gui
 ```
 
+To convert libraries itf and generate TLUPlus file we use the  grdgenxo converter
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ffb053c8-035a-4b7e-bab2-20d5d9572e21)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/32ad5c58-0ba5-4720-b0df-bd2bdd96a85c)
+
+
 
 
 
