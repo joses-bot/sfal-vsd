@@ -2330,6 +2330,17 @@ To convert libraries itf and generate TLUPlus file we use the  grdgenxo converte
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/32ad5c58-0ba5-4720-b0df-bd2bdd96a85c)
 
+Was playing before with floorplaning, using a rectangular shape ...noticed that different shapes might lead the tool to take more time processing values ..
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/07e06027-949b-4749-8e9c-3129158295ff)
+
+
+After several changes in the scripts tool is still running for more than one hour ...last snapshot I took
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f51c4e14-c1fa-49ea-87c4-4f18d4a8367a)
+
+
+
 
 
 
