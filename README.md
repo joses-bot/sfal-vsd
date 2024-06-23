@@ -2338,6 +2338,10 @@ After several changes in the scripts, it looks like script is not brealing and t
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5c142b7c-a096-405b-a8f0-1c23e20ce750)
 
+Lots of violations in this long run, still not finished ..Prof. Kunal suggessted lower utilization factor to 0.3. So will modify scripts and run again.
+
+
+
 
 
 
