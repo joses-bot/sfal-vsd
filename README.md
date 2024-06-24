@@ -2340,6 +2340,11 @@ After several changes in the scripts, it looks like script is not brealing and t
 
 Lots of violations in this long run, still not finished ..Prof. Kunal suggessted lower utilization factor to 0.3. So will modify scripts and run again.
 
+In the next try main script top.tcl seems to finish completely. Continue doing more experiments
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/66760df0-9bb5-4869-9d2b-4e812a97dd0d)
+
+
 
 
 
