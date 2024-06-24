@@ -2344,6 +2344,25 @@ In the next try main script top.tcl seems to finish completely. Continue doing m
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/66760df0-9bb5-4869-9d2b-4e812a97dd0d)
 
+Doing some preliminary checkings. Logical Hierarchie
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b18e252a-d73b-4049-891c-3eb1e5bd45d7)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/77e2c8a8-1e1b-4c0c-95bf-6c824ff167fb)
+
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/c19db996-2321-4425-8002-bbc69b81f72f)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/30964381-0a2f-417d-a990-32074747f4c3)
+
+See some unconnected in/out ....need to check
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/cf789762-d438-4caf-a9c3-19d2b00d1d81)
+
+
+
+
+
 
 
 
