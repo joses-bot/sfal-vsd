@@ -2233,7 +2233,39 @@ dc_shell>
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5e87c62b-227c-4e48-8322-4c579cd4ac9a)
 
+```
+****************************************
+Report : area
+Design : vsdbabysoc
+Version: T-2022.03-SP5-6
+Date   : Tue Jun 25 10:27:12 2024
+****************************************
 
+Library(s) Used:
+
+    sky130_fd_sc_hd__ff_n40C_1v56 (File: /home/jose/VSDBabySoC/src/lib/sky130_fd_sc_hd__ff_n40C_1v56.db)
+    avsddac (File: /home/jose/VSDBabySoC/src/lib/avsddac.db)
+    avsdpll (File: /home/jose/VSDBabySoC/src/lib/avsdpll.db)
+
+Number of ports:                           19
+Number of nets:                          2773
+Number of cells:                         2743
+Number of combinational cells:           2064
+Number of sequential cells:               676
+Number of macros/black boxes:               2
+Number of buf/inv:                        131
+Number of references:                       4
+
+Combinational area:              11345.881325
+Buf/Inv area:                      491.721585
+Noncombinational area:           13532.978775
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 24878.860100
+Total area:                 undefined
+
+```
 
 
 
