@@ -2464,6 +2464,11 @@ See some unconnected in/out ....need to check
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/cf789762-d438-4caf-a9c3-19d2b00d1d81)
 
+Checking where the Macros and Core are located in layout
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dfd01173-0dee-477e-8666-78b842d44f78)
+
+
 
 
 
