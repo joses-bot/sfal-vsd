@@ -2468,6 +2468,11 @@ Checking where the Macros and Core are located in layout
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dfd01173-0dee-477e-8666-78b842d44f78)
 
+Showing we are using the core libraries sky130 :
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5fcb3247-582d-47e0-984e-bb604325fae1)
+
+
 
 
 
