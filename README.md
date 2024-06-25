@@ -2164,6 +2164,79 @@ We might need to tight a bit more the constraints if we want to get smaller and 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9bfccf87-0c94-4d31-8d2d-9995c5a9f562)
 
+```
+dc_shell> report_power -v
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+        -verbose
+Design : vsdbabysoc
+Version: T-2022.03-SP5-6
+Date   : Tue Jun 25 09:56:56 2024
+****************************************
+
+
+Library(s) Used:
+
+    sky130_fd_sc_hd__ff_n40C_1v56 (File: /home/jose/VSDBabySoC/src/lib/sky130_fd_sc_hd__ff_n40C_1v56.db)
+    avsddac (File: /home/jose/VSDBabySoC/src/lib/avsddac.db)
+    avsdpll (File: /home/jose/VSDBabySoC/src/lib/avsdpll.db)
+
+
+Operating Conditions: ff_n40C_1v56   Library: sky130_fd_sc_hd__ff_n40C_1v56
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+vsdbabysoc             Small             sky130_fd_sc_hd__ff_n40C_1v56
+
+
+Global Operating Voltage = 1.56 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =   2.1146 mW   (83%)
+  Net Switching Power  = 437.6778 uW   (17%)
+                         ---------
+Total Dynamic Power    =   2.5523 mW  (100%)
+
+Cell Leakage Power     =   1.3800 nW
+
+                 Internal         Switching           Leakage            Total                         Cell
+Power Group      Power            Power               Power              Power   (   %    )  Attrs  Count
+---------------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)            0
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)            0
+black_box          0.0000            0.3258            0.0000            0.3258  (  12.77%)            2
+clock_network      2.0436            0.0000            0.0000            2.0436  (  80.07%)            0
+                                                                                             i
+register       3.3141e-02        1.6702e-02            0.6584        4.9845e-02  (   1.95%)            676
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)            0
+combinational  3.7884e-02        9.5162e-02            0.7216            0.1330  (   5.21%)            2064
+---------------------------------------------------------------------------------------------------------
+Total              2.1146 mW         0.4377 mW         1.3800 nW         2.5523 mW
+1
+dc_shell> 
+```
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5e87c62b-227c-4e48-8322-4c579cd4ac9a)
+
+
+
+
+
 # Day 14 - Inception of EDA and PDK
 
 Reviewing BabySOC process using opencore tools
