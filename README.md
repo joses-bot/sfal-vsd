@@ -2486,6 +2486,189 @@ Values seems to be takes as they are transferred into the output/prefered_locati
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/45474011-8199-4f61-a1b8-3ed751a988dd)
 
+Checking some of the reports for this run:
+
+```
+[icc2-lic Sat Sep 10 22:40:15 2022] Sending count request for 'ICCompilerII-4' 
+[icc2-lic Sat Sep 10 22:40:15 2022] Count request for 'ICCompilerII-4' returned 1 
+[icc2-lic Sat Sep 10 22:40:15 2022] Check-out of main set of keys directly with queueing was successful
+****************************************
+Report : qor
+Design : rvmyth
+Version: T-2022.03
+Date   : Sat Sep 10 22:40:15 2022
+****************************************
+
+
+Scenario           'func1::estimated_corner'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Levels of Logic:                      0
+Critical Path Length:              5.00
+Critical Path Slack:               4.45
+Critical Path Clk Period:         10.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+----------------------------------------
+
+Scenario           'func1::estimated_corner'
+Timing Path Group  'MYCLK'
+----------------------------------------
+Levels of Logic:                     41
+Critical Path Length:              3.01
+Critical Path Slack:               6.44
+Critical Path Clk Period:         10.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              0
+Hierarchical Port Count:              0
+Leaf Cell Count:                   2330
+Buf/Inv Cell Count:                 130
+Buf Cell Count:                      41
+Inv Cell Count:                      89
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:          1631
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              699
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       699
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:             1998.99
+Noncombinational Area:          3160.88
+Buf/Inv Area:                     83.79
+Total Buffer Area:                32.98
+Total Inverter Area:              50.81
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                    3819.98
+Net YLength:                    1895.89
+----------------------------------------
+Cell Area (netlist):                           5159.87
+Cell Area (netlist and physical only):         5159.87
+Net Length:                     5715.86
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:              3170
+Nets with Violations:                 6
+Max Trans Violations:                 2
+Max Cap Violations:                   5
+----------------------------------------
+
+```
+```
+[icc2-lic Wed Jun 26 01:16:47 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Wed Jun 26 01:16:47 2024
+****************************************
+
+  Startpoint: core/CPU_is_addi_a3_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: core/CPU_Xreg_value_a4_reg[19][31] (rising edge-triggered flip-flop clocked by clk)
+  Mode: func1
+  Corner: estimated_corner
+  Scenario: func1::estimated_corner
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Incr      Path       Delta Incr     Analysis
+  ----------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (ideal)                      3.00      3.00
+
+  core/CPU_is_addi_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.00      3.00 r      0.00
+  core/CPU_is_addi_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.29      3.29 r ~    0.00        Size: None
+  core/U560/Y (sky130_fd_sc_hd__clkinv_1)          0.27      3.56 f ~    0.18        Size: None
+  core/U563/Y (sky130_fd_sc_hd__nand2_1)           0.12 e    3.67 r ~   -0.01        Size: sky130_fd_sc_hd__nand2_8
+  core/U33/Y (sky130_fd_sc_hd__inv_2)              0.07 e    3.75 f ~   -0.11        Size: sky130_fd_sc_hd__inv_12
+  core/U570/Y (sky130_fd_sc_hd__nand2_1)           0.09 e    3.84 r ~   -0.07        Size: sky130_fd_sc_hd__nand2_4
+  core/U572/Y (sky130_fd_sc_hd__nand2_1)           0.05 e    3.89 f ~   -0.03        Size: sky130_fd_sc_hd__nand2_4
+  core/U573/X (sky130_fd_sc_hd__xor2_1)            0.18      4.07 f ~    0.11        Size: None
+  core/U52/X (sky130_fd_sc_hd__or2_1)              0.25      4.33 f ~   -0.02        Size: None
+  core/U21/Y (sky130_fd_sc_hd__a21oi_1)            0.23 e    4.56 r ~   -0.06        Size: sky130_fd_sc_hd__a21oi_4
+  core/U20/Y (sky130_fd_sc_hd__o21ai_0)            0.08 e    4.63 f ~   -0.17        Size: sky130_fd_sc_hd__o21ai_4
+  core/U19/Y (sky130_fd_sc_hd__a21oi_1)            0.25 e    4.88 r ~   -0.09        Size: sky130_fd_sc_hd__a21oi_4
+  core/U18/Y (sky130_fd_sc_hd__o21ai_0)            0.08 e    4.96 f ~   -0.13        Size: sky130_fd_sc_hd__o21ai_4
+  core/U17/Y (sky130_fd_sc_hd__a21oi_1)            0.22 e    5.19 r ~   -0.10        Size: sky130_fd_sc_hd__a21oi_4
+  core/U48/Y (sky130_fd_sc_hd__o21ai_0)            0.05 e    5.24 f ~   -0.22        Size: sky130_fd_sc_hd__o21ai_4
+  core/U16/Y (sky130_fd_sc_hd__a21oi_1)            0.28 e    5.53 r ~   -0.25        Size: sky130_fd_sc_hd__a21oi_4
+  core/U46/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    5.59 f ~   -0.18        Size: sky130_fd_sc_hd__o21ai_4
+  core/U15/Y (sky130_fd_sc_hd__a21oi_1)            0.21 e    5.80 r ~   -0.08        Size: sky130_fd_sc_hd__a21oi_4
+  core/U44/Y (sky130_fd_sc_hd__o21ai_0)            0.06 e    5.87 f ~   -0.11        Size: sky130_fd_sc_hd__o21ai_4
+  core/U14/Y (sky130_fd_sc_hd__a21oi_1)            0.21 e    6.08 r ~   -0.07        Size: sky130_fd_sc_hd__a21oi_4
+  core/U42/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    6.15 f ~   -0.11        Size: sky130_fd_sc_hd__o21ai_4
+  core/U10/Y (sky130_fd_sc_hd__a21oi_1)            0.20 e    6.36 r ~   -0.05        Size: sky130_fd_sc_hd__a21oi_4
+  core/U40/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    6.42 f ~   -0.11        Size: sky130_fd_sc_hd__o21ai_4
+  core/U9/Y (sky130_fd_sc_hd__a21oi_1)             0.26 e    6.68 r ~   -0.17        Size: sky130_fd_sc_hd__a21oi_4
+  core/U54/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    6.75 f ~   -0.18        Size: sky130_fd_sc_hd__o21ai_4
+  core/U8/Y (sky130_fd_sc_hd__a21oi_1)             0.21 e    6.97 r ~   -0.09        Size: sky130_fd_sc_hd__a21oi_4
+  core/U38/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    7.03 f ~   -0.14        Size: sky130_fd_sc_hd__o21ai_4
+  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)          0.15 e    7.18 r ~   -0.03        Size: sky130_fd_sc_hd__a21oi_4
+  core/U7/Y (sky130_fd_sc_hd__clkinv_1)            0.04 e    7.22 f ~   -0.05        Size: sky130_fd_sc_hd__inv_2
+  core/U467/COUT (sky130_fd_sc_hd__fa_1)           0.39      7.61 f ~    0.00        Size: None
+  core/U13/X (sky130_fd_sc_hd__a21o_1)             0.19 e    7.80 f ~   -0.01        Size: None
+  core/U466/COUT (sky130_fd_sc_hd__fa_1)           0.35      8.15 f ~    0.00        Size: None
+  core/U465/COUT (sky130_fd_sc_hd__fa_1)           0.36      8.51 f ~   -0.00        Size: None
+  core/U464/COUT (sky130_fd_sc_hd__fa_1)           0.37      8.89 f ~    0.00        Size: None
+  core/U469/COUT (sky130_fd_sc_hd__fa_1)           0.37      9.25 f ~    0.00        Size: None
+  core/U463/COUT (sky130_fd_sc_hd__fa_1)           0.38 e    9.63 f ~   -0.05        Size: sky130_fd_sc_hd__fa_2
+  core/U12/X (sky130_fd_sc_hd__a21o_1)             0.21 e    9.83 f ~   -0.02        Size: None
+  core/U462/COUT (sky130_fd_sc_hd__fa_1)           0.38     10.21 f ~    0.00        Size: None
+  core/U56/COUT (sky130_fd_sc_hd__fa_1)            0.36     10.57 f ~   -0.01        Size: None
+  core/U11/COUT (sky130_fd_sc_hd__fa_1)            0.40     10.97 f ~   -0.01        Size: None
+  core/U468/COUT (sky130_fd_sc_hd__fa_1)           0.31 e   11.28 f ~   -0.07        Size: sky130_fd_sc_hd__fah_1
+  core/U1366/X (sky130_fd_sc_hd__xor2_1)           0.37     11.64 r ~    0.00        Size: None
+  core/U1367/Y (sky130_fd_sc_hd__nand2_1)          0.12 e   11.76 f ~   -0.26        Size: sky130_fd_sc_hd__nand2_8
+  core/U1369/Y (sky130_fd_sc_hd__o21ai_0)          0.17 e   11.93 r ~   -0.25        Size: sky130_fd_sc_hd__o21ai_2
+  core/CPU_Xreg_value_a4_reg[19][31]/D (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.00 e   11.93 r      0.00        Buff: Short net
+  data arrival time                                         11.93       -3.02        Delta arrival
+
+  clock clk (rise edge)                           10.00     10.00
+  clock network delay (ideal)                      3.00     13.00
+  core/CPU_Xreg_value_a4_reg[19][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.00     13.00 r      0.00
+  clock uncertainty                               -0.50     12.50
+  library setup time                              -0.07     12.43
+  data required time                                        12.43
+  ----------------------------------------------------------------------------------------------------
+  data required time                                        12.43
+  data arrival time                                        -11.93
+  ----------------------------------------------------------------------------------------------------
+  slack (MET)                                                0.50
+
+```
 
 #### Experiment: After placing, the real locations are a bit different from the preferred locations specified, tools always try to group together the Macros (might need to try hard location commands)
 
