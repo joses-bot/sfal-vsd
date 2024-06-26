@@ -2464,6 +2464,12 @@ See some unconnected in/out ....need to check
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/cf789762-d438-4caf-a9c3-19d2b00d1d81)
 
+Using default script values. macros seem to be place in an specific place, checking preferred location file:
+
+```
+set_macro_constraints -preferred_location {0.004 0.88} [get_cells pll]
+set_macro_constraints -preferred_location {0.124 0.941} [get_cells dac]
+```
 Checking where the Macros and Core are located in layout
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dfd01173-0dee-477e-8666-78b842d44f78)
@@ -2481,7 +2487,7 @@ Values seems to be takes as they are transferred into the output/prefered_locati
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/45474011-8199-4f61-a1b8-3ed751a988dd)
 
 
-Experiment: After placing, the real locations are a bit different from the preferred locations specified, tools always try to group together the Macros (might need to try hard location commands)
+#### Experiment: After placing, the real locations are a bit different from the preferred locations specified, tools always try to group together the Macros (might need to try hard location commands)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ceb009b0-e36f-41fa-aad9-5af020dd103e)
 
