@@ -2472,6 +2472,19 @@ Showing we are using the core libraries sky130 :
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5fcb3247-582d-47e0-984e-bb604325fae1)
 
+Playing with the placing commands:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/76bdb39e-be14-451f-96c0-a176ceae4084)
+
+After placing, the real locations are a bit different from the preferred locations specified:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ceb009b0-e36f-41fa-aad9-5af020dd103e)
+
+
+
+
+
+
 
 
 
