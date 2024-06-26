@@ -2164,6 +2164,7 @@ We might need to tight a bit more the constraints if we want to get smaller and 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9bfccf87-0c94-4d31-8d2d-9995c5a9f562)
 
+#### POWER REPORT (POST SYNTHESIS)
 ```
 dc_shell> report_power -v
 Information: Updating design information... (UID-85)
