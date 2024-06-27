@@ -2895,6 +2895,130 @@ Max Cap Violations:                   5
 ----------------------------------------
 ```
 
+Doing more experiments with floorplan command. In theory if directed correctly the tool itslef should be able to provide a better floorplan, for larger designs we will not be able to manually generate the layout:
+
+```
+initialize_floorplan -control_type core -shape Rect -side_length {1750 900} -core_utilization 0.07  -coincident_boundary false -core_offset {100}
+```
+That command seems to produce a smaller floorplan:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/510342e2-ed10-4083-87eb-d64b0fa01957)
+
+Under that clast case we are still meeting timing:
+
+```
+[icc2-lic Thu Jun 27 01:16:50 2024] Command 'report_timing' requires licenses
+[icc2-lic Thu Jun 27 01:16:50 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun 27 01:16:50 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Thu Jun 27 01:16:50 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun 27 01:16:50 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun 27 01:16:50 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun 27 01:16:50 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Thu Jun 27 01:16:50 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun 27 01:16:50 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Thu Jun 27 01:16:50 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun 27 01:16:50 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun 27 01:16:50 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Thu Jun 27 01:16:50 2024
+****************************************
+
+  Startpoint: core/CPU_is_addi_a3_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: core/CPU_Xreg_value_a4_reg[24][31] (rising edge-triggered flip-flop clocked by clk)
+  Mode: func1
+  Corner: estimated_corner
+  Scenario: func1::estimated_corner
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Incr      Path       Delta Incr     Analysis
+  ----------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (ideal)                      3.00      3.00
+
+  core/CPU_is_addi_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.00      3.00 r      0.00
+  core/CPU_is_addi_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.28      3.28 r ~    0.00        Size: None
+  core/U560/Y (sky130_fd_sc_hd__clkinv_1)          0.27      3.55 f ~    0.18        Size: None
+  core/U563/Y (sky130_fd_sc_hd__nand2_1)           0.13 e    3.68 r ~   -0.07        Size: sky130_fd_sc_hd__nand2_8
+  core/U33/Y (sky130_fd_sc_hd__inv_2)              0.08 e    3.76 f ~   -0.20        Size: sky130_fd_sc_hd__inv_12
+  core/U570/Y (sky130_fd_sc_hd__nand2_1)           0.09 e    3.86 r ~   -0.09        Size: sky130_fd_sc_hd__nand2_4
+  core/U572/Y (sky130_fd_sc_hd__nand2_1)           0.05 e    3.90 f ~   -0.03        Size: sky130_fd_sc_hd__nand2_4
+  core/U573/X (sky130_fd_sc_hd__xor2_1)            0.18      4.08 f ~    0.10        Size: None
+  core/U52/X (sky130_fd_sc_hd__or2_1)              0.24      4.33 f ~   -0.02        Size: None
+  core/U21/Y (sky130_fd_sc_hd__a21oi_1)            0.22 e    4.54 r ~   -0.03        Size: sky130_fd_sc_hd__a21oi_4
+  core/U20/Y (sky130_fd_sc_hd__o21ai_0)            0.08 e    4.63 f ~   -0.19        Size: sky130_fd_sc_hd__o21ai_4
+  core/U19/Y (sky130_fd_sc_hd__a21oi_1)            0.23 e    4.86 r ~   -0.08        Size: sky130_fd_sc_hd__a21oi_4
+  core/U18/Y (sky130_fd_sc_hd__o21ai_0)            0.08 e    4.94 f ~   -0.09        Size: sky130_fd_sc_hd__o21ai_4
+  core/U17/Y (sky130_fd_sc_hd__a21oi_1)            0.21 e    5.15 r ~   -0.07        Size: sky130_fd_sc_hd__a21oi_4
+  core/U48/Y (sky130_fd_sc_hd__o21ai_0)            0.08 e    5.23 f ~   -0.17        Size: sky130_fd_sc_hd__o21ai_4
+  core/U16/Y (sky130_fd_sc_hd__a21oi_1)            0.23 e    5.46 r ~   -0.14        Size: sky130_fd_sc_hd__a21oi_4
+  core/U46/Y (sky130_fd_sc_hd__o21ai_0)            0.06 e    5.52 f ~   -0.12        Size: sky130_fd_sc_hd__o21ai_4
+  core/U15/Y (sky130_fd_sc_hd__a21oi_1)            0.21 e    5.73 r ~   -0.05        Size: sky130_fd_sc_hd__a21oi_4
+  core/U44/Y (sky130_fd_sc_hd__o21ai_0)            0.08 e    5.81 f ~   -0.16        Size: sky130_fd_sc_hd__o21ai_4
+  core/U14/Y (sky130_fd_sc_hd__a21oi_1)            0.22 e    6.03 r ~   -0.12        Size: sky130_fd_sc_hd__a21oi_4
+  core/U42/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    6.10 f ~   -0.14        Size: sky130_fd_sc_hd__o21ai_4
+  core/U10/Y (sky130_fd_sc_hd__a21oi_1)            0.29 e    6.39 r ~   -0.22        Size: sky130_fd_sc_hd__a21oi_4
+  core/U40/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    6.45 f ~   -0.20        Size: sky130_fd_sc_hd__o21ai_4
+  core/U9/Y (sky130_fd_sc_hd__a21oi_1)             0.24 e    6.69 r ~   -0.14        Size: sky130_fd_sc_hd__a21oi_4
+  core/U54/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    6.76 f ~   -0.14        Size: sky130_fd_sc_hd__o21ai_4
+  core/U8/Y (sky130_fd_sc_hd__a21oi_1)             0.25 e    7.00 r ~   -0.14        Size: sky130_fd_sc_hd__a21oi_4
+  core/U38/Y (sky130_fd_sc_hd__o21ai_0)            0.07 e    7.07 f ~   -0.16        Size: sky130_fd_sc_hd__o21ai_4
+  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)          0.17 e    7.24 r ~   -0.05        Size: sky130_fd_sc_hd__a21oi_4
+  core/U7/Y (sky130_fd_sc_hd__clkinv_1)            0.04 e    7.29 f ~   -0.07        Size: sky130_fd_sc_hd__inv_2
+  core/U467/COUT (sky130_fd_sc_hd__fa_1)           0.38      7.67 f ~   -0.00        Size: None
+  core/U13/X (sky130_fd_sc_hd__a21o_1)             0.22      7.89 f ~   -0.02        Size: None
+  core/U466/COUT (sky130_fd_sc_hd__fa_1)           0.33 e    8.21 f ~   -0.07        Size: sky130_fd_sc_hd__fah_1
+  core/U465/COUT (sky130_fd_sc_hd__fa_1)           0.30 e    8.52 f ~   -0.08        Size: sky130_fd_sc_hd__fah_1
+  core/U464/COUT (sky130_fd_sc_hd__fa_1)           0.33 e    8.85 f ~   -0.08        Size: sky130_fd_sc_hd__fah_1
+  core/U469/COUT (sky130_fd_sc_hd__fa_1)           0.31 e    9.16 f ~   -0.07        Size: sky130_fd_sc_hd__fah_1
+  core/U463/COUT (sky130_fd_sc_hd__fa_1)           0.39 e    9.55 f ~   -0.04        Size: sky130_fd_sc_hd__fa_2
+  core/U12/X (sky130_fd_sc_hd__a21o_1)             0.20 e    9.75 f ~   -0.03        Size: None
+  core/U462/COUT (sky130_fd_sc_hd__fa_1)           0.35     10.09 f ~    0.00        Size: None
+  core/U56/COUT (sky130_fd_sc_hd__fa_1)            0.41     10.50 f ~   -0.01        Size: None
+  core/U11/COUT (sky130_fd_sc_hd__fa_1)            0.31 e   10.81 f ~   -0.07        Size: sky130_fd_sc_hd__fah_1
+  core/U468/COUT (sky130_fd_sc_hd__fa_1)           0.36     11.17 f ~    0.00        Size: None
+  core/U1366/X (sky130_fd_sc_hd__xor2_1)           0.53     11.70 r ~    0.22        Size: None
+  core/U1367/Y (sky130_fd_sc_hd__nand2_1)          0.11 e   11.81 f ~   -0.19        Size: sky130_fd_sc_hd__nand2_8
+  core/U1392/Y (sky130_fd_sc_hd__o21ai_0)          0.15 e   11.96 r ~   -0.20        Size: sky130_fd_sc_hd__o21ai_2
+  core/CPU_Xreg_value_a4_reg[24][31]/D (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.00 e   11.96 r      0.00        Buff: Short net
+  data arrival time                                         11.96       -3.24        Delta arrival
+
+  clock clk (rise edge)                           10.00     10.00
+  clock network delay (ideal)                      3.00     13.00
+  core/CPU_Xreg_value_a4_reg[24][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.00     13.00 r      0.00
+  clock uncertainty                               -0.50     12.50
+  library setup time                              -0.07     12.43
+  data required time                                        12.43
+  ----------------------------------------------------------------------------------------------------
+  data required time                                        12.43
+  data arrival time                                        -11.96
+  ----------------------------------------------------------------------------------------------------
+  slack (MET)                                                0.47
+```
+
+
+
+
+
+
 
 
 
