@@ -2898,11 +2898,12 @@ Max Cap Violations:                   5
 ### Doing more experiments with floorplan command. In theory if directed correctly the tool itslef should be able to provide a better floorplan, for larger designs we will not be able to manually generate the layout (by specifying better dimension in rect switch)
 
 ```
-initialize_floorplan -control_type core -shape Rect -side_length {1750 900} -core_utilization 0.07  -coincident_boundary false -core_offset {100}
+initialize_floorplan -control_type core -shape Rect -side_length {1750 900} -core_utilization 0.07  -coincident_boundary false -core_offset {20}
 ```
 That command seems to produce a smaller floorplan:
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/510342e2-ed10-4083-87eb-d64b0fa01957)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/db27d910-f1d9-4d21-a91e-dec1f15b8369)
+
 
 Using that last case we are still meeting timing:
 
