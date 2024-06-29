@@ -3015,6 +3015,53 @@ Max Cap Violations:                   5
 
 ```
 
+# BASIC INVESTIGATION ON PRIMETIME TOOL
+
+Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
+```
+Files needed:
+  .target library ued when compiled the design
+  .netlist generated after compilation (e.g using DC Compiler)
+  .constraint file (sdc file)
+```
+As a result an eco file is generated with commands/hints to modify the netlist for a next compilation iteration
+```
+To invoke the tool:
+ . pt_shell 
+ . start_gui (graphical mode)
+```
+```
+In prime time shell, the following commands can be used to set up a new design analysis:
+ .set library (location of the library)
+ .read_verilog (read netlist)
+ .source constraint (source sdc file)
+```
+```
+In the Prime time GUI, We can select on the menu the following options:
+
+  - New schematics view -> To see the schematics of the design or a portion of it
+  - To analyze timing -> In he menu timing -> report timing (To check the overall timing of the design), we can select a particular path
+  - To check setup and hold time:
+    . In the menu select timing -> histogram  -> report slack -> select (delay type)  max for setup min for hold
+    . On the result window we can inspect any particular path , we can check schematics and a timing graph of that path
+    . To do changes in the menu -> in schematics -> select ECO -> Then from a menu of options, select a way to try to fix the problem
+      for eample insert buffers
+    . Then run the timing analysis again to check if the fix actually work
+    . Create a final eco file that will provide instructions to modify the netlist and start a new compiling iteration to check if the eco works:
+      write_changes -format text -output eco 
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
