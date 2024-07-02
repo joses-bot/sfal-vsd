@@ -2928,7 +2928,7 @@ File: preferred_macro_location.tcl that is generated after running the whole pro
 
 This seem to show coordinates relatives to 1
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/af39ad36-4a53-4c46-a59b-fde1967b4be2)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3efb2c12-0d93-44e0-ab9d-71a5fd56eda6)
 
 Checking another report file located in:  /home/jose/VSDBabySoC_ICC2/standaloneFlow/write_data_dir/vsdbabysoc/vsdbabysoc.icc2.floorplan
 
