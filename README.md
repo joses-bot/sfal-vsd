@@ -2899,6 +2899,45 @@ Max Cap Violations:                   5
 
 ```
 
+## Investigation on floorplanning command:
+
+#### According to user guide:
+
+#### Shapes allowed:
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8660516c-efae-4463-a790-b6f77232e94b)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/343349a6-6c68-4e96-9ca3-7304a6c98902)
+
+#### We can specify side_ratio and side_length  -core_offset is the gap between core and die (keep out zone)
+
+```
+I can't use the tool at this moment (problems with licnese), so I will show what was the last experiment I made with that command.
+I could have used side_ratio that would have preserved the dimensions, anyways in this case I used side_length and vary the lengths
+until I did not see any errors or violations. Then I tried mopre experiments incrementing it a bit more the sizes to see what happens.
+Do not knwow if there can be an interative procedure to determine the optimal sizes. It is possible we can start with certain core/die
+predefined sizes to use.
+```
+
+Last command used in tl script:  
+```
+initialize_floorplan -control_type core -shape Rect -side_length {1750 900} -core_utilization 0.07  -coincident_boundary false -core_offset {20}
+```
+Checking the report files to see what this command is actually applied:
+
+File: preferred_macro_location.tcl that is generated after running the whole process  (outputs_icc2 folder):
+
+This seem to show coordinates relatives to 1
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/af39ad36-4a53-4c46-a59b-fde1967b4be2)
+
+Checking another report file located in:  /home/jose/VSDBabySoC_ICC2/standaloneFlow/write_data_dir/vsdbabysoc/vsdbabysoc.icc2.floorplan
+
+That file shows a more precise location where the macros and IO's were included after floorplaning command:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/52d716c7-4e6e-4206-a6bc-730d2ee512d6)
+
+
+
 # BASIC INVESTIGATION ON PRIMETIME TOOL
 
 Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
