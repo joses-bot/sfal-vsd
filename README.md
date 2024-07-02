@@ -2932,7 +2932,7 @@ This seem to show coordinates relatives to 1
 
 Checking another report file located in:  /home/jose/VSDBabySoC_ICC2/standaloneFlow/write_data_dir/vsdbabysoc/vsdbabysoc.icc2.floorplan
 
-That file shows a more precise location where the macros and IO's were included after floorplaning command:
+That file shows a more precise location where the macros and IO's were included after floorplaning command, that file seems to show the tool is using the dimensions indicated in the floorplan command:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/52d716c7-4e6e-4206-a6bc-730d2ee512d6)
 
