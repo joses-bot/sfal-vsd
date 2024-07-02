@@ -2899,7 +2899,7 @@ Max Cap Violations:                   5
 
 ```
 
-## Investigation on floorplanning command:
+## Basic Investigation on floorplanning command:
 
 #### According to user guide:
 
