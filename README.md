@@ -2947,6 +2947,15 @@ and create parastic information
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7a3e5d5f-593d-4cfc-84ea-eccd8eb2c972)
 
+Trying to open the design using srtarRC
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3083be24-f975-4660-87bc-ee1ab8d5bff8)
+
+Showing some of CPU registers in schematics in starRC
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/83dbabdf-c63d-40fb-88d1-98a09ef768d5)
+
+
 
 
 
