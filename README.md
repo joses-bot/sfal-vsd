@@ -2940,8 +2940,8 @@ That file shows more precise locations where the macros and IO's were included a
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b4f8dea9-136a-453d-8fe7-8c9ebba74402)
 
-### Modifying flow to generate parasitics on final route design:
-### Calculating parastics inside icc2 flow
+## Modifying flow to generate parasitics on final route design:
+## Calculating parastics inside icc2 flow
 
 -  Added route_opt, write parastiis (in this first try just one corner will be investigated)
 ```  
@@ -3000,7 +3000,7 @@ icc2_shell> get_corners
 {func1}
 icc2_shell
 ```
-After running the new modified scripts, the parasitic files are created:
+After running the new modified scripts, the parasitic files (SPEF format) are created:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2fa2e1b3-9eb4-43f9-9ff2-e2585ae1f074)
 
