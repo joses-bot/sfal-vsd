@@ -2940,7 +2940,7 @@ That file shows more precise locations where the macros and IO's were included a
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b4f8dea9-136a-453d-8fe7-8c9ebba74402)
 
-## Modifying flow to generate parasitics on final routed design:
+## Modifying flow to generate parasitics file (SPEF) on final routed design:
 ## First approach : Calculating parastics inside icc2 flow (top.tcl script)
 
 -  Added route_opt, write parastiis (in this first try just one corner will be investigated)
