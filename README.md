@@ -3005,15 +3005,30 @@ After running the new modified scripts, the parasitic files (SPEF format) are cr
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2fa2e1b3-9eb4-43f9-9ff2-e2585ae1f074)
 
 
-
-
-
-
-
-
 # BASIC INVESTIGATION ON PRIMETIME TOOL
 
 Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
+
+Reading file and parasitics using primetime tool:
+```
+set target_library  /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/sky130_fd_sc_hd__ff_n40C_1v56.db
+set link_library [concat * $target_library \ /home/jose/VSDBabySoC/src/lib/avsdpll.db \  /home/jose/VSDBabySoC/src/lib/avsddac.db]
+read_verilog  vsdbabysoc_route.v 
+link_design vsdbabysoc
+read_parasitics vsdbabysoc_parasitics.temp1_25.spef
+read_sdc /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/vsdbabysoc_synthesis.sdc
+```
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/57868a42-d048-447b-b05e-7ec2464cc699)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5bba38b1-1fd3-4d7a-b2ca-313bf6c8cd3e)
+
+
+
+
+
+
+
+
 ```
 Files needed:
   .target library ued when compiled the design
