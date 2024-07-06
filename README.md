@@ -3297,11 +3297,11 @@ report_timing
 save_session
 
 ```
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/57868a42-d048-447b-b05e-7ec2464cc699)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a82bfa5f-da79-4ff9-922b-e5c9eef8d88b)
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5bba38b1-1fd3-4d7a-b2ca-313bf6c8cd3e)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0e94731d-c481-43b0-b4ba-4868450ce06e)
 
-### Some of the primtime reports :
+### Checking some of the primtime reports :
 
 ```
 ****************************************
