@@ -2678,10 +2678,10 @@ initialize_floorplan -control_type core -shape Rect -side_length {1700 900} -cor
 ```
 ### That command seems to produce a better and a smaller floorplan:
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/db27d910-f1d9-4d21-a91e-dec1f15b8369)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/28e8aacb-a8a1-43e1-a692-074ed48722cf)
 
 
-Using that last case we are still meeting timing:
+### Using that last case we are still meeting timing: (This is at the placement stage)
 
 ```
 *[icc2-lic Thu Jun 27 04:28:54 2024] Command 'report_timing' requires licenses
@@ -2791,6 +2791,8 @@ Date   : Thu Jun 27 04:28:54 2024
   slack (MET)                                                0.60
 
 ```
+
+### QOR report (Placement Stage)
 ```
 [icc2-lic Sat Sep 10 22:40:15 2022] Command 'report_qor' requires licenses
 [icc2-lic Sat Sep 10 22:40:15 2022] Attempting to check-out main set of keys directly with queueing
@@ -2895,6 +2897,275 @@ Total Number of Nets:              3170
 Nets with Violations:                 6
 Max Trans Violations:                 2
 Max Cap Violations:                   5
+----------------------------------------
+
+```
+
+### Timing report obtained using icc2 after the Routing Stage (final filler stage), the parasitics obtained in that stage will be used on the primetime tool  - There is a 3.1ns violation
+
+```
+[icc2-lic Sat Jul  6 22:45:57 2024] Command 'report_timing' requires licenses
+[icc2-lic Sat Jul  6 22:45:57 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Sat Jul  6 22:45:57 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Sat Jul  6 22:45:57 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+        -transition_time
+        -capacitance
+        -physical
+        -process
+        -voltage
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Sat Jul  6 22:45:57 2024
+****************************************
+
+  Startpoint: core/CPU_is_addi_a3_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: core/CPU_Xreg_value_a4_reg[18][31] (rising edge-triggered flip-flop clocked by clk)
+  Mode: func1
+  Corner: func1
+  Scenario: func1
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Cap      Trans      Incr      Path          Location        Voltage         Process
+  ----------------------------------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                0.00      0.00
+  clock network delay (ideal)                                          3.00      3.00
+
+  core/CPU_is_addi_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)     0.00      0.00      3.00 r    (835.12,755.92)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/CPU_is_addi_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                   0.00      0.03      0.26      3.26 f ~  (841.94,755.98)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U560/Y (sky130_fd_sc_hd__clkinv_1)          0.01      0.07      0.07      3.33 r ~  (843.39,750.08)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U35/Y (sky130_fd_sc_hd__inv_2)              0.15      0.29      0.22      3.55 f ~  (846.10,749.51)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U34/Y (sky130_fd_sc_hd__nor2_4)             0.17      1.20      1.06      4.61 r ~  (848.56,758.25)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U575/Y (sky130_fd_sc_hd__nor2_1)            0.01      0.21      0.19      4.80 f ~  (834.04,707.71)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U21/Y (sky130_fd_sc_hd__a21oi_1)            0.01      0.23      0.32      5.12 r ~  (829.47,710.08)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U20/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.12      0.18      5.30 f ~  (832.31,710.70)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U19/Y (sky130_fd_sc_hd__a21oi_1)            0.01      0.37      0.36      5.66 r ~  (833.72,719.68)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U18/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.12      0.20      5.86 f ~  (823.38,706.56)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U17/Y (sky130_fd_sc_hd__a21oi_1)            0.01      0.31      0.32      6.17 r ~  (826.27,705.54)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U48/Y (sky130_fd_sc_hd__o21ai_0)            0.03      0.30      0.33      6.50 f ~  (847.57,704.99)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U16/Y (sky130_fd_sc_hd__a21oi_1)            0.01      0.24      0.35      6.86 r ~  (993.70,669.27)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U46/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.10      0.15      7.01 f ~  (999.93,660.87)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U15/Y (sky130_fd_sc_hd__a21oi_1)            0.01      0.26      0.26      7.28 r ~  (999.41,661.03)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U44/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.16      0.21      7.49 f ~  (992.84,668.71)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U14/Y (sky130_fd_sc_hd__a21oi_1)            0.01      0.29      0.32      7.80 r ~  (908.11,677.25)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U42/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.12      0.19      7.99 f ~  (896.15,670.94)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U10/Y (sky130_fd_sc_hd__a21oi_1)            0.02      0.43      0.41      8.40 r ~  (893.59,682.82)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U40/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.16      0.24      8.64 f ~  (894.65,750.42)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U9/Y (sky130_fd_sc_hd__a21oi_1)             0.01      0.32      0.34      8.98 r ~  (908.26,751.18)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U54/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.11      0.18      9.16 f ~  (863.26,760.88)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U8/Y (sky130_fd_sc_hd__a21oi_1)             0.01      0.27      0.28      9.44 r ~  (861.09,768.26)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U38/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.17      0.22      9.66 f ~  (864.66,778.82)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)          0.01      0.19      0.26      9.92 r ~  (885.62,770.34)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U7/Y (sky130_fd_sc_hd__clkinv_1)            0.01      0.09      0.13     10.06 f ~  (911.34,741.32)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U467/COUT (sky130_fd_sc_hd__fa_1)           0.02      0.15      0.44     10.50 f ~  (914.83,721.75)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U13/X (sky130_fd_sc_hd__a21o_1)             0.01      0.05      0.23     10.73 f ~  (990.96,761.92)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U466/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.08      0.35     11.08 f ~  (990.17,770.07)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U465/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.09      0.37     11.45 f ~  (982.52,774.70)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U464/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.12      0.41     11.86 f ~  (986.25,765.84)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U469/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.09      0.38     12.24 f ~  (999.13,728.24)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U463/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.10      0.38     12.63 f ~  (997.81,739.55)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U12/X (sky130_fd_sc_hd__a21o_1)             0.01      0.04      0.20     12.82 f ~  (998.26,743.77)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U462/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.10      0.37     13.19 f ~  (996.16,735.14)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U56/COUT (sky130_fd_sc_hd__fa_1)            0.01      0.09      0.38     13.58 f ~  (977.12,752.31)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U11/COUT (sky130_fd_sc_hd__fa_1)            0.02      0.13      0.42     14.00 f ~  (984.78,752.93)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U468/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.08      0.38     14.39 f ~  (986.33,684.37)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U1366/X (sky130_fd_sc_hd__xor2_1)           0.02      0.46      0.41     14.79 r ~  (983.98,675.75)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U1367/Y (sky130_fd_sc_hd__nand2_1)          0.04      0.48      0.34     15.13 f ~  (928.70,677.40)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/U1396/Y (sky130_fd_sc_hd__o21ai_0)          0.00      0.30      0.39     15.52 r ~  (926.05,646.56)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  core/CPU_Xreg_value_a4_reg[18][31]/D (sky130_fd_sc_hd__dfxtp_1)
+                                                             0.30      0.00     15.53 r    (920.09,642.22)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  data arrival time                                                             15.53
+
+  clock clk (rise edge)                                               10.00     10.00
+  clock network delay (ideal)                                          3.00     13.00
+  core/CPU_Xreg_value_a4_reg[18][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                             0.00      0.00     13.00 r    (918.85,642.33)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
+  clock uncertainty                                                   -0.50     12.50
+  library setup time                                                  -0.12     12.38
+  data required time                                                            12.38
+  ----------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                            12.38
+  data arrival time                                                            -15.53
+  ----------------------------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                              -3.15
+
+
+```
+
+### QOR report after Routing Stage
+
+```
+[icc2-lic Sat Jul  6 22:45:57 2024] Command 'report_qor' requires licenses
+[icc2-lic Sat Jul  6 22:45:57 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Sat Jul  6 22:45:57 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Sat Jul  6 22:45:57 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Sat Jul  6 22:45:57 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul  6 22:45:57 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul  6 22:45:57 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : qor
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Sat Jul  6 22:45:58 2024
+****************************************
+
+
+Scenario           'func1'
+Timing Path Group  'default'
+----------------------------------------
+Levels of Logic:                      1
+Critical Path Length:              0.04
+Critical Path Slack:               9.96
+Critical Path Clk Period:            --
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+----------------------------------------
+
+Scenario           'func1'
+Timing Path Group  'clk'
+----------------------------------------
+Levels of Logic:                     39
+Critical Path Length:             12.53
+Critical Path Slack:              -3.15
+Critical Path Clk Period:         10.00
+Total Negative Slack:           -258.42
+No. of Violating Paths:             155
+Worst Hold Violation:             -0.20
+Total Hold Violation:            -21.48
+No. of Hold Violations:             416
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              1
+Hierarchical Port Count:             14
+Leaf Cell Count:                   2740
+Buf/Inv Cell Count:                 130
+Buf Cell Count:                      10
+Inv Cell Count:                     120
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:          2064
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              676
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       676
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          2
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            11327.11
+Noncombinational Area:         13532.98
+Buf/Inv Area:                    487.97
+Total Buffer Area:                37.54
+Total Inverter Area:             450.43
+Macro/Black Box Area:         671652.37
+Net Area:                             0
+Net XLength:                   58539.76
+Net YLength:                   59705.62
+----------------------------------------
+Cell Area (netlist):                         696512.47
+Cell Area (netlist and physical only):      1335650.45
+Net Length:                   118245.38
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:              2962
+Nets with Violations:                29
+Max Trans Violations:                29
+Max Cap Violations:                  29
 ----------------------------------------
 
 ```
@@ -3017,6 +3288,12 @@ read_verilog  vsdbabysoc_route.v
 link_design vsdbabysoc
 read_parasitics vsdbabysoc_parasitics.temp1_25.spef
 read_sdc /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/vsdbabysoc_synthesis.sdc
+extract_model -output vsdbabysoc_model_extracted
+report_analysis_coverage
+report_constraint
+report_timing
+save_session
+
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/57868a42-d048-447b-b05e-7ec2464cc699)
 
