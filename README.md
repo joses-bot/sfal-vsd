@@ -3441,6 +3441,7 @@ Date   : Sat Jul  6 23:06:51 2024
   slack (VIOLATED)                                                  -3.17
 
 ```
+
 ### Showing the results in primetime GUI - Need to investigate how to fix the timing issues
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d364bf57-1430-4cfd-8fdd-7d63dd7648fa)
