@@ -3282,7 +3282,7 @@ After running the new modified scripts, the parasitic files (SPEF format) are cr
 
 Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
 
-Reading file and parasitics using primetime tool:
+Reading design files and parasitics using primetime tool:
 ```
 set target_library  /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/sky130_fd_sc_hd__ff_n40C_1v56.db
 set link_library [concat * $target_library \ /home/jose/VSDBabySoC/src/lib/avsdpll.db \  /home/jose/VSDBabySoC/src/lib/avsddac.db]
@@ -3301,7 +3301,7 @@ save_session
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0e94731d-c481-43b0-b4ba-4868450ce06e)
 
-### Checking some of the primtime reports :
+### Checking some of the primtime reports : (analysis overage)
 
 ```
 ****************************************
@@ -3441,11 +3441,14 @@ Date   : Sat Jul  6 23:06:51 2024
   slack (VIOLATED)                                                  -3.17
 
 ```
-Showing the results in primetime GUI - Need to fix timing
+### Showing the results in primetime GUI - Need to investigate how to fix the timing issues
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d364bf57-1430-4cfd-8fdd-7d63dd7648fa)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/972c1fc9-e47a-4a69-97e0-9027293a64e6)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/cd28b274-5087-4eee-84e7-294c17fe25b6)
+
 
 
 
