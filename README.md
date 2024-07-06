@@ -3217,7 +3217,6 @@ That file shows more precise locations where the macros and IO's were included a
 -  Added route_opt, write parastiis (in this first try just one corner will be investigated)
 ```  
 route_auto -max_detail_route_iterations 10 
-route_opt
 write_parasitics -corner func1 -output vsdbabysoc_parasitics
 ```
 ```
@@ -3225,6 +3224,7 @@ icc2_shell> report_extraction_options
 Corner: func1
 
 icc2_shell> report_extraction_options -all
+
 Corner: func1
  late_cap_scale = 1
  late_res_scale = 1
@@ -3263,13 +3263,15 @@ Global options:
  include_pin_resistance = true
  process_scale = 1.000000
  operating_frequency = 0.000000
+1
 icc2_shell> 
+
 ```
 ```
 When more corners are added the collection will show the new elements:
 icc2_shell> get_corners
 {func1}
-icc2_shell
+icc2_shell>
 ```
 After running the new modified scripts, the parasitic files (SPEF format) are created:
 
@@ -3299,45 +3301,155 @@ save_session
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5bba38b1-1fd3-4d7a-b2ca-313bf6c8cd3e)
 
+### Some of the primtime reports :
+
+```
+****************************************
+Report : analysis_coverage
+Design : vsdbabysoc
+Version: T-2022.03-SP5-4
+Date   : Sat Jul  6 23:06:23 2024
+****************************************
+
+Type of Check         Total              Met         Violated         Untested
+--------------------------------------------------------------------------------
+setup                   676       519 ( 77%)       156 ( 23%)         1 (  0%)
+hold                    676       259 ( 38%)       416 ( 62%)         1 (  0%)
+min_pulse_width        1352      1352 (100%)         0 (  0%)         0 (  0%)
+--------------------------------------------------------------------------------
+All Checks             2704      2130 ( 79%)       572 ( 21%)         2 (  0%)
+
+```
+```
+****************************************
+Report : constraint
+Design : vsdbabysoc
+Version: T-2022.03-SP5-4
+Date   : Sat Jul  6 23:06:37 2024
+****************************************
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    default                      0.00      1.00      0.00
+    clk                          3.17      1.00      3.17
+    -----------------------------------------------------
+    max_delay/setup                                  3.17
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                         21.90      1.00     21.90
+    -----------------------------------------------------
+    min_delay/hold                                  21.90
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_delay/setup                                  3.17  (VIOLATED)
+    min_delay/hold                                  21.90  (VIOLATED)
+    sequential_clock_pulse_width                     0.00  (MET)
+    max_capacitance                                  2.05  (VIOLATED)
+    max_transition                                1193.26  (VIOLATED)
+    max_area                                         0.00  (MET)
+
+```
+### Primetime report timing is very similar to what was obtained in icc2 last stage (after routing)
+
+```
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : vsdbabysoc
+Version: T-2022.03-SP5-4
+Date   : Sat Jul  6 23:06:51 2024
+****************************************
+
+
+  Startpoint: core/CPU_is_addi_a3_reg
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: core/CPU_Xreg_value_a4_reg[18][31]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             3.00       3.00
+  core/CPU_is_addi_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                          0.00       3.00 r
+  core/CPU_is_addi_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                          0.26 &     3.26 f
+  core/U560/Y (sky130_fd_sc_hd__clkinv_1)                 0.07 &     3.33 r
+  core/U35/Y (sky130_fd_sc_hd__inv_2)                     0.22 &     3.55 f
+  core/U34/Y (sky130_fd_sc_hd__nor2_4)                    1.06 &     4.61 r
+  core/U575/Y (sky130_fd_sc_hd__nor2_1)                   0.19 &     4.80 f
+  core/U21/Y (sky130_fd_sc_hd__a21oi_1)                   0.32 &     5.12 r
+  core/U20/Y (sky130_fd_sc_hd__o21ai_0)                   0.18 &     5.30 f
+  core/U19/Y (sky130_fd_sc_hd__a21oi_1)                   0.36 &     5.66 r
+  core/U18/Y (sky130_fd_sc_hd__o21ai_0)                   0.20 &     5.86 f
+  core/U17/Y (sky130_fd_sc_hd__a21oi_1)                   0.32 &     6.18 r
+  core/U48/Y (sky130_fd_sc_hd__o21ai_0)                   0.33 &     6.51 f
+  core/U16/Y (sky130_fd_sc_hd__a21oi_1)                   0.36 &     6.87 r
+  core/U46/Y (sky130_fd_sc_hd__o21ai_0)                   0.16 &     7.02 f
+  core/U15/Y (sky130_fd_sc_hd__a21oi_1)                   0.26 &     7.29 r
+  core/U44/Y (sky130_fd_sc_hd__o21ai_0)                   0.21 &     7.50 f
+  core/U14/Y (sky130_fd_sc_hd__a21oi_1)                   0.32 &     7.82 r
+  core/U42/Y (sky130_fd_sc_hd__o21ai_0)                   0.19 &     8.01 f
+  core/U10/Y (sky130_fd_sc_hd__a21oi_1)                   0.41 &     8.41 r
+  core/U40/Y (sky130_fd_sc_hd__o21ai_0)                   0.24 &     8.66 f
+  core/U9/Y (sky130_fd_sc_hd__a21oi_1)                    0.34 &     9.00 r
+  core/U54/Y (sky130_fd_sc_hd__o21ai_0)                   0.18 &     9.18 f
+  core/U8/Y (sky130_fd_sc_hd__a21oi_1)                    0.28 &     9.46 r
+  core/U38/Y (sky130_fd_sc_hd__o21ai_0)                   0.22 &     9.68 f
+  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)                 0.26 &     9.94 r
+  core/U7/Y (sky130_fd_sc_hd__clkinv_1)                   0.13 &    10.08 f
+  core/U467/COUT (sky130_fd_sc_hd__fa_1)                  0.45 &    10.53 f
+  core/U13/X (sky130_fd_sc_hd__a21o_1)                    0.23 &    10.75 f
+  core/U466/COUT (sky130_fd_sc_hd__fa_1)                  0.35 &    11.10 f
+  core/U465/COUT (sky130_fd_sc_hd__fa_1)                  0.37 &    11.48 f
+  core/U464/COUT (sky130_fd_sc_hd__fa_1)                  0.41 &    11.89 f
+  core/U469/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &    12.27 f
+  core/U463/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &    12.65 f
+  core/U12/X (sky130_fd_sc_hd__a21o_1)                    0.20 &    12.85 f
+  core/U462/COUT (sky130_fd_sc_hd__fa_1)                  0.37 &    13.22 f
+  core/U56/COUT (sky130_fd_sc_hd__fa_1)                   0.38 &    13.60 f
+  core/U11/COUT (sky130_fd_sc_hd__fa_1)                   0.42 &    14.02 f
+  core/U468/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &    14.41 f
+  core/U1366/X (sky130_fd_sc_hd__xor2_1)                  0.41 &    14.82 r
+  core/U1367/Y (sky130_fd_sc_hd__nand2_1)                 0.34 &    15.16 f
+  core/U1396/Y (sky130_fd_sc_hd__o21ai_0)                 0.39 &    15.55 r
+  core/CPU_Xreg_value_a4_reg[18][31]/D (sky130_fd_sc_hd__dfxtp_1)
+                                                          0.00 &    15.55 r
+  data arrival time                                                 15.55
+
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             3.00      13.00
+  clock reconvergence pessimism                           0.00      13.00
+  clock uncertainty                                      -0.50      12.50
+  core/CPU_Xreg_value_a4_reg[18][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                                    12.50 r
+  library setup time                                     -0.12      12.38
+  data required time                                                12.38
+  ------------------------------------------------------------------------------
+  data required time                                                12.38
+  data arrival time                                                -15.55
+  ------------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -3.17
+
+```
+Showing the results in primetime GUI - Need to fix timing
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d364bf57-1430-4cfd-8fdd-7d63dd7648fa)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/972c1fc9-e47a-4a69-97e0-9027293a64e6)
 
 
 
 
-
-
-
-```
-Files needed:
-  .target library ued when compiled the design
-  .netlist generated after compilation (e.g using DC Compiler)
-  .constraint file (sdc file)
-```
-As a result an eco file is generated with commands/hints to modify the netlist for a next compilation iteration
-```
-To invoke the tool:
- . pt_shell 
- . start_gui (graphical mode)
-```
-```
-In prime time shell, the following commands can be used to set up a new design analysis:
- .set library (location of the library)
- .read_verilog (read netlist)
- .source constraint (source sdc file)
-```
-```
-In the Prime time GUI, We can select on the menu the following options:
-
-  - New schematics view -> To see the schematics of the design or a portion of it
-  - To analyze timing -> In he menu timing -> report timing (To check the overall timing of the design), we can select a particular path
-  - To check setup and hold time:
-    . In the menu select timing -> histogram  -> report slack -> select (delay type)  max for setup min for hold
-    . On the result window we can inspect any particular path , we can check schematics and a timing graph of that path
-    . To do changes in the menu -> in schematics -> select ECO -> Then from a menu of options, select a way to try to fix the problem
-      for eample insert buffers
-    . Then run the timing analysis again to check if the fix actually work
-    . Create a final eco file that will provide instructions to modify the netlist and start a new compiling iteration to check if the eco works:
-      write_changes -format text -output eco 
-```
 
 
 
