@@ -2680,6 +2680,113 @@ initialize_floorplan -control_type core -shape Rect -side_length {1700 900} -cor
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/28e8aacb-a8a1-43e1-a692-074ed48722cf)
 
+## Basic Investigation on floorplanning command:
+
+#### According to user guide:
+
+#### Shapes allowed:
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8660516c-efae-4463-a790-b6f77232e94b)
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/343349a6-6c68-4e96-9ca3-7304a6c98902)
+
+#### We can specify side_ratio and side_length  -core_offset is the gap between core and die (keep out zone)
+
+```
+Results for last experiment made with flooplan command. Two possible choices. side_ratio which would have preserved the dimensions,
+and side_length using actual values. Second approach was used, vary the lengths values until do not see any errors or violations.
+There could be an iterative procedure to determine the optimal sizes starting from an initial estimate. It is also possible sizes
+for core/die are somehow pre-defined and specified at the beginning for customer. The tool seems to place the components/macros
+inside the defined floorplan.
+```
+Last command used in tl script:  
+```
+initialize_floorplan -control_type core -shape Rect -side_length {1700 900} -core_utilization 0.07  -coincident_boundary false -core_offset {20}
+```
+#### Checking the report files to see if this command is actually applied:
+
+File: preferred_macro_location.tcl that is generated after running the whole process  (outputs_icc2 folder):
+
+This seems to show coordinates relatives to 1
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3efb2c12-0d93-44e0-ab9d-71a5fd56eda6)
+
+Checking another report file located in:  /home/jose/VSDBabySoC_ICC2/standaloneFlow/write_data_dir/vsdbabysoc/vsdbabysoc.icc2.floorplan
+
+That file shows more precise locations where the macros and IO's were included after floorplaning command, that file seems to show the tool is using the dimensions indicated in the floorplan command:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1fc2e031-2298-4615-a3c9-8aeaf15dce52)
+
+#### After running script, libraries ndm are created in work area:
+/home/jose/VSDBabySoC_ICC2/standaloneFlow/work/vsdbabysocSkywater
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b4f8dea9-136a-453d-8fe7-8c9ebba74402)
+
+## Modifying flow to generate parasitics file (SPEF) on final routed design:
+## First approach : Calculating parastics inside icc2 flow (top.tcl script)
+
+-  Added route_opt, write parastiis (in this first try just one corner will be investigated)
+```  
+route_auto -max_detail_route_iterations 10 
+write_parasitics -corner func1 -output vsdbabysoc_parasitics
+```
+```
+icc2_shell> report_extraction_options
+Corner: func1
+
+icc2_shell> report_extraction_options -all
+
+Corner: func1
+ late_cap_scale = 1
+ late_res_scale = 1
+ late_ccap_scale = 1
+ late_vr_horizontal_cap_scale = 1
+ late_vr_vertical_cap_scale = 1
+ late_vr_horizontal_res_scale = 1
+ late_vr_vertical_res_scale = 1
+ late_vr_via_res_scale = 1
+ late_rde_cap_scale = 1
+ late_rde_res_scale = 1
+ early_cap_scale = 1
+ early_res_scale = 1
+ early_ccap_scale = 1
+ early_vr_horizontal_cap_scale = 1
+ early_vr_vertical_cap_scale = 1
+ early_vr_horizontal_res_scale = 1
+ early_vr_vertical_res_scale = 1
+ early_vr_via_res_scale = 1
+ early_rde_cap_scale = 1
+ early_rde_res_scale = 1
+
+Global options:
+ late_ccap_threshold = 0.003
+ late_ccap_ratio = 0.03
+ early_ccap_threshold = 0.003
+ early_ccap_ratio = 0.03
+ reference_direction = use_from_tluplus
+ real_metalfill_extraction = none
+ virtual_metalfill_extraction = none
+ virtual_metalfill_parameter_file = None
+ virtual_shield_extraction = true
+ enable_ccap_or_filtering = false
+ honor_mask_constraints = false
+ dielectricfill_extraction = none
+ include_pin_resistance = true
+ process_scale = 1.000000
+ operating_frequency = 0.000000
+1
+icc2_shell> 
+
+```
+```
+When more corners are added the collection will show the new elements:
+icc2_shell> get_corners
+{func1}
+icc2_shell>
+```
+After running the new modified scripts, the parasitic files (SPEF format) are created:
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2fa2e1b3-9eb4-43f9-9ff2-e2585ae1f074)
+
 
 ### Using that last case we are still meeting timing: (This is at the placement stage)
 
@@ -2789,115 +2896,6 @@ Date   : Thu Jun 27 04:28:54 2024
   data arrival time                                        -11.83
   ----------------------------------------------------------------------------------------------------
   slack (MET)                                                0.60
-
-```
-
-### QOR report (Placement Stage)
-```
-[icc2-lic Sat Sep 10 22:40:15 2022] Command 'report_qor' requires licenses
-[icc2-lic Sat Sep 10 22:40:15 2022] Attempting to check-out main set of keys directly with queueing
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending count request for 'ICCompilerII' 
-[icc2-lic Sat Sep 10 22:40:15 2022] Count request for 'ICCompilerII' returned 1 
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending check-out request for 'ICCompilerII' (1) with wait option
-[icc2-lic Sat Sep 10 22:40:15 2022] Check-out request for 'ICCompilerII' with wait option succeeded
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending checkout check request for 'ICCompilerII' 
-[icc2-lic Sat Sep 10 22:40:15 2022] Checkout check request for 'ICCompilerII' returned 0 
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending count request for 'ICCompilerII' 
-[icc2-lic Sat Sep 10 22:40:15 2022] Count request for 'ICCompilerII' returned 1 
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending count request for 'ICCompilerII-4' 
-[icc2-lic Sat Sep 10 22:40:15 2022] Count request for 'ICCompilerII-4' returned 1 
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending check-out request for 'ICCompilerII-4' (1) with wait option
-[icc2-lic Sat Sep 10 22:40:15 2022] Check-out request for 'ICCompilerII-4' with wait option succeeded
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending checkout check request for 'ICCompilerII-4' 
-[icc2-lic Sat Sep 10 22:40:15 2022] Checkout check request for 'ICCompilerII-4' returned 0 
-[icc2-lic Sat Sep 10 22:40:15 2022] Sending count request for 'ICCompilerII-4' 
-[icc2-lic Sat Sep 10 22:40:15 2022] Count request for 'ICCompilerII-4' returned 1 
-[icc2-lic Sat Sep 10 22:40:15 2022] Check-out of main set of keys directly with queueing was successful
-****************************************
-Report : qor
-Design : rvmyth
-Version: T-2022.03
-Date   : Sat Sep 10 22:40:15 2022
-****************************************
-
-
-Scenario           'func1::estimated_corner'
-Timing Path Group  '**in2reg_default**'
-----------------------------------------
-Levels of Logic:                      0
-Critical Path Length:              5.00
-Critical Path Slack:               4.45
-Critical Path Clk Period:         10.00
-Total Negative Slack:              0.00
-No. of Violating Paths:               0
-----------------------------------------
-
-Scenario           'func1::estimated_corner'
-Timing Path Group  'MYCLK'
-----------------------------------------
-Levels of Logic:                     41
-Critical Path Length:              3.01
-Critical Path Slack:               6.44
-Critical Path Clk Period:         10.00
-Total Negative Slack:              0.00
-No. of Violating Paths:               0
-----------------------------------------
-
-
-Cell Count
-----------------------------------------
-Hierarchical Cell Count:              0
-Hierarchical Port Count:              0
-Leaf Cell Count:                   2330
-Buf/Inv Cell Count:                 130
-Buf Cell Count:                      41
-Inv Cell Count:                      89
-CT Buf/Inv Cell Count:                0
-Combinational Cell Count:          1631
-   Single-bit Isolation Cell Count:                        0
-   Multi-bit Isolation Cell Count:                         0
-   Isolation Cell Banking Ratio:                           0.00%
-   Single-bit Level Shifter Cell Count:                    0
-   Multi-bit Level Shifter Cell Count:                     0
-   Level Shifter Cell Banking Ratio:                       0.00%
-   Single-bit ELS Cell Count:                              0
-   Multi-bit ELS Cell Count:                               0
-   ELS Cell Banking Ratio:                                 0.00%
-Sequential Cell Count:              699
-   Integrated Clock-Gating Cell Count:                     0
-   Sequential Macro Cell Count:                            0
-   Single-bit Sequential Cell Count:                       699
-   Multi-bit Sequential Cell Count:                        0
-   Sequential Cell Banking Ratio:                          0.00%
-   BitsPerflop:                                            1.00
-Macro Count:                          0
-----------------------------------------
-
-
-Area
-----------------------------------------
-Combinational Area:             1998.99
-Noncombinational Area:          3160.88
-Buf/Inv Area:                     83.79
-Total Buffer Area:                32.98
-Total Inverter Area:              50.81
-Macro/Black Box Area:              0.00
-Net Area:                             0
-Net XLength:                    3819.98
-Net YLength:                    1895.89
-----------------------------------------
-Cell Area (netlist):                           5159.87
-Cell Area (netlist and physical only):         5159.87
-Net Length:                     5715.86
-
-
-Design Rules
-----------------------------------------
-Total Number of Nets:              3170
-Nets with Violations:                 6
-Max Trans Violations:                 2
-Max Cap Violations:                   5
-----------------------------------------
 
 ```
 
@@ -3236,6 +3234,9 @@ Overal TIming looks better, need to improve 3 paths for hold:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fcb624d5-1221-4e71-87c0-7e0c17fe8a20)
 
+Before passing results to primetime, exploring some of the icc2 capabilities for anaylyzing clocks/cells
+
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/351ce2bb-54d4-4015-9156-3da5be8bf230)
 
 
 
