@@ -3252,7 +3252,7 @@ set link_library [concat * $target_library \ /home/jose/VSDBabySoC/src/lib/avsdp
 read_verilog  vsdbabysoc_route.v 
 link_design vsdbabysoc
 read_parasitics vsdbabysoc_parasitics.temp1_25.spef
-read_sdc /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/vsdbabysoc_synthesis.sdc
+read_sdc /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/vsdbabysoc_PR.sdc
 extract_model -output vsdbabysoc_model_extracted
 report_analysis_coverage
 report_constraint
