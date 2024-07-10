@@ -3241,7 +3241,7 @@ Need to improve hold time for 3 paths:
 
 
 
-# (NEED TO UPDATE PRIMETIME WITH THE NEW TIMING IMPROVEMENTS - FLOW IS THE SAME) BASIC INVESTIGATION ON PRIMETIME TOOL
+# (STARTING UPDATING PRIMETIME WITH THE NEW TIMING IMPROVEMENTS) BASIC INVESTIGATION ON PRIMETIME TOOL
 
 Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
 
@@ -3264,61 +3264,36 @@ save_session
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0e94731d-c481-43b0-b4ba-4868450ce06e)
 
-### Checking some of the primtime reports : (analysis overage)
+### Checking some of the primtime reports : (timing report)  - Seeing a bit of a discrepacny between the two tools - missing time by 0.37
 
 ```
-****************************************
-Report : analysis_coverage
-Design : vsdbabysoc
-Version: T-2022.03-SP5-4
-Date   : Sat Jul  6 23:06:23 2024
-****************************************
+With icc2 tool (basically 0.63 is added)
 
-Type of Check         Total              Met         Violated         Untested
---------------------------------------------------------------------------------
-setup                   676       519 ( 77%)       156 ( 23%)         1 (  0%)
-hold                    676       259 ( 38%)       416 ( 62%)         1 (  0%)
-min_pulse_width        1352      1352 (100%)         0 (  0%)         0 (  0%)
---------------------------------------------------------------------------------
-All Checks             2704      2130 ( 79%)       572 ( 21%)         2 (  0%)
+  clock clk (rise edge)                                               10.00     10.00
+  source latency                                                       0.00     10.00
+  pll/CLK (avsdpll)                                2.15      0.00      0.00     10.00 r ~  (602.39,29.00)      5.00~       1.0 (pane 0)
+  core/CPU_Xreg_value_a4_reg[19][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                             0.63      0.63     10.63 r    (976.15,744.34)     1.56 (rail VPWR)~
+                                                                                                                           1.0 (pane 0)
 
-```
-```
-****************************************
-Report : constraint
-Design : vsdbabysoc
-Version: T-2022.03-SP5-4
-Date   : Sat Jul  6 23:06:37 2024
-****************************************
+  library setup time                                                  -0.02     10.60
+  data required time                                                            10.60
 
-                                                   Weighted
-    Group (max_delay/setup)      Cost     Weight     Cost
-    -----------------------------------------------------
-    default                      0.00      1.00      0.00
-    clk                          3.17      1.00      3.17
-    -----------------------------------------------------
-    max_delay/setup                                  3.17
+ With primetime (nothing is added)
 
-                                                   Weighted
-    Group (min_delay/hold)       Cost     Weight     Cost
-    -----------------------------------------------------
-    clk                         21.90      1.00     21.90
-    -----------------------------------------------------
-    min_delay/hold                                  21.90
-
-    Constraint                                       Cost
-    -----------------------------------------------------
-    max_delay/setup                                  3.17  (VIOLATED)
-    min_delay/hold                                  21.90  (VIOLATED)
-    sequential_clock_pulse_width                     0.00  (MET)
-    max_capacitance                                  2.05  (VIOLATED)
-    max_transition                                1193.26  (VIOLATED)
-    max_area                                         0.00  (MET)
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (propagated)                        0.00      10.00
+  clock reconvergence pessimism                           0.00      10.00
+  core/CPU_Xreg_value_a4_reg[24][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                                    10.00 r
+  library setup time                                     -0.12       9.89
+  data required time                                                 9.89
 
 ```
-### Primetime report timing is very similar to what was obtained in icc2 last stage (after routing)
 
 ```
+
+pt_shell> report_timing
 ****************************************
 Report : timing
 	-path_type full
@@ -3327,96 +3302,83 @@ Report : timing
 	-sort_by slack
 Design : vsdbabysoc
 Version: T-2022.03-SP5-4
-Date   : Sat Jul  6 23:06:51 2024
+Date   : Wed Jul 10 01:38:06 2024
 ****************************************
 
 
   Startpoint: core/CPU_is_addi_a3_reg
                (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: core/CPU_Xreg_value_a4_reg[18][31]
+  Endpoint: core/CPU_Xreg_value_a4_reg[24][31]
                (rising edge-triggered flip-flop clocked by clk)
+  Last common pin: pll/CLK
   Path Group: clk
   Path Type: max
 
   Point                                                   Incr       Path
   ------------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
-  clock network delay (ideal)                             3.00       3.00
+  clock network delay (propagated)                        0.00       0.00
   core/CPU_is_addi_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)
-                                                          0.00       3.00 r
+                                                          0.00       0.00 r
   core/CPU_is_addi_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
-                                                          0.26 &     3.26 f
-  core/U560/Y (sky130_fd_sc_hd__clkinv_1)                 0.07 &     3.33 r
-  core/U35/Y (sky130_fd_sc_hd__inv_2)                     0.22 &     3.55 f
-  core/U34/Y (sky130_fd_sc_hd__nor2_4)                    1.06 &     4.61 r
-  core/U575/Y (sky130_fd_sc_hd__nor2_1)                   0.19 &     4.80 f
-  core/U21/Y (sky130_fd_sc_hd__a21oi_1)                   0.32 &     5.12 r
-  core/U20/Y (sky130_fd_sc_hd__o21ai_0)                   0.18 &     5.30 f
-  core/U19/Y (sky130_fd_sc_hd__a21oi_1)                   0.36 &     5.66 r
-  core/U18/Y (sky130_fd_sc_hd__o21ai_0)                   0.20 &     5.86 f
-  core/U17/Y (sky130_fd_sc_hd__a21oi_1)                   0.32 &     6.18 r
-  core/U48/Y (sky130_fd_sc_hd__o21ai_0)                   0.33 &     6.51 f
-  core/U16/Y (sky130_fd_sc_hd__a21oi_1)                   0.36 &     6.87 r
-  core/U46/Y (sky130_fd_sc_hd__o21ai_0)                   0.16 &     7.02 f
-  core/U15/Y (sky130_fd_sc_hd__a21oi_1)                   0.26 &     7.29 r
-  core/U44/Y (sky130_fd_sc_hd__o21ai_0)                   0.21 &     7.50 f
-  core/U14/Y (sky130_fd_sc_hd__a21oi_1)                   0.32 &     7.82 r
-  core/U42/Y (sky130_fd_sc_hd__o21ai_0)                   0.19 &     8.01 f
-  core/U10/Y (sky130_fd_sc_hd__a21oi_1)                   0.41 &     8.41 r
-  core/U40/Y (sky130_fd_sc_hd__o21ai_0)                   0.24 &     8.66 f
-  core/U9/Y (sky130_fd_sc_hd__a21oi_1)                    0.34 &     9.00 r
-  core/U54/Y (sky130_fd_sc_hd__o21ai_0)                   0.18 &     9.18 f
-  core/U8/Y (sky130_fd_sc_hd__a21oi_1)                    0.28 &     9.46 r
-  core/U38/Y (sky130_fd_sc_hd__o21ai_0)                   0.22 &     9.68 f
-  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)                 0.26 &     9.94 r
-  core/U7/Y (sky130_fd_sc_hd__clkinv_1)                   0.13 &    10.08 f
-  core/U467/COUT (sky130_fd_sc_hd__fa_1)                  0.45 &    10.53 f
-  core/U13/X (sky130_fd_sc_hd__a21o_1)                    0.23 &    10.75 f
-  core/U466/COUT (sky130_fd_sc_hd__fa_1)                  0.35 &    11.10 f
-  core/U465/COUT (sky130_fd_sc_hd__fa_1)                  0.37 &    11.48 f
-  core/U464/COUT (sky130_fd_sc_hd__fa_1)                  0.41 &    11.89 f
-  core/U469/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &    12.27 f
-  core/U463/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &    12.65 f
-  core/U12/X (sky130_fd_sc_hd__a21o_1)                    0.20 &    12.85 f
-  core/U462/COUT (sky130_fd_sc_hd__fa_1)                  0.37 &    13.22 f
-  core/U56/COUT (sky130_fd_sc_hd__fa_1)                   0.38 &    13.60 f
-  core/U11/COUT (sky130_fd_sc_hd__fa_1)                   0.42 &    14.02 f
-  core/U468/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &    14.41 f
-  core/U1366/X (sky130_fd_sc_hd__xor2_1)                  0.41 &    14.82 r
-  core/U1367/Y (sky130_fd_sc_hd__nand2_1)                 0.34 &    15.16 f
-  core/U1396/Y (sky130_fd_sc_hd__o21ai_0)                 0.39 &    15.55 r
-  core/CPU_Xreg_value_a4_reg[18][31]/D (sky130_fd_sc_hd__dfxtp_1)
-                                                          0.00 &    15.55 r
-  data arrival time                                                 15.55
+                                                          0.26 &     0.26 f
+  core/U560/Y (sky130_fd_sc_hd__clkinv_1)                 0.07 &     0.33 r
+  core/U35/Y (sky130_fd_sc_hd__inv_2)                     0.17 &     0.50 f
+  core/U34/Y (sky130_fd_sc_hd__nor2_4)                    0.85 &     1.35 r
+  core/U575/Y (sky130_fd_sc_hd__nor2_1)                   0.16 &     1.51 f
+  core/U21/Y (sky130_fd_sc_hd__a21oi_1)                   0.29 &     1.79 r
+  core/U20/Y (sky130_fd_sc_hd__o21ai_0)                   0.17 &     1.96 f
+  core/U19/Y (sky130_fd_sc_hd__a21oi_1)                   0.24 &     2.20 r
+  core/U18/Y (sky130_fd_sc_hd__o21ai_0)                   0.15 &     2.35 f
+  core/U17/Y (sky130_fd_sc_hd__a21oi_1)                   0.23 &     2.58 r
+  core/U48/Y (sky130_fd_sc_hd__o21ai_0)                   0.15 &     2.73 f
+  core/U16/Y (sky130_fd_sc_hd__a21oi_1)                   0.23 &     2.96 r
+  core/U46/Y (sky130_fd_sc_hd__o21ai_0)                   0.15 &     3.11 f
+  core/U15/Y (sky130_fd_sc_hd__a21oi_1)                   0.23 &     3.34 r
+  core/U44/Y (sky130_fd_sc_hd__o21ai_0)                   0.14 &     3.48 f
+  core/U14/Y (sky130_fd_sc_hd__a21oi_1)                   0.23 &     3.71 r
+  core/U42/Y (sky130_fd_sc_hd__o21ai_0)                   0.16 &     3.87 f
+  core/U10/Y (sky130_fd_sc_hd__a21oi_1)                   0.24 &     4.11 r
+  core/U40/Y (sky130_fd_sc_hd__o21ai_0)                   0.15 &     4.26 f
+  core/U9/Y (sky130_fd_sc_hd__a21oi_1)                    0.24 &     4.50 r
+  core/U54/Y (sky130_fd_sc_hd__o21ai_0)                   0.15 &     4.65 f
+  core/U8/Y (sky130_fd_sc_hd__a21oi_1)                    0.24 &     4.89 r
+  core/U38/Y (sky130_fd_sc_hd__o21ai_0)                   0.17 &     5.06 f
+  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)                 0.16 &     5.22 r
+  core/U7/Y (sky130_fd_sc_hd__clkinv_1)                   0.10 &     5.32 f
+  core/U467/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &     5.70 f
+  core/U13/X (sky130_fd_sc_hd__a21o_1)                    0.21 &     5.91 f
+  core/U466/COUT (sky130_fd_sc_hd__fa_1)                  0.36 &     6.27 f
+  core/U465/COUT (sky130_fd_sc_hd__fa_1)                  0.36 &     6.63 f
+  core/U464/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &     7.01 f
+  core/U469/COUT (sky130_fd_sc_hd__fa_1)                  0.37 &     7.38 f
+  core/U463/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &     7.75 f
+  core/U12/X (sky130_fd_sc_hd__a21o_1)                    0.21 &     7.96 f
+  core/U462/COUT (sky130_fd_sc_hd__fa_1)                  0.35 &     8.31 f
+  core/U56/COUT (sky130_fd_sc_hd__fa_1)                   0.37 &     8.68 f
+  core/U11/COUT (sky130_fd_sc_hd__fa_1)                   0.36 &     9.04 f
+  core/U468/COUT (sky130_fd_sc_hd__fa_1)                  0.35 &     9.39 f
+  core/U1366/X (sky130_fd_sc_hd__xor2_1)                  0.24 &     9.63 r
+  core/U1367/Y (sky130_fd_sc_hd__nand2_1)                 0.27 &     9.90 f
+  core/U1392/Y (sky130_fd_sc_hd__o21ai_0)                 0.36 &    10.25 r
+  core/CPU_Xreg_value_a4_reg[24][31]/D (sky130_fd_sc_hd__dfxtp_1)
+                                                          0.00 &    10.25 r
+  data arrival time                                                 10.25
 
   clock clk (rise edge)                                  10.00      10.00
-  clock network delay (ideal)                             3.00      13.00
-  clock reconvergence pessimism                           0.00      13.00
-  clock uncertainty                                      -0.50      12.50
-  core/CPU_Xreg_value_a4_reg[18][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
-                                                                    12.50 r
-  library setup time                                     -0.12      12.38
-  data required time                                                12.38
+  clock network delay (propagated)                        0.00      10.00
+  clock reconvergence pessimism                           0.00      10.00
+  core/CPU_Xreg_value_a4_reg[24][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                                    10.00 r
+  library setup time                                     -0.12       9.89
+  data required time                                                 9.89
   ------------------------------------------------------------------------------
-  data required time                                                12.38
-  data arrival time                                                -15.55
+  data required time                                                 9.89
+  data arrival time                                                -10.25
   ------------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -3.17
+  slack (VIOLATED)                                                  -0.37
 
 ```
-
-### Showing the results in primetime GUI - Need to investigate how to fix the timing issues
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d364bf57-1430-4cfd-8fdd-7d63dd7648fa)
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/972c1fc9-e47a-4a69-97e0-9027293a64e6)
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/cd28b274-5087-4eee-84e7-294c17fe25b6)
-
-
-
-
-
 
 
 
