@@ -3234,124 +3234,17 @@ Overal TIming looks better, need to improve 3 paths for hold:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fcb624d5-1221-4e71-87c0-7e0c17fe8a20)
 
-Before passing results to primetime, exploring some of the icc2 capabilities for anaylyzing clocks/cells
+#### Before passing results to primetime, exploring some of the icc2 capabilities to show clocks/cells
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/351ce2bb-54d4-4015-9156-3da5be8bf230)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7c83b505-c26e-4847-82ea-c06f42af5f3d)
 
+Need to improve hold time for 3 paths:
 
-
-
-
-
-## Basic Investigation on floorplanning command:
-
-#### According to user guide:
-
-#### Shapes allowed:
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8660516c-efae-4463-a790-b6f77232e94b)
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/343349a6-6c68-4e96-9ca3-7304a6c98902)
-
-#### We can specify side_ratio and side_length  -core_offset is the gap between core and die (keep out zone)
-
-```
-Results for last experiment made with flooplan command. Two possible choices. side_ratio which would have preserved the dimensions,
-and side_length using actual values. Second approach was used, vary the lengths values until do not see any errors or violations.
-There could be an iterative procedure to determine the optimal sizes starting from an initial estimate. It is also possible sizes
-for core/die are somehow pre-defined and specified at the beginning for customer. The tool seems to place the components/macros
-inside the defined floorplan.
-```
-Last command used in tl script:  
-```
-initialize_floorplan -control_type core -shape Rect -side_length {1700 900} -core_utilization 0.07  -coincident_boundary false -core_offset {20}
-```
-#### Checking the report files to see if this command is actually applied:
-
-File: preferred_macro_location.tcl that is generated after running the whole process  (outputs_icc2 folder):
-
-This seems to show coordinates relatives to 1
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3efb2c12-0d93-44e0-ab9d-71a5fd56eda6)
-
-Checking another report file located in:  /home/jose/VSDBabySoC_ICC2/standaloneFlow/write_data_dir/vsdbabysoc/vsdbabysoc.icc2.floorplan
-
-That file shows more precise locations where the macros and IO's were included after floorplaning command, that file seems to show the tool is using the dimensions indicated in the floorplan command:
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1fc2e031-2298-4615-a3c9-8aeaf15dce52)
-
-#### After running script, libraries ndm are created in work area:
-/home/jose/VSDBabySoC_ICC2/standaloneFlow/work/vsdbabysocSkywater
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b4f8dea9-136a-453d-8fe7-8c9ebba74402)
-
-## Modifying flow to generate parasitics file (SPEF) on final routed design:
-## First approach : Calculating parastics inside icc2 flow (top.tcl script)
-
--  Added route_opt, write parastiis (in this first try just one corner will be investigated)
-```  
-route_auto -max_detail_route_iterations 10 
-write_parasitics -corner func1 -output vsdbabysoc_parasitics
-```
-```
-icc2_shell> report_extraction_options
-Corner: func1
-
-icc2_shell> report_extraction_options -all
-
-Corner: func1
- late_cap_scale = 1
- late_res_scale = 1
- late_ccap_scale = 1
- late_vr_horizontal_cap_scale = 1
- late_vr_vertical_cap_scale = 1
- late_vr_horizontal_res_scale = 1
- late_vr_vertical_res_scale = 1
- late_vr_via_res_scale = 1
- late_rde_cap_scale = 1
- late_rde_res_scale = 1
- early_cap_scale = 1
- early_res_scale = 1
- early_ccap_scale = 1
- early_vr_horizontal_cap_scale = 1
- early_vr_vertical_cap_scale = 1
- early_vr_horizontal_res_scale = 1
- early_vr_vertical_res_scale = 1
- early_vr_via_res_scale = 1
- early_rde_cap_scale = 1
- early_rde_res_scale = 1
-
-Global options:
- late_ccap_threshold = 0.003
- late_ccap_ratio = 0.03
- early_ccap_threshold = 0.003
- early_ccap_ratio = 0.03
- reference_direction = use_from_tluplus
- real_metalfill_extraction = none
- virtual_metalfill_extraction = none
- virtual_metalfill_parameter_file = None
- virtual_shield_extraction = true
- enable_ccap_or_filtering = false
- honor_mask_constraints = false
- dielectricfill_extraction = none
- include_pin_resistance = true
- process_scale = 1.000000
- operating_frequency = 0.000000
-1
-icc2_shell> 
-
-```
-```
-When more corners are added the collection will show the new elements:
-icc2_shell> get_corners
-{func1}
-icc2_shell>
-```
-After running the new modified scripts, the parasitic files (SPEF format) are created:
-
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2fa2e1b3-9eb4-43f9-9ff2-e2585ae1f074)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b84a5c2f-0e1e-4a2c-b981-609d0660a941)
 
 
-# BASIC INVESTIGATION ON PRIMETIME TOOL
+
+# (NEED TO UPDATE PRIMETIME WITH THE NEW TIMING IMPROVEMENTS - FLOW IS THE SAME) BASIC INVESTIGATION ON PRIMETIME TOOL
 
 Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
 
