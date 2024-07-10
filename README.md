@@ -3233,7 +3233,8 @@ Overal TIming looks better, need to improve 3 paths for hold:
 
 #### Before passing results to primetime, exploring some of the icc2 capabilities to show clocks and internal cells
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/7c83b505-c26e-4847-82ea-c06f42af5f3d)
+![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/038eeb28-c731-4c25-8448-3bb95c239f35)
+
 
 Need to improve hold time for 3 paths:
 
