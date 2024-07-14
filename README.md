@@ -3420,6 +3420,16 @@ pt_shell>
 
 ```
 
+Some primetime gui snapshots
+
+![image](https://github.com/user-attachments/assets/2659c42b-67ad-4a16-b679-7fc9373baa7e)
+
+![image](https://github.com/user-attachments/assets/45b03052-814d-4182-9a95-628c8b9e2aa6)
+
+
+
+
+
 
 
 
