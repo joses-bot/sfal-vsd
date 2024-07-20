@@ -3974,6 +3974,9 @@ report_timing
 save_session
 
 ```
+Parasitics  extraction
+![image](https://github.com/user-attachments/assets/5f0daa4e-d7e4-433f-bf80-c9b1f1f6ccfd)
+
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a82bfa5f-da79-4ff9-922b-e5c9eef8d88b)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0e94731d-c481-43b0-b4ba-4868450ce06e)
@@ -3985,112 +3988,40 @@ save_session
 
 
 ```
-pt_shell> report_timing
+pt_shell> report_global_timing
 ****************************************
-Report : timing
-	-path_type full
-	-delay_type max
-	-max_paths 1
-	-sort_by slack
+Report : global_timing
+	-format { narrow }
 Design : vsdbabysoc
 Version: T-2022.03-SP5-4
-Date   : Sat Jul 13 19:30:32 2024
+Date   : Sat Jul 20 23:15:05 2024
 ****************************************
 
+No setup violations found.
 
-  Startpoint: core/CPU_is_addi_a3_reg
-               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: core/CPU_Xreg_value_a4_reg[27][31]
-               (rising edge-triggered flip-flop clocked by clk)
-  Last common pin: pll/CLK
-  Path Group: clk
-  Path Type: max
-
-  Point                                                   Incr       Path
-  ------------------------------------------------------------------------------
-  clock clk (rise edge)                                   0.00       0.00
-  clock network delay (propagated)                        0.00       0.00
-  core/CPU_is_addi_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)
-                                                          0.00       0.00 r
-  core/CPU_is_addi_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
-                                                          0.26       0.26 f
-  core/U560/Y (sky130_fd_sc_hd__clkinv_1)                 0.07       0.33 r
-  core/U6/X (sky130_fd_sc_hd__and2_2)                     0.68       1.01 r
-  core/U573/X (sky130_fd_sc_hd__xor2_1)                   0.11       1.13 f
-  core/U52/X (sky130_fd_sc_hd__or2_1)                     0.24 H     1.37 f
-  core/U21/Y (sky130_fd_sc_hd__a21oi_1)                   0.19 H     1.56 r
-  core/U20/Y (sky130_fd_sc_hd__o21ai_0)                   0.15       1.71 f
-  core/U19/Y (sky130_fd_sc_hd__a21oi_1)                   0.22       1.93 r
-  core/U18/Y (sky130_fd_sc_hd__o21ai_0)                   0.14       2.07 f
-  core/U17/Y (sky130_fd_sc_hd__a21oi_1)                   0.22       2.29 r
-  core/U48/Y (sky130_fd_sc_hd__o21ai_0)                   0.14       2.43 f
-  core/U16/Y (sky130_fd_sc_hd__a21oi_1)                   0.22       2.64 r
-  core/U46/Y (sky130_fd_sc_hd__o21ai_0)                   0.14       2.78 f
-  core/U15/Y (sky130_fd_sc_hd__a21oi_1)                   0.22       3.00 r
-  core/U44/Y (sky130_fd_sc_hd__o21ai_0)                   0.14 H     3.14 f
-  core/U14/Y (sky130_fd_sc_hd__a21oi_1)                   0.22 H     3.36 r
-  core/U42/Y (sky130_fd_sc_hd__o21ai_0)                   0.14       3.50 f
-  core/U10/Y (sky130_fd_sc_hd__a21oi_1)                   0.22       3.72 r
-  core/U40/Y (sky130_fd_sc_hd__o21ai_0)                   0.14       3.86 f
-  core/U9/Y (sky130_fd_sc_hd__a21oi_1)                    0.22       4.07 r
-  core/U54/Y (sky130_fd_sc_hd__o21ai_0)                   0.14       4.21 f
-  core/U8/Y (sky130_fd_sc_hd__a21oi_1)                    0.22       4.43 r
-  core/U38/Y (sky130_fd_sc_hd__o21ai_0)                   0.15       4.58 f
-  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)                 0.16       4.74 r
-  core/U7/Y (sky130_fd_sc_hd__clkinv_1)                   0.08       4.82 f
-  core/U467/COUT (sky130_fd_sc_hd__fa_1)                  0.36       5.18 f
-  core/U13/X (sky130_fd_sc_hd__a21o_1)                    0.19       5.37 f
-  core/U466/COUT (sky130_fd_sc_hd__fa_1)                  0.35       5.72 f
-  core/U465/COUT (sky130_fd_sc_hd__fa_1)                  0.36       6.08 f
-  core/U464/COUT (sky130_fd_sc_hd__fa_1)                  0.36       6.44 f
-  core/U469/COUT (sky130_fd_sc_hd__fa_1)                  0.36       6.80 f
-  core/U463/COUT (sky130_fd_sc_hd__fa_1)                  0.37       7.17 f
-  core/U12/X (sky130_fd_sc_hd__a21o_1)                    0.19       7.36 f
-  core/U462/COUT (sky130_fd_sc_hd__fa_1)                  0.35       7.70 f
-  core/U56/COUT (sky130_fd_sc_hd__fa_1)                   0.36       8.06 f
-  core/U11/COUT (sky130_fd_sc_hd__fa_1)                   0.36       8.42 f
-  core/U468/COUT (sky130_fd_sc_hd__fa_1)                  0.35       8.78 f
-  core/U1366/X (sky130_fd_sc_hd__xor2_1)                  0.23       9.01 r
-  core/U1367/Y (sky130_fd_sc_hd__nand2_1)                 0.22 H     9.23 f
-  core/U1382/Y (sky130_fd_sc_hd__o21ai_0)                 0.29 &     9.52 r
-  core/CPU_Xreg_value_a4_reg[27][31]/D (sky130_fd_sc_hd__dfxtp_1)
-                                                          0.00 &     9.52 r
-  data arrival time                                                  9.52
-
-  clock clk (rise edge)                                  10.00      10.00
-  clock network delay (propagated)                        0.00      10.00
-  clock reconvergence pessimism                           0.00      10.00
-  clock uncertainty                                      -0.10       9.90
-  core/CPU_Xreg_value_a4_reg[27][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
-                                                                     9.90 r
-  library setup time                                     -0.09       9.81
-  data required time                                                 9.81
-  ------------------------------------------------------------------------------
-  data required time                                                 9.81
-  data arrival time                                                 -9.52
-  ------------------------------------------------------------------------------
-  slack (MET)                                                        0.29
-
-
+No hold violations found.
 1
+pt_shell> 
+
 pt_shell> report_analysis_coverage
 ****************************************
 Report : analysis_coverage
 Design : vsdbabysoc
 Version: T-2022.03-SP5-4
-Date   : Sat Jul 13 19:35:41 2024
+Date   : Sat Jul 20 23:13:23 2024
 ****************************************
 
 Type of Check         Total              Met         Violated         Untested
 --------------------------------------------------------------------------------
-setup                   676       675 (100%)         0 (  0%)         1 (  0%)
-hold                    676       675 (100%)         0 (  0%)         1 (  0%)
-min_pulse_width        1352      1352 (100%)         0 (  0%)         0 (  0%)
+setup                   676         0 (  0%)         0 (  0%)       676 (100%)
+hold                    676         0 (  0%)         0 (  0%)       676 (100%)
+min_pulse_width        1352         0 (  0%)         0 (  0%)      1352 (100%)
 --------------------------------------------------------------------------------
-All Checks             2704      2702 (100%)         0 (  0%)         2 (  0%)
+All Checks             2704         0 (  0%)         0 (  0%)      2704 (100%)
 
 1
 pt_shell> 
+
 
 ```
 
