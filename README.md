@@ -3159,25 +3159,25 @@ Date   : Sun Jul 14 01:25:08 2024
 ```
 
 ```
-[icc2-lic Sun Jul 14 01:30:09 2024] Command 'report_timing' requires licenses
-[icc2-lic Sun Jul 14 01:30:09 2024] Attempting to check-out alternate set of keys directly with queueing
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending count request for 'ICCompilerII-8' 
-[icc2-lic Sun Jul 14 01:30:09 2024] Count request for 'ICCompilerII-8' returned 1 
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
-[icc2-lic Sun Jul 14 01:30:09 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending checkout check request for 'ICCompilerII-8' 
-[icc2-lic Sun Jul 14 01:30:09 2024] Checkout check request for 'ICCompilerII-8' returned 0 
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending count request for 'ICCompilerII-8' 
-[icc2-lic Sun Jul 14 01:30:09 2024] Count request for 'ICCompilerII-8' returned 1 
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending count request for 'ICCompilerII-NX' 
-[icc2-lic Sun Jul 14 01:30:09 2024] Count request for 'ICCompilerII-NX' returned 1 
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
-[icc2-lic Sun Jul 14 01:30:09 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending checkout check request for 'ICCompilerII-NX' 
-[icc2-lic Sun Jul 14 01:30:09 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
-[icc2-lic Sun Jul 14 01:30:09 2024] Sending count request for 'ICCompilerII-NX' 
-[icc2-lic Sun Jul 14 01:30:09 2024] Count request for 'ICCompilerII-NX' returned 1 
-[icc2-lic Sun Jul 14 01:30:09 2024] Check-out of alternate set of keys directly with queueing was successful
+[icc2-lic Sat Jul 20 22:45:03 2024] Command 'report_timing' requires licenses
+[icc2-lic Sat Jul 20 22:45:03 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:45:03 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Sat Jul 20 22:45:03 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:45:03 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:45:03 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:45:03 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Sat Jul 20 22:45:03 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:45:03 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Sat Jul 20 22:45:03 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:45:03 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:45:03 2024] Check-out of alternate set of keys directly with queueing was successful
 ****************************************
 Report : timing
         -path_type full
@@ -3186,11 +3186,11 @@ Report : timing
         -report_by design
 Design : vsdbabysoc
 Version: T-2022.03-SP5
-Date   : Sun Jul 14 01:30:09 2024
+Date   : Sat Jul 20 22:45:03 2024
 ****************************************
 
   Startpoint: core/CPU_is_add_a3_reg (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: core/CPU_Xreg_value_a4_reg[9][31] (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: core/CPU_Xreg_value_a4_reg[24][31] (rising edge-triggered flip-flop clocked by clk)
   Mode: func1
   Corner: func1
   Scenario: func1
@@ -3200,79 +3200,750 @@ Date   : Sun Jul 14 01:30:09 2024
   Point                                            Incr      Path  
   ------------------------------------------------------------------------
   clock clk (rise edge)                            0.00      0.00
-  clock network delay (propagated)                 0.38      0.38
+  clock network delay (propagated)                 1.21      1.21
 
   core/CPU_is_add_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)
-                                                   0.00      0.38 r
+                                                   0.00      1.21 r
   core/CPU_is_add_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
-                                                   0.41      0.79 r ~
-  core/U461/Y (sky130_fd_sc_hd__clkinv_1)          0.06      0.85 f ~
-  core/U562/Y (sky130_fd_sc_hd__nand2_1)           0.13      0.99 r ~
-  core/U563/Y (sky130_fd_sc_hd__nand2_1)           0.09      1.08 f ~
-  core/U33/Y (sky130_fd_sc_hd__inv_2)              0.45      1.53 r ~
-  core/U570/Y (sky130_fd_sc_hd__nand2_1)           0.10      1.63 f ~
-  core/U572/Y (sky130_fd_sc_hd__nand2_1)           0.13      1.75 r ~
-  core/U573/X (sky130_fd_sc_hd__xor2_1)            0.07      1.82 f ~
-  core/U52/X (sky130_fd_sc_hd__or2_1)              0.24      2.06 f ~
-  core/U21/Y (sky130_fd_sc_hd__a21oi_1)            0.19      2.25 r ~
-  core/U20/Y (sky130_fd_sc_hd__o21ai_0)            0.16      2.41 f ~
-  core/U19/Y (sky130_fd_sc_hd__a21oi_1)            0.23      2.64 r ~
-  core/U18/Y (sky130_fd_sc_hd__o21ai_0)            0.15      2.79 f ~
-  core/U17/Y (sky130_fd_sc_hd__a21oi_1)            0.21      3.00 r ~
-  core/U48/Y (sky130_fd_sc_hd__o21ai_0)            0.14      3.14 f ~
-  core/U16/Y (sky130_fd_sc_hd__a21oi_1)            0.22      3.36 r ~
-  core/U46/Y (sky130_fd_sc_hd__o21ai_0)            0.14      3.50 f ~
-  core/U15/Y (sky130_fd_sc_hd__a21oi_1)            0.22      3.73 r ~
-  core/U44/Y (sky130_fd_sc_hd__o21ai_0)            0.14      3.87 f ~
-  core/U14/Y (sky130_fd_sc_hd__a21oi_1)            0.23      4.10 r ~
-  core/U42/Y (sky130_fd_sc_hd__o21ai_0)            0.14      4.24 f ~
-  core/U10/Y (sky130_fd_sc_hd__a21oi_1)            0.21      4.45 r ~
-  core/U40/Y (sky130_fd_sc_hd__o21ai_0)            0.14      4.59 f ~
-  core/U9/Y (sky130_fd_sc_hd__a21oi_1)             0.21      4.80 r ~
-  core/U54/Y (sky130_fd_sc_hd__o21ai_0)            0.14      4.94 f ~
-  core/U8/Y (sky130_fd_sc_hd__a21oi_1)             0.22      5.16 r ~
-  core/U38/Y (sky130_fd_sc_hd__o21ai_0)            0.15      5.31 f ~
-  core/U1101/Y (sky130_fd_sc_hd__a21oi_2)          0.16      5.47 r ~
-  core/U7/Y (sky130_fd_sc_hd__clkinv_1)            0.08      5.55 f ~
-  core/U467/COUT (sky130_fd_sc_hd__fa_1)           0.36      5.91 f ~
-  core/U13/X (sky130_fd_sc_hd__a21o_1)             0.20      6.11 f ~
-  core/U466/COUT (sky130_fd_sc_hd__fa_1)           0.35      6.46 f ~
-  core/U465/COUT (sky130_fd_sc_hd__fa_1)           0.36      6.82 f ~
-  core/U464/COUT (sky130_fd_sc_hd__fa_1)           0.36      7.18 f ~
-  core/U469/COUT (sky130_fd_sc_hd__fa_1)           0.35      7.54 f ~
-  core/U463/COUT (sky130_fd_sc_hd__fa_1)           0.37      7.90 f ~
-  core/U12/X (sky130_fd_sc_hd__a21o_1)             0.21      8.11 f ~
-  core/U462/COUT (sky130_fd_sc_hd__fa_1)           0.35      8.46 f ~
-  core/U56/COUT (sky130_fd_sc_hd__fa_1)            0.38      8.84 f ~
-  core/U11/COUT (sky130_fd_sc_hd__fa_1)            0.38      9.22 f ~
-  core/U468/COUT (sky130_fd_sc_hd__fa_1)           0.37      9.59 f ~
-  core/U1366/X (sky130_fd_sc_hd__xor2_1)           0.25      9.83 r ~
-  core/U1367/Y (sky130_fd_sc_hd__nand2_1)          0.23     10.06 f ~
-  core/U1376/Y (sky130_fd_sc_hd__o21ai_0)          0.35     10.42 r ~
-  core/CPU_Xreg_value_a4_reg[9][31]/D (sky130_fd_sc_hd__dfxtp_1)
-                                                   0.00     10.42 r
-  data arrival time                                         10.42
+                                                   0.35      1.56 f
+  core/U475/Y (sky130_fd_sc_hd__nor2_1)            0.14      1.70 r
+  core/U477/X (sky130_fd_sc_hd__and2_0)            0.21      1.91 r
+  core/HFSBUF_622_506/X (sky130_fd_sc_hd__clkbuf_1)
+                                                   0.28      2.19 r
+  core/gre_mt_inst_4564/X (sky130_fd_sc_hd__clkbuf_4)
+                                                   0.26      2.46 r
+  core/ctmTdsLR_2_580/Y (sky130_fd_sc_hd__xnor2_1)
+                                                   0.10      2.56 f
+  core/U39/X (sky130_fd_sc_hd__or2_0)              0.25      2.80 f
+  core/ctmTdsLR_1_629/Y (sky130_fd_sc_hd__a21boi_1)
+                                                   0.23      3.03 r
+  core/U577/Y (sky130_fd_sc_hd__o21ai_1)           0.14      3.17 f
+  core/ctmTdsLR_1_652/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.20      3.37 r
+  core/U584/Y (sky130_fd_sc_hd__o21ai_1)           0.13      3.49 f
+  core/ctmTdsLR_1_658/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.20      3.70 r
+  core/U590/Y (sky130_fd_sc_hd__o21ai_1)           0.13      3.83 f
+  core/ctmTdsLR_1_659/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.19      4.02 r
+  core/U207/Y (sky130_fd_sc_hd__o21ai_1)           0.13      4.15 f
+  core/ctmTdsLR_1_660/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.19      4.34 r
+  core/U205/Y (sky130_fd_sc_hd__o21ai_1)           0.13      4.46 f
+  core/ctmTdsLR_1_661/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.21      4.67 r
+  core/U206/Y (sky130_fd_sc_hd__o21ai_1)           0.12      4.79 f
+  core/ctmTdsLR_1_662/Y (sky130_fd_sc_hd__a21boi_1)
+                                                   0.24      5.04 r
+  core/U215/Y (sky130_fd_sc_hd__o21ai_2)           0.12      5.16 f
+  core/gre_mt_inst_4568/X (sky130_fd_sc_hd__buf_4)
+                                                   0.18      5.33 f
+  core/ctmTdsLR_1_663/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      5.40 r
+  core/ctmTdsLR_2_664/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      5.46 f
+  core/U946/COUT (sky130_fd_sc_hd__fa_1)           0.40      5.86 f
+  core/ctmTdsLR_1_665/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.08      5.93 r
+  core/ctmTdsLR_2_666/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      5.99 f
+  core/U909/COUT (sky130_fd_sc_hd__fa_1)           0.38      6.37 f
+  core/U891/COUT (sky130_fd_sc_hd__fa_1)           0.39      6.76 f
+  core/U1371/COUT (sky130_fd_sc_hd__fa_1)          0.40      7.16 f
+  core/U87/COUT (sky130_fd_sc_hd__fa_2)            0.37      7.53 f
+  core/U85/Y (sky130_fd_sc_hd__clkinv_1)           0.05      7.58 r
+  core/U616/Y (sky130_fd_sc_hd__o21ai_0)           0.08      7.67 f
+  core/U360/COUT (sky130_fd_sc_hd__fa_1)           0.39      8.06 f
+  core/U358/COUT (sky130_fd_sc_hd__fa_1)           0.41      8.47 f
+  core/U35/COUT (sky130_fd_sc_hd__fa_1)            0.41      8.87 f
+  core/U34/COUT (sky130_fd_sc_hd__fa_2)            0.37      9.24 f
+  core/ctmTdsLR_1_667/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.07      9.31 r
+  core/ctmTdsLR_2_668/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      9.37 f
+  core/U357/COUT (sky130_fd_sc_hd__fa_1)           0.38      9.75 f
+  core/U359/COUT (sky130_fd_sc_hd__fa_1)           0.38     10.14 f
+  core/U622/X (sky130_fd_sc_hd__xor2_1)            0.20     10.33 r
+  core/U31/Y (sky130_fd_sc_hd__nand2_1)            0.23     10.56 f
+  core/HFSBUF_147_75/X (sky130_fd_sc_hd__buf_2)    0.24     10.80 f
+  core/U654/Y (sky130_fd_sc_hd__o22ai_1)           0.11     10.91 r
+  core/CPU_Xreg_value_a4_reg[24][31]/D (sky130_fd_sc_hd__dfxtp_4)
+                                                   0.00     10.91 r
+  data arrival time                                         10.91
 
   clock clk (rise edge)                           10.00     10.00
-  clock network delay (propagated)                 0.88     10.88
-  core/CPU_Xreg_value_a4_reg[9][31]/CLK (sky130_fd_sc_hd__dfxtp_1)
-                                                   0.00     10.88 r
-  clock uncertainty                               -0.10     10.78
-  library setup time                              -0.03     10.76
-  data required time                                        10.76
+  clock network delay (propagated)                 1.09     11.09
+  core/CPU_Xreg_value_a4_reg[24][31]/CLK (sky130_fd_sc_hd__dfxtp_4)
+                                                   0.00     11.09 r
+  clock uncertainty                               -0.10     10.99
+  library setup time                              -0.06     10.93
+  data required time                                        10.93
   ------------------------------------------------------------------------
-  data required time                                        10.76
-  data arrival time                                        -10.42
+  data required time                                        10.93
+  data arrival time                                        -10.91
   ------------------------------------------------------------------------
-  slack (MET)                                                0.34
+  slack (MET)                                                0.01
 
 
 1
 
-```
-![image](https://github.com/user-attachments/assets/013be5e8-68fe-4067-9a88-ba53d65747ab)
 
-Setup and for hold seem to be mett. CAP and Trans have some violations
+```
+Setup and for hold seem to be met. Trans also met, cap has some small violations
+```
+[icc2-lic Sat Jul 20 22:50:06 2024] Command 'report_constraints' requires licenses
+[icc2-lic Sat Jul 20 22:50:06 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Sat Jul 20 22:50:06 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Sat Jul 20 22:50:06 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Check-out of alternate set of keys directly with queueing was successful
+[icc2-lic Sat Jul 20 22:50:06 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Sat Jul 20 22:50:06 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Sat Jul 20 22:50:06 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Sat Jul 20 22:50:06 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:50:06 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:50:06 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : constraint
+        -all_violators
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Sat Jul 20 22:50:06 2024
+****************************************
+
+   late_timing
+   -----------
+
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   early_timing
+   -----------
+
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths
+
+   Mode: func1 Corner: func1
+   Scenario: func1
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: func1 Corner: func1
+   Scenario: func1
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   OUT                          0.03           1.00          -0.97  (VIOLATED) 
+     PIN : gre_mt_inst_4698/X
+                                0.03           1.00          -0.97  (VIOLATED) 
+
+   gre_net_270                  0.03           0.12          -0.09  (VIOLATED) 
+     PIN : gre_mt_inst_4647/X
+                                0.03           0.12          -0.09  (VIOLATED) 
+
+   gre_net_267                  0.03           0.11          -0.08  (VIOLATED) 
+     PIN : gre_mt_inst_4644/X
+                                0.03           0.11          -0.08  (VIOLATED) 
+
+   gre_net_265                  0.03           0.11          -0.08  (VIOLATED) 
+     PIN : gre_mt_inst_4642/X
+                                0.03           0.11          -0.08  (VIOLATED) 
+
+   gre_a_BUF_141_f_0            0.03           0.08          -0.05  (VIOLATED) 
+     PIN : gre_a_BUF_141_f_inst_4894/X
+                                0.03           0.08          -0.05  (VIOLATED) 
+
+   gre_a_BUF_59_f_0             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : gre_a_BUF_59_f_inst_4892/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_336             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4938/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_222             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4599/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_325             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4927/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_199             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4576/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_196             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4573/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_324             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4926/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_333             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4935/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_326             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4928/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_329             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4931/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_327             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4929/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_221             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4598/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_311             0.03           0.04          -0.01  (VIOLATED) 
+     PIN : core/gre_mt_inst_4688/X
+                                0.03           0.04          -0.01  (VIOLATED) 
+
+   core/gre_net_313             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4690/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_284             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4661/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_194             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4571/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_309             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4686/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_305             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4682/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_286             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4663/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_307              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_377_328/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_a_BUF_3398_0        0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_a_BUF_3398_inst_4916/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_216             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4593/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_303             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4680/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_354             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4956/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_348              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSINV_1491_371/Y
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_315             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4692/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_353             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4955/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_293             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4670/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_202             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4579/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_298             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4675/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_348             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4950/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_256             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4633/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_273             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4650/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_214             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4591/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_231             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4608/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_283             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4660/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_274             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4651/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_349             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4951/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_208             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4585/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ctosc_drc_8             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ctosc_drc_inst_1490/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_304             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4681/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_287             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4664/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_72               0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_595_92/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_334             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4936/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n412                    0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U211/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZBUF_161_1              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZBUF_161_inst_4350/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_357             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4959/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_260             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4637/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_197             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4574/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1512                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U649/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_294             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4671/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_332             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4934/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_299             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4676/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_331             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4933/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_288             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4665/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_262             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4639/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_302              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_299_323/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_203             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4580/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1333                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U1004/Y         0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_279             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4656/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_338             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4940/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/CPU_imem_rd_addr_a1[0]
+                                0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/CPU_imem_rd_addr_a1_reg[0]/Q
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_337             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4939/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1285                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U1133/Y         0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZBUF_357_15             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZBUF_357_inst_873/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_128              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_228_149/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_228             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4605/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_306             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4683/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_268              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_440_289/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_219             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4596/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_198             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4575/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_243             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4620/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_195             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4572/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_206             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4583/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ctosc_drc_23            0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ctosc_drc_inst_1505/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_339             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4941/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_292             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4669/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_a_BUF_2272_0        0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_a_BUF_2272_inst_4913/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_212             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4589/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1218                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U231/X          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_240             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4617/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_358             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4960/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_402              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_141_428/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_237             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4614/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_230             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4607/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1488                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U635/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1381                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U892/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1413                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U840/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_519              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_1671_546/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_302             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4679/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_46               0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_447_66/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_191              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_472_212/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_301             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4678/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_229             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4606/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_296             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4673/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_263             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4640/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_318             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4695/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1184                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U1292/Y         0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1228                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U1288/Y         0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_347             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4949/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_298              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_967_319/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZCTSNET_546             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZCTSBUF_17055_1016/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/CPU_reset_a3            0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/CPU_reset_a3_reg/Q
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1558                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U1950/Y         0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_422              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_1349_448/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_211             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4588/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_328             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4930/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_333              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_707_355/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_245             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4622/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1555                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U514/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_225             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4602/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_330             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4932/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_434              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_358_460/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_276             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4653/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ctosc_drc_5             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ctosc_drc_inst_1487/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1507                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U671/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_356             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4958/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_247              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_221_268/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_18               0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_379_38/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ccd_drc_3               0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ccd_drc_inst_4890/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_350             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4952/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_236             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4613/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_264             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4641/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZCTSNET_636             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZCTSBUF_10325_1106/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n817                    0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U495/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_99               0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_193_119/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZCTSNET_544             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZCTSBUF_18451_1014/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_209             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4586/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_204             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4581/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZBUF_87_2               0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZBUF_87_inst_1741/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_130              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_612_151/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_254             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4631/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_503              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_1444_530/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_352             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4954/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/n1532                   0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/U661/Y          0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_491              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_800_518/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZBUF_45_0               0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZBUF_45_inst_728/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_a_BUF_1509_0        0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_a_BUF_1509_inst_4919/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_218             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4595/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/HFSNET_223              0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/HFSBUF_1183_244/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/gre_net_189             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/gre_mt_inst_4566/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+   core/ZCTSNET_561             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : core/ZCTSBUF_21065_1031/X
+                                0.03           0.03          -0.00  (VIOLATED) 
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 147
+
+
+
+   Total number of violation(s): 147
+1
+
+```
 
 
 #### Before passing results to primetime, exploring some of the icc2 capabilities to show clocks and internal cells
