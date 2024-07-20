@@ -3961,7 +3961,7 @@ Prime time is one of the most accurate timing tools available in the industry to
 
 Reading design files and parasitics using primetime tool:
 ```
-set target_library  /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/sky130_fd_sc_hd__ff_n40C_1v56.db
+set target_library  /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/sky130_fd_sc_hd__tt_025C_1v80.db
 set link_library [concat * $target_library \ /home/jose/VSDBabySoC/src/lib/avsdpll.db \  /home/jose/VSDBabySoC/src/lib/avsddac.db]
 read_verilog  vsdbabysoc_route.v 
 link_design vsdbabysoc
