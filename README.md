@@ -4090,7 +4090,7 @@ Looks like after optimization buffers were added to some nets from core to dac
 ![image](https://github.com/user-attachments/assets/8af12a31-ae9a-44ef-8ec9-af6d2823c90c)
 
 
-### Checking some of the primtime reports : (timing report, coverage) - PT also shows Trans and Cap needs some improvement
+### Checking some of the primtime reports : (timing report, coverage) 
 
 
 ```
