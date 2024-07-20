@@ -4027,11 +4027,29 @@ All Checks             2704         0 (  0%)         0 (  0%)      2704 (100%)
 pt_shell> 
 
 
+pt_shell> report_constraints
+****************************************
+Report : constraint
+Design : vsdbabysoc
+Version: T-2022.03-SP5-4
+Date   : Sat Jul 20 23:39:04 2024
+****************************************
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_capacitance                                  0.00  (MET)
+    max_transition                                   0.00  (MET)
+
+1
+pt_shell> 
+
 ```
 
 Some primetime gui snapshots
 
-![image](https://github.com/user-attachments/assets/2659c42b-67ad-4a16-b679-7fc9373baa7e)
+![image](https://github.com/user-attachments/assets/17493596-4d8d-4f2d-a589-c5a9a9817826)
+
+
 
 
 
