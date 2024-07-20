@@ -3287,9 +3287,11 @@ Date   : Sat Jul 20 22:45:03 2024
 
 1
 
-
 ```
-Setup and for hold seem to be met. Trans also met, cap has some small violations
+Setup and for hold seem to be met. Trans also met, cap has some small violations (will check later)
+
+![image](https://github.com/user-attachments/assets/aa5cd4f0-d836-4958-87fd-0ea413cf0343)
+
 ```
 [icc2-lic Sat Jul 20 22:50:06 2024] Command 'report_constraints' requires licenses
 [icc2-lic Sat Jul 20 22:50:06 2024] Attempting to check-out alternate set of keys directly with queueing
@@ -3980,6 +3982,7 @@ save_session
 
 
 ### Checking some of the primtime reports : (timing report, coverage) - PT also shows Trans and Cap needs some improvement
+
 
 ```
 pt_shell> report_timing
