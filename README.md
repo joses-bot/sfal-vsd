@@ -3983,6 +3983,10 @@ Parasitics  extraction
 
 ![image](https://github.com/user-attachments/assets/645102b2-5c5a-40a2-a1c3-27c1ce2df5d3)
 
+Looks like after optimization buffers were added to some nets from core to dac
+
+![image](https://github.com/user-attachments/assets/8af12a31-ae9a-44ef-8ec9-af6d2823c90c)
+
 
 ### Checking some of the primtime reports : (timing report, coverage) - PT also shows Trans and Cap needs some improvement
 
@@ -4029,7 +4033,6 @@ Some primetime gui snapshots
 
 ![image](https://github.com/user-attachments/assets/2659c42b-67ad-4a16-b679-7fc9373baa7e)
 
-![image](https://github.com/user-attachments/assets/45b03052-814d-4182-9a95-628c8b9e2aa6)
 
 
 
