@@ -3290,7 +3290,109 @@ Date   : Sat Jul 20 22:45:03 2024
 ```
 Setup and for hold seem to be met. Trans also met, cap has some small violations (will check later)
 
+
 ![image](https://github.com/user-attachments/assets/aa5cd4f0-d836-4958-87fd-0ea413cf0343)
+
+```
+[icc2-lic Sat Jul 20 22:41:21 2024] Command 'report_qor' requires licenses
+[icc2-lic Sat Jul 20 22:41:21 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:41:21 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Sat Jul 20 22:41:21 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:41:21 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Sat Jul 20 22:41:21 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:41:21 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Sat Jul 20 22:41:21 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:41:21 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Sat Jul 20 22:41:21 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Sat Jul 20 22:41:21 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Sat Jul 20 22:41:21 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : qor
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Sat Jul 20 22:41:21 2024
+****************************************
+
+
+Scenario           'func1'
+Timing Path Group  'clk'
+----------------------------------------
+Levels of Logic:                     44
+Critical Path Length:              9.70
+Critical Path Slack:               0.01
+Critical Path Clk Period:         10.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:             -0.00
+Total Hold Violation:             -0.00
+No. of Hold Violations:               1
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              1
+Hierarchical Port Count:             14
+Leaf Cell Count:                   3503
+Buf/Inv Cell Count:                1325
+Buf Cell Count:                     777
+Inv Cell Count:                     548
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:          2827
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              676
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       676
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          2
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            14665.32
+Noncombinational Area:         15957.80
+Buf/Inv Area:                   5387.67
+Total Buffer Area:              2996.62
+Total Inverter Area:            2391.04
+Macro/Black Box Area:         671652.37
+Net Area:                             0
+Net XLength:                   50726.29
+Net YLength:                   51476.64
+----------------------------------------
+Cell Area (netlist):                         702275.49
+Cell Area (netlist and physical only):      1608826.20
+Net Length:                   102202.93
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:              3525
+Nets with Violations:               147
+Max Trans Violations:                 0
+Max Cap Violations:                 147
+----------------------------------------
+
+1
+```
 
 ```
 [icc2-lic Sat Jul 20 22:50:06 2024] Command 'report_constraints' requires licenses
