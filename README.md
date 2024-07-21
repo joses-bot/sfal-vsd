@@ -3975,7 +3975,11 @@ No paths
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/038eeb28-c731-4c25-8448-3bb95c239f35)
 
-![image](https://github.com/user-attachments/assets/b7f5cccc-b596-4822-af5e-776094e28fc3)
+![image](https://github.com/user-attachments/assets/4f3e7270-5cc8-436a-acec-c8e2224f1cd0)
+
+![image](https://github.com/user-attachments/assets/0ca1c590-6134-4c2e-a028-f282d1db3b30)
+
+![image](https://github.com/user-attachments/assets/76833870-79fa-4c21-aab9-c72dc44a8331)
 
 
 # UPDATING PRIMETIME WITH THE NEW TIMING IMPROVEMENTS - INVESTIGATION ON PRIMETIME TOOL
