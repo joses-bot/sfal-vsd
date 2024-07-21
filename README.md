@@ -3973,7 +3973,11 @@ No paths
 
 #### Exploring some of the icc2 capabilities to show clocks and internal cells
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/038eeb28-c731-4c25-8448-3bb95c239f35)
+![image](https://github.com/user-attachments/assets/94b1980f-666a-4fa5-ae53-b9d689ee89ad)
+
+![image](https://github.com/user-attachments/assets/73f12ba0-4612-4836-b44a-f156b5b27f61)
+
+![image](https://github.com/user-attachments/assets/c6448d2b-0bd9-4ee7-bd3d-1c2dc7a416b6)
 
 ![image](https://github.com/user-attachments/assets/4f3e7270-5cc8-436a-acec-c8e2224f1cd0)
 
