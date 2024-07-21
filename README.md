@@ -4106,8 +4106,7 @@ Schematics view
 
 ### Only some small caps err remaining 
 
-![image](https://github.com/user-attachments/assets/34751c80-d7a5-4eb5-95fb-087c724893e2)
-
+![image](https://github.com/user-attachments/assets/79b46c5e-435e-4d2b-a1bf-1d1238ee9708)
 
 ### Checking some of the primetime reports : (timing report, coverage) 
 
