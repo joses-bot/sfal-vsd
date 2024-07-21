@@ -3971,7 +3971,7 @@ No paths
 ```
 
 
-#### Before passing results to primetime, exploring some of the icc2 capabilities to show clocks and internal cells
+#### Exploring some of the icc2 capabilities to show clocks and internal cells
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/038eeb28-c731-4c25-8448-3bb95c239f35)
 
