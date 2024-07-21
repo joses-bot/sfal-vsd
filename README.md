@@ -4094,6 +4094,103 @@ Looks like after optimization buffers were added to some nets from core to dac
 
 
 ```
+pt_shell> report_timing
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : vsdbabysoc
+Version: T-2022.03-SP5-4
+Date   : Sun Jul 21 00:43:39 2024
+****************************************
+
+
+  Startpoint: core/CPU_is_addi_a3_reg
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: core/CPU_Xreg_value_a4_reg[27][31]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  core/CPU_is_addi_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                                          0.00       0.00 r
+  core/CPU_is_addi_a3_reg/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                          0.44 &     0.44 r
+  core/U475/Y (sky130_fd_sc_hd__nor2_1)                   0.11 &     0.55 f
+  core/U477/X (sky130_fd_sc_hd__and2_0)                   0.19 &     0.74 f
+  core/HFSINV_2732_507/Y (sky130_fd_sc_hd__inv_1)         0.06 &     0.80 r
+  core/U49/Y (sky130_fd_sc_hd__nand2_1)                   0.08 &     0.88 f
+  core/ctmTdsLR_1_575/Y (sky130_fd_sc_hd__a22oi_1)        0.19 &     1.07 r
+  core/ctmTdsLR_2_576/Y (sky130_fd_sc_hd__o2bb2ai_1)      0.14 &     1.22 f
+  core/ctmTdsLR_1_585/Y (sky130_fd_sc_hd__a21boi_1)       0.25 &     1.47 r
+  core/U572/Y (sky130_fd_sc_hd__o21ai_1)                  0.18 &     1.65 f
+  core/ctmTdsLR_1_629/Y (sky130_fd_sc_hd__a21boi_1)       0.23 &     1.88 r
+  core/U577/Y (sky130_fd_sc_hd__o21ai_1)                  0.14 &     2.02 f
+  core/ctmTdsLR_1_652/Y (sky130_fd_sc_hd__a21boi_2)       0.20 &     2.22 r
+  core/U584/Y (sky130_fd_sc_hd__o21ai_1)                  0.13 &     2.35 f
+  core/ctmTdsLR_1_658/Y (sky130_fd_sc_hd__a21boi_2)       0.20 &     2.55 r
+  core/U590/Y (sky130_fd_sc_hd__o21ai_1)                  0.13 &     2.68 f
+  core/ctmTdsLR_1_659/Y (sky130_fd_sc_hd__a21boi_2)       0.19 &     2.87 r
+  core/U207/Y (sky130_fd_sc_hd__o21ai_1)                  0.13 &     3.00 f
+  core/ctmTdsLR_1_660/Y (sky130_fd_sc_hd__a21boi_2)       0.19 &     3.19 r
+  core/U205/Y (sky130_fd_sc_hd__o21ai_1)                  0.13 &     3.31 f
+  core/ctmTdsLR_1_661/Y (sky130_fd_sc_hd__a21boi_2)       0.21 &     3.53 r
+  core/U206/Y (sky130_fd_sc_hd__o21ai_1)                  0.12 &     3.65 f
+  core/ctmTdsLR_1_662/Y (sky130_fd_sc_hd__a21boi_1)       0.24 &     3.89 r
+  core/U215/Y (sky130_fd_sc_hd__o21ai_2)                  0.12 &     4.01 f
+  core/gre_mt_inst_4568/X (sky130_fd_sc_hd__buf_4)        0.18 &     4.19 f
+  core/ctmTdsLR_1_663/Y (sky130_fd_sc_hd__nand2_1)        0.06 &     4.25 r
+  core/ctmTdsLR_2_664/Y (sky130_fd_sc_hd__nand2_1)        0.06 &     4.31 f
+  core/U946/COUT (sky130_fd_sc_hd__fa_1)                  0.40 &     4.71 f
+  core/ctmTdsLR_1_665/Y (sky130_fd_sc_hd__nand2_1)        0.08 &     4.79 r
+  core/ctmTdsLR_2_666/Y (sky130_fd_sc_hd__nand2_1)        0.06 &     4.84 f
+  core/U909/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &     5.22 f
+  core/U891/COUT (sky130_fd_sc_hd__fa_1)                  0.39 &     5.61 f
+  core/U1371/COUT (sky130_fd_sc_hd__fa_1)                 0.40 &     6.01 f
+  core/U87/COUT (sky130_fd_sc_hd__fa_2)                   0.37 &     6.37 f
+  core/U85/Y (sky130_fd_sc_hd__clkinv_1)                  0.06 &     6.43 r
+  core/U616/Y (sky130_fd_sc_hd__o21ai_0)                  0.08 &     6.51 f
+  core/U360/COUT (sky130_fd_sc_hd__fa_1)                  0.39 &     6.90 f
+  core/U358/COUT (sky130_fd_sc_hd__fa_1)                  0.41 &     7.31 f
+  core/U35/COUT (sky130_fd_sc_hd__fa_1)                   0.41 &     7.72 f
+  core/U34/COUT (sky130_fd_sc_hd__fa_2)                   0.37 &     8.09 f
+  core/ctmTdsLR_1_667/Y (sky130_fd_sc_hd__nand2_1)        0.07 &     8.16 r
+  core/ctmTdsLR_2_668/Y (sky130_fd_sc_hd__nand2_1)        0.06 &     8.22 f
+  core/U357/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &     8.60 f
+  core/U359/COUT (sky130_fd_sc_hd__fa_1)                  0.38 &     8.98 f
+  core/U622/X (sky130_fd_sc_hd__xor2_1)                   0.17 &     9.15 f
+  core/U31/Y (sky130_fd_sc_hd__nand2_1)                   0.24 &     9.38 r
+  core/HFSBUF_357_76/X (sky130_fd_sc_hd__buf_2)           0.26 &     9.64 r
+  core/U631/Y (sky130_fd_sc_hd__o22ai_1)                  0.10 &     9.74 f
+  core/CPU_Xreg_value_a4_reg[27][31]/D (sky130_fd_sc_hd__dfxtp_4)
+                                                          0.00 &     9.74 f
+  data arrival time                                                  9.74
+
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  clock reconvergence pessimism                           0.00      10.00
+  clock uncertainty                                      -0.10       9.90
+  core/CPU_Xreg_value_a4_reg[27][31]/CLK (sky130_fd_sc_hd__dfxtp_4)
+                                                                     9.90 r
+  library setup time                                     -0.15       9.75
+  data required time                                                 9.75
+  ------------------------------------------------------------------------------
+  data required time                                                 9.75
+  data arrival time                                                 -9.74
+  ------------------------------------------------------------------------------
+  slack (MET)                                                        0.01
+
+
+1
+pt_shell> 
+
+
 pt_shell> report_global_timing
 ****************************************
 Report : global_timing
@@ -4114,37 +4211,52 @@ pt_shell> report_analysis_coverage
 Report : analysis_coverage
 Design : vsdbabysoc
 Version: T-2022.03-SP5-4
-Date   : Sat Jul 20 23:13:23 2024
+Date   : Sun Jul 21 00:45:46 2024
 ****************************************
 
 Type of Check         Total              Met         Violated         Untested
 --------------------------------------------------------------------------------
-setup                   676         0 (  0%)         0 (  0%)       676 (100%)
-hold                    676         0 (  0%)         0 (  0%)       676 (100%)
-min_pulse_width        1352         0 (  0%)         0 (  0%)      1352 (100%)
+setup                   676       675 (100%)         0 (  0%)         1 (  0%)
+hold                    676       675 (100%)         0 (  0%)         1 (  0%)
+min_pulse_width        1352      1352 (100%)         0 (  0%)         0 (  0%)
 --------------------------------------------------------------------------------
-All Checks             2704         0 (  0%)         0 (  0%)      2704 (100%)
+All Checks             2704      2702 (100%)         0 (  0%)         2 (  0%)
 
 1
 pt_shell> 
 
-
-pt_shell> report_constraints
+pt_shell> report_constraint
 ****************************************
 Report : constraint
 Design : vsdbabysoc
 Version: T-2022.03-SP5-4
-Date   : Sat Jul 20 23:39:04 2024
+Date   : Sun Jul 21 00:46:53 2024
 ****************************************
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                  0.00
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
 
     Constraint                                       Cost
     -----------------------------------------------------
-    max_capacitance                                  0.00  (MET)
+    max_delay/setup                                  0.00  (MET)
+    min_delay/hold                                   0.00  (MET)
+    sequential_clock_pulse_width                     0.00  (MET)
+    max_capacitance                                  1.56  (VIOLATED)
     max_transition                                   0.00  (MET)
 
 1
 pt_shell> 
-
 ```
 
 Some primetime gui snapshots
