@@ -3394,6 +3394,8 @@ Max Cap Violations:                 147
 1
 ```
 
+### Some Caps violations so far even thouhg in most cases the violation is close to 0
+
 ```
 [icc2-lic Sat Jul 20 22:50:06 2024] Command 'report_constraints' requires licenses
 [icc2-lic Sat Jul 20 22:50:06 2024] Attempting to check-out alternate set of keys directly with queueing
@@ -4083,12 +4085,26 @@ Parasitics  extraction
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0e94731d-c481-43b0-b4ba-4868450ce06e)
 
+Showing some path in clock Tree
+
+![image](https://github.com/user-attachments/assets/28e7276f-1da4-4cb1-8b39-88b3e9380e92)
+
 
 Looks like after optimization buffers were added to some nets from core to dac
 
 ![image](https://github.com/user-attachments/assets/8af12a31-ae9a-44ef-8ec9-af6d2823c90c)
 
-Only some caps err remaining 
+Some primetime gui snapshots 
+
+![image](https://github.com/user-attachments/assets/f5f0469a-107e-453e-ae19-cab5071f9146)
+
+Schematics view
+
+![image](https://github.com/user-attachments/assets/f11762c6-9458-46c8-9e75-58d6f5c1e7a7)
+
+![image](https://github.com/user-attachments/assets/e643dede-a3f3-4303-94a8-a0530adeaa49)
+
+### Only some caps err remaining 
 
 ![image](https://github.com/user-attachments/assets/34751c80-d7a5-4eb5-95fb-087c724893e2)
 
@@ -4262,9 +4278,7 @@ Date   : Sun Jul 21 00:46:53 2024
 pt_shell> 
 ```
 
-Some primetime gui snapshots
 
-![image](https://github.com/user-attachments/assets/f5f0469a-107e-453e-ae19-cab5071f9146)
 
 
 
