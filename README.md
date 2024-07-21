@@ -4059,7 +4059,7 @@ No paths
 ![image](https://github.com/user-attachments/assets/b7f5cccc-b596-4822-af5e-776094e28fc3)
 
 
-# (STARTING UPDATING PRIMETIME WITH THE NEW TIMING IMPROVEMENTS) BASIC INVESTIGATION ON PRIMETIME TOOL
+# UPDATING PRIMETIME WITH THE NEW TIMING IMPROVEMENTS - INVESTIGATION ON PRIMETIME TOOL
 
 Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
 
@@ -4104,12 +4104,12 @@ Schematics view
 
 ![image](https://github.com/user-attachments/assets/e643dede-a3f3-4303-94a8-a0530adeaa49)
 
-### Only some caps err remaining 
+### Only some small caps err remaining 
 
 ![image](https://github.com/user-attachments/assets/34751c80-d7a5-4eb5-95fb-087c724893e2)
 
 
-### Checking some of the primtime reports : (timing report, coverage) 
+### Checking some of the primetime reports : (timing report, coverage) 
 
 ```
 pt_shell> report_timing
