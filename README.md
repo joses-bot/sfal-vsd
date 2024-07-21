@@ -4261,7 +4261,10 @@ pt_shell>
 
 Some primetime gui snapshots
 
-![image](https://github.com/user-attachments/assets/17493596-4d8d-4f2d-a589-c5a9a9817826)
+![image](https://github.com/user-attachments/assets/f5f0469a-107e-453e-ae19-cab5071f9146)
+
+
+
 
 
 
