@@ -4078,23 +4078,23 @@ report_timing
 save_session
 
 ```
-Parasitics  extraction
+### Parasitics  extraction
 ![image](https://github.com/user-attachments/assets/5f0daa4e-d7e4-433f-bf80-c9b1f1f6ccfd)
+
+#### Some primetime gui snapshots 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a82bfa5f-da79-4ff9-922b-e5c9eef8d88b)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0e94731d-c481-43b0-b4ba-4868450ce06e)
 
-Showing some path in clock Tree
+Showing some paths in clock Tree
 
 ![image](https://github.com/user-attachments/assets/28e7276f-1da4-4cb1-8b39-88b3e9380e92)
-
 
 Looks like after optimization buffers were added to some nets from core to dac
 
 ![image](https://github.com/user-attachments/assets/8af12a31-ae9a-44ef-8ec9-af6d2823c90c)
 
-Some primetime gui snapshots 
 
 ![image](https://github.com/user-attachments/assets/f5f0469a-107e-453e-ae19-cab5071f9146)
 
