@@ -4083,16 +4083,14 @@ Parasitics  extraction
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0e94731d-c481-43b0-b4ba-4868450ce06e)
 
-![image](https://github.com/user-attachments/assets/645102b2-5c5a-40a2-a1c3-27c1ce2df5d3)
 
 Looks like after optimization buffers were added to some nets from core to dac
 
 ![image](https://github.com/user-attachments/assets/8af12a31-ae9a-44ef-8ec9-af6d2823c90c)
 
-Only some caps errors to fix
+Only some caps err remaining 
 
 ![image](https://github.com/user-attachments/assets/34751c80-d7a5-4eb5-95fb-087c724893e2)
-
 
 
 ### Checking some of the primtime reports : (timing report, coverage) 
