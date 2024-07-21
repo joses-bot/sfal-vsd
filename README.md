@@ -4089,6 +4089,11 @@ Looks like after optimization buffers were added to some nets from core to dac
 
 ![image](https://github.com/user-attachments/assets/8af12a31-ae9a-44ef-8ec9-af6d2823c90c)
 
+Only some caps errors to fix
+
+![image](https://github.com/user-attachments/assets/34751c80-d7a5-4eb5-95fb-087c724893e2)
+
+
 
 ### Checking some of the primtime reports : (timing report, coverage) 
 
