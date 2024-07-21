@@ -4081,7 +4081,7 @@ save_session
 ### Parasitics  extraction
 ![image](https://github.com/user-attachments/assets/5f0daa4e-d7e4-433f-bf80-c9b1f1f6ccfd)
 
-#### Some primetime gui snapshots 
+### Some primetime gui snapshots 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a82bfa5f-da79-4ff9-922b-e5c9eef8d88b)
 
@@ -4110,7 +4110,6 @@ Schematics view
 
 
 ### Checking some of the primtime reports : (timing report, coverage) 
-
 
 ```
 pt_shell> report_timing
