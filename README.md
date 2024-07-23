@@ -4201,17 +4201,17 @@ Date   : Sun Jul 21 00:46:53 2024
 pt_shell> 
 ```
 
-### Using PrimeTime for analysys of different corners
-Dominant corner: tt_025C
+### Using PrimeTime for corner analysys using sky130 library
 
-We will generate the timing report for all sky130 libraries:
+Dominant corner: tt_025C (will be used to calculate the netlist - final route verilog file)
 
-Process is very tedious as we might need to compile with icc2 for each library, that implies changing some of the parameters of the tcl files to point to the correct libraries, then the final verilog after route has to be massage to remove spurious ports and after that finally pass the results to primetime to extract timing report
+We will generate the timing report using PrimeTime for all sky130 libraries:
 
-Showing spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2 that needs to be removed to import verilog file into primetime
+Showing for example spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2 that need to be removed to import the verilog file into primetime
 
 ![image](https://github.com/user-attachments/assets/539d5ac3-a65f-4ece-956e-8372904f875e)
 
+In this exercise we will not compile individuale with icc2 for each library ( whihc would imply, several changes in tcl script, fix ports in netlist, etc). We will use he dominant corner to calculate the netlist and the run the script we were using for Primetime to calculage set up/hold time slacks
 
    PVT Corner Table obtained with PrimeTime
    
@@ -4233,27 +4233,8 @@ Showing spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2 that needs 
 	ss_n40C_1v76	-6.445789	-0.003401
 	tt_025C_1v80	0.041948	0.016983
 	tt_100C_1v80	0.000066	0.001588
+ 
 ![image](https://github.com/user-attachments/assets/b362d987-a17f-4eaa-8ee4-264455d3a081)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ![image](https://github.com/user-attachments/assets/d82db804-ef9b-49da-ae47-011ef1054c65)
 
