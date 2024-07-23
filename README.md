@@ -4255,6 +4255,29 @@ Showing spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2 that needs 
 
 
 
+![image](https://github.com/user-attachments/assets/d82db804-ef9b-49da-ae47-011ef1054c65)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
