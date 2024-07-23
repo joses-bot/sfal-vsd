@@ -4201,6 +4201,54 @@ Date   : Sun Jul 21 00:46:53 2024
 pt_shell> 
 ```
 
+### Using PrimeTime for analysys of different corners
+Dominant corner: tt_025C
+
+We will generate the timing report for all sky130 libraries:
+
+Process is very tedious as we might need to compile with icc2 for each library, that implies changing some of the parameters of the tcl files to point to the correct libraries, then the final verilog after route has to be massage to remove spurious ports and after that finally pass the results to primetime to extract timing report
+
+Showing spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2 that needs to be removed to import verilog file into primetime
+
+![image](https://github.com/user-attachments/assets/539d5ac3-a65f-4ece-956e-8372904f875e)
+
+
+   PVT Corner Table obtained with PrimeTime
+   
+	PVT Corner	wns	whs
+			
+	ff_100C_1v65	2.262446	-0.003514
+	ff_100C_1v95	3.907141	-0.014099
+	ff_n40C_1v56	0.402282	-0.057339
+	ff_n40C_1v65	1.616267	-0.048626
+	ff_n40C_1v76	2.692006	-0.044735
+	ff_n40C_1v95	3.944047	-0.03896
+	ss_100C_1v40	-20.573053	0.323773
+	ss_100C_1v60	-10.567963	0.208995
+	ss_n40C_1v28	-67.035889	0.175144
+	ss_n40C_1v35	-43.096741	0.095889
+	ss_n40C_1v40	-32.694153	0.044784
+	ss_n40C_1v44	-26.714573	0.051535
+	ss_n40C_1v60	-12.904918	0.016177
+	ss_n40C_1v76	-6.445789	-0.003401
+	tt_025C_1v80	0.041948	0.016983
+	tt_100C_1v80	0.000066	0.001588
+![image](https://github.com/user-attachments/assets/b362d987-a17f-4eaa-8ee4-264455d3a081)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
