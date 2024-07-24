@@ -4264,7 +4264,7 @@ Types of ECO's
 
 Steps to follow in an ECO: 
 
-    	Specification of Changes,  Netlist Comparison. Placement and Routing Updates, Forma; Verification
+Specification of Changes,  Netlist Comparison. Placement and Routing Updates, Forma; Verification
 
 	The RTL with ECO implemented is synthesized and compared with the golden netlist.
 	The delta is implemented into the golden netlist. The modified netlist is then again compared with the synthesized netlist to ensure the logic has 	been implemented correctly.
