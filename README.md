@@ -4207,7 +4207,7 @@ Dominant corner: tt_025C (will be used to calculate the netlist - final route ve
 
 We will generate the timing report using PrimeTime for all sky130 libraries:
 
-Showing for example spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2 that need to be removed to import the verilog file into primetime
+Showing for example spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2 that need to be fixed to import the verilog file into primetime
 
 ![image](https://github.com/user-attachments/assets/539d5ac3-a65f-4ece-956e-8372904f875e)
 
