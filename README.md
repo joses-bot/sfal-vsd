@@ -4241,9 +4241,9 @@ n
 
 The main differences between post-route STA  and initial STA done after synthesis with DC are the following:
 
-Wires - DC uses ideal wires while after routing we have the real wires on the netlist
-Clock - Ideal clock vs Propagated clock, calculated after clock tree is instantiated in the design
-Tools - DC (Synthesis tool, preliminary STA) , icc2 (P & R tool) uses PrimeTime as STA engine
+	Wires - DC uses ideal wires whereas after routing we have the real wires on the netlist
+	Clock - Ideal clock vs Propagated clock, calculated after clock tree is instantiated in the design
+ 	Tools - DC (Synthesis tool, preliminary STA) , icc2 (P & R tool) uses PrimeTime as STA engine
 
 
 
