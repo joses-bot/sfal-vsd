@@ -4246,7 +4246,33 @@ The main differences between post-route STA  and initial STA done after synthesi
  	Tools - DC (Synthesis tool, preliminary STA) , icc2 (P & R tool) uses PrimeTime as STA engine
 
 
+### ECO (Engineering change order)
 
+In the ECO cycle, various analysis are performed one by one for every check which we need to close but not closed till PnR stage. There are specialized signoff tools that help us to analyze the issue and also suggest the changes we need to do in order to close the issue. The suggested change is captured in an eco file. 
+
+ What conditions cause an Engineering Change Order: ECO are needed when the process steps are needed to be executed in an incremental manner. This may be due to-
+    Some functionality enhancement of the existing device. This functionality enhancement change may be too small to undergo all the process steps again
+    There may be some design bug that needs to be fixed and was caught very late in the design cycle. It is very costly to re-run all the process cycle 
+    steps for each bug in terms of time and cost. Hence, these changes need to be taken incrementally.
+
+Once we generate the ECO file for the fixes, we implement that on the PnR database on which we have performed the analysis (icc2 in our case). After the implementation of ECO file, we save the updated database which we carry forward for the next ECO generation and implementation. We repeat this ECO cycle for every open issue and close one by one all issues. There are chances that we might need multiple ECO cycle to close a single issue. 
+
+Types of ECO's
+
+    All layers ECO: In this, the design change is implemented using all layers.
+    Metal-only ECO: to reduce costs, sometimes, it may not be practical to use all the layers (base + metal) to do the ECO.
+
+Steps to follow in an ECO: 
+
+    	Specification of Changes,  Netlist Comparison. Placement and Routing Updates, Forma; Verification
+
+	The RTL with ECO implemented is synthesized and compared with the golden netlist.
+	The delta is implemented into the golden netlist. The modified netlist is then again compared with the synthesized netlist to ensure the logic has 	been implemented correctly.
+	The logic is the placed incrementally until the last modifications are done.
+
+ 
+
+    
 
 
 
