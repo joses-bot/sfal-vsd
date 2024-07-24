@@ -4211,8 +4211,8 @@ Showing for example spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2
 
 ![image](https://github.com/user-attachments/assets/539d5ac3-a65f-4ece-956e-8372904f875e)
 
-In this exercise we will not compile individuale with icc2 for each library ( whihc would imply, several changes in tcl script, fix ports in netlist, etc). We will use he dominant corner to calculate the netlist and the run the script we were using for Primetime to calculage set up/hold time slacks
-
+In this exercise we will not compile individually using icc2 each library ( which would imply, changes in tcl script, fix ports in netlist, etc). We will use the dominant corner to calculate the netlist and the run the script we were using for Primetime to calculage set up/hold time slacks
+n
    PVT Corner Table obtained with PrimeTime
    
 	PVT Corner	wns	whs
