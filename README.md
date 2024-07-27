@@ -4246,6 +4246,13 @@ The main differences between post-route STA  and initial STA done after synthesi
  	Tools - DC (Synthesis tool, preliminary STA) , icc2 (P & R tool) uses PrimeTime as STA engine
 
 
+### ICC2 Experimet
+
+Running icc2 compiler directly changing the libraries other than ff_25 ....for n40 only for 1v76 the timing errors are very small
+			
+![image](https://github.com/user-attachments/assets/07ee7335-2b76-4ba9-b1a8-6a9e05441f43)
+
+
 ### ECO (Engineering change order)
 
 In the ECO cycle, various analysis are performed one by one for every check which we need to close but not closed till PnR stage. There are specialized signoff tools that help us to analyze the issue and also suggest the changes we need to do in order to close the issue. The suggested change is captured in an eco file. 
