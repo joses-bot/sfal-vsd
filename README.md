@@ -4242,9 +4242,7 @@ Not really a corner analysis but it might show the effect of compiling with icc2
 
 For parasitics in all cases we are reading a nominal tluplus file (that depends mostly on the process):  skywater130.nominal.tluplus 
 				
-![image](https://github.com/user-attachments/assets/ed2b0adc-ba65-48e2-8f0d-040922a7528f)
-
-
+![image](https://github.com/user-attachments/assets/45f0c4fe-c05a-4d74-9741-704774da86b5)
 
 
 ### ECO (Engineering change order)
