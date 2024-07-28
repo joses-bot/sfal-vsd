@@ -4240,7 +4240,7 @@ In this case, running icc2 compiler directly using the correct libraries other t
 
 Not really a corner analysis but it might show the effect of compiling with icc2 using scripts and the timing we could get using the libraries
 
-For parasitics in all cases we are reading a nominal tluplus file:  skywater130.nominal.tluplus
+For parasitics in all cases we are reading a nominal tluplus file (that depends mostly on the process):  skywater130.nominal.tluplus 
 				
 ![image](https://github.com/user-attachments/assets/ed2b0adc-ba65-48e2-8f0d-040922a7528f)
 
