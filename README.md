@@ -4229,11 +4229,11 @@ The main differences between post-route STA  and initial STA done after synthesi
 
 ### ICC2 Experimet
 
-Using the previous corner table,  trying to compile with icc2 for the values where the timing failures were bigger. The following results were obtained.
+Using the values obtained from previous corner table,  compiling directly with icc2 for the values where the timing failures were bigger. 
 In this case, running icc2 compiler directly using the correct libraries other than ff_25 (only for n40 1v76 the timing errors are very small), then exporting the environment to Primetime to calculate setup/hold time:
 
-set wns [get_attribute [get_timing_paths -delay_type max -max_paths 1] slack]
-set whs [get_attribute [get_timing_paths -delay_type min -max_paths 1] slack]
+	set wns [get_attribute [get_timing_paths -delay_type max -max_paths 1] slack]
+ 	set whs [get_attribute [get_timing_paths -delay_type min -max_paths 1] slack]
 			
 			
 ![image](https://github.com/user-attachments/assets/342fda1b-4387-44af-a9ed-22de0b169c15)
