@@ -4215,25 +4215,6 @@ In this exercise we will not compile individually using icc2 each library ( whic
 n
    PVT Corner Table obtained with PrimeTime
    
-	PVT Corner	wns	whs
-			
-	ff_100C_1v65	2.262446	-0.003514
-	ff_100C_1v95	3.907141	-0.014099
-	ff_n40C_1v56	0.402282	-0.057339
-	ff_n40C_1v65	1.616267	-0.048626
-	ff_n40C_1v76	2.692006	-0.044735
-	ff_n40C_1v95	3.944047	-0.03896
-	ss_100C_1v40	-20.573053	0.323773
-	ss_100C_1v60	-10.567963	0.208995
-	ss_n40C_1v28	-67.035889	0.175144
-	ss_n40C_1v35	-43.096741	0.095889
-	ss_n40C_1v40	-32.694153	0.044784
-	ss_n40C_1v44	-26.714573	0.051535
-	ss_n40C_1v60	-12.904918	0.016177
-	ss_n40C_1v76	-6.445789	-0.003401
-	tt_025C_1v80	0.041948	0.016983
-	tt_100C_1v80	0.000066	0.001588
- 
 ![image](https://github.com/user-attachments/assets/b362d987-a17f-4eaa-8ee4-264455d3a081)
 
 ![image](https://github.com/user-attachments/assets/d82db804-ef9b-49da-ae47-011ef1054c65)
@@ -4248,7 +4229,8 @@ The main differences between post-route STA  and initial STA done after synthesi
 
 ### ICC2 Experimet
 
-Running icc2 compiler directly changing the libraries other than ff_25 ....for n40 only for 1v76 the timing errors are very small
+Using the previous corner table,  trying to compile with icc2 for the values where the timing failures were bigger. The following results were obtained.
+In this case, running icc2 compiler directly using the correct libraries other than ff_25 .... only for n40 1v76 the timing errors are very small
 			
 ![image](https://github.com/user-attachments/assets/07ee7335-2b76-4ba9-b1a8-6a9e05441f43)
 
