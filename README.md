@@ -2138,31 +2138,11 @@ set_input_transition -min 0.1 [get_ports ENb_CP]
 
 Data obtained after running the scripts:			
 
-We might need to tight a bit more the constraints if we want to get smaller and negative numbers
+![image](https://github.com/user-attachments/assets/ade1e072-182b-4c4b-ad56-65d13183a73b)
 
 			
-	library	         WNS	TNS
-			
-	ff_100c_1v65	0.24	82.68
-	ff_100c_1v95	0.3	127.56
-	ff_n40C_1v56	0.2	43.94
-	ff_n40C_1v65	0.24	74.31
-	ff_n40C_1v76	0.27	99.08
-	ff_n40C_1v95	0.31	135.22
-	tt_025C_1v80	0.18	28.22
-	tt_100C_1v80	0.18	23.41
-	ss_100C_1v40	0	0
-	ss_100C_1v60	0	0
-	ss_n40C_1v28	0	0
-	ss_n40C_1v35	0	0
-	ss_n40C_1v40	0	0
-	ss_n40C_1v44	0	0
-	ss_n40C_1v60	0	0
-	ss_n40C_1v76	0.01	0
- 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/fe6b22a1-51de-4e78-af0d-6c42519c90fb)
+![image](https://github.com/user-attachments/assets/29ec6d5a-1058-4223-a369-3e610713afd9)
 
-![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9bfccf87-0c94-4d31-8d2d-9995c5a9f562)
 
 #### POWER REPORT (POST SYNTHESIS)
 ```
