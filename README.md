@@ -1,5 +1,6 @@
 <details>
     <summary>🛠️Day 0 - Tools Installation</summary>
+	
 ## Day 0 - Tools Installation
 ### Yosys
 ```
@@ -192,8 +193,10 @@ make
 make test
 ```
 </details>
+
 <details>
     <summary>🛠️Day 1 - Introduction to Verilog Design an Synthesis</summary>
+	
 # Day 1 - Introduction to Verilog Design an Synthesis
 
 RTL Design: Implementation of a spec. The design has the verilog code which implements the intended functionality to meet the specifications
@@ -267,8 +270,10 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/512f664f-a24b-4e35-b146-dd878f64aa5d)
 
 </details>
+
 <details>
     <summary>🛠️Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</summary>
+	
 # Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
 ### 3 Important parameters determine the operating condition:
@@ -364,8 +369,10 @@ In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(syn
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ec06f1bf-6d70-4473-9a50-61650afaa214)
 
 </details>
+
 <details>
     <summary>🛠️Day 3 - Combinational and sequential optimizations</summary>
+	
 # Day 3 - Combinational and sequential optimizations
 
 #### Constant propagation - One or mor inputs are stuck to a fixed logic value, equation can be simplified
@@ -493,8 +500,10 @@ In this case all the 4 bits of the counter are required to formed the final outp
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6d9fd49b-dc66-4be7-96df-768e0d656dd9)
 
 </details>
+
 <details>
     <summary>🛠️Day 4 - GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch</summary>
+	
 # Day 4 - GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch
 ```
 Running the test bench using the Netlist (generated after synthesis) as Design under test (DUT)
@@ -552,8 +561,10 @@ GLS simulation shows the correct MUX behavior
 In summary because of the problem with sensitivity list RTL simulation does not match GLS simulation
 ```
 </details>
+
 <details>
     <summary>🛠️Day 5 - Design for Testability</summary>
+	
 # Day 5 - Design for Testability
 
 #### Testability A characteristics of an item's design which allows to know the status (operable, inoperable, degraded) of that item to be confident we are in control of the operation of the circuit. In VLSI a design should be well controllable and observable
@@ -657,8 +668,10 @@ DFT compiler - tool used to insert the scan chains in the design - some commands
 MUX controls where to run functional data or a test pattern. When test data is enabled (scan_enable), Start sending data from FF which is furthest to the left and keep shifting that data to FF number 2 and number 3 (FF furthest to the right) then data can be captured on the output port. To test intermediate nodes de-assert scan_enable for one or two clock pulses depending on the output we want to capture (data will pass through the combinatorial logic associated to that FF and then it will be captured
 
 </details>
+
 <details>
     <summary>🛠️Day 6 - Introduction to Synthesis Logic</summary>
+	
 # Day 6 - Introduction to Synthesis Logic
 ```
 FLOW  RTL Source -> Translate (HDL compiler) -> Optimize & Mapping (Design Compiler)
@@ -793,8 +806,10 @@ Initialization script all tasks needed for setup the tool: .synposis_dc.setup
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ad147d04-eb91-4d8c-a259-5ae91358a915)
 
 </details>
+
 <details>
     <summary>🛠️Day 7 - TCL QUick refresher - Basics of STA</summary>
+	
 ### TCL Quick refresher
 
 ### BASIC COMMNANDS
@@ -949,8 +964,10 @@ List_attributes -app
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/eb7788bc-b984-419b-9b88-83e2f7c0067d)
 
 </details>
+
 <details>
     <summary>🛠️Day 8 - Advanced SDC Constraints</summary>
+	
 ## Advanced Constraints
 
 ## Clock Tree Modelling - Uncertainty 
@@ -1748,8 +1765,10 @@ Timing is met. Same as previous method
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4af5eeab-69cd-47a7-aa04-df5a1d69a63a)
 
 </details>
+
 <details>
     <summary>🛠️Day 9/10 -Optimization in Syntheys- QOR</summary>
+	
 ## OPTIMIZATIONS
 Optimization parameters: Tool will try to find the optimal way for the implementation so that the three parameters are meet (timing, area, power). Each parameter has its own cost function, all of them are analyzed and the best values are chosen.
 
@@ -1841,8 +1860,10 @@ netlist). Can create issues with Functional DV (design verifiation)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8596432a-e7b3-44c3-8a1a-dd8b4a2dae16)
 
 </details>
+
 <details>
     <summary>🛠️Day 11 - INTRODUCTION TO BABY SOC</summary>
+	
 # Day 11 - INTRODUCTION TO BABY SOC
 
 - SOC single die chip that has different IP cores
@@ -1882,8 +1903,10 @@ netlist). Can create issues with Functional DV (design verifiation)
   ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/45f0e00d-5464-4967-af97-090258311986)
 
 </details>
+
 <details>
     <summary>🛠️Day 12 - BABYSOC MODELING</summary>
+	
 # Day 12 - BABYSOC MODELING
 ### Modeling Baby SoC (3 basic components)
 - PLL
@@ -1996,8 +2019,10 @@ gtkwave test.vcd
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/65e1d000-31af-4951-adfc-d8c23cab6fcf)
 
 </details>
+
 <details>
     <summary>🛠️Day 13 - POST-SYNTHESIS SIMULATION</summary>
+	
 # Day 13 - POST-SYNTHESIS SIMULATION
 `
 Pre-synthesis: Simulation is done according to the logic we designed it is only Functional Simulation. So, after synthesis we need to hook up again pll & dac and check again.
@@ -2278,8 +2303,10 @@ Total area:                 undefined
 ```
 
 </details>
+
 <details>
     <summary>🛠️Day 14 - Inception of EDA and PDK</summary>
+	
 # Day 14 - Inception of EDA and PDK
 
 Reviewing BabySOC process using opencore tools
@@ -2312,8 +2339,10 @@ make sta
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8341f8df-b6fb-49e9-b0c2-333a9069ea02)
 
 </details>
+
 <details>
     <summary>🛠️Day 15 - FloorPlanning and Power Planning Labs using ICC2 tool</summary>
+	
 # Day 15 - Floor Planning and Power Planning Labs using ICC2 tool
 
 ### ASIC Design flow
