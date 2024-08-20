@@ -1,7 +1,7 @@
 # SFAL-VSD-SoC Design and Implementation
 
 <details>
-    <summary>🛠️Day 0 - Tools Installation</summary>
+    <summary>🛠️Tools Installation</summary>
 	
 ## Day 0 - Tools Installation
 ### Yosys
@@ -197,7 +197,7 @@ make test
 </details>
 
 <details>
-    <summary>🛠️Day 1 - Introduction to Verilog Design an Synthesis</summary>
+    <summary>🛠️Introduction to Verilog Design an Synthesis</summary>
 	
 # Day 1 - Introduction to Verilog Design an Synthesis
 
@@ -274,7 +274,7 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 </details>
 
 <details>
-    <summary>🛠️Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</summary>
+    <summary>🛠️Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</summary>
 	
 # Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
@@ -373,7 +373,7 @@ In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(syn
 </details>
 
 <details>
-    <summary>🛠️Day 3 - Combinational and sequential optimizations</summary>
+    <summary>🛠️Combinational and sequential optimizations</summary>
 	
 # Day 3 - Combinational and sequential optimizations
 
@@ -504,7 +504,7 @@ In this case all the 4 bits of the counter are required to formed the final outp
 </details>
 
 <details>
-    <summary>🛠️Day 4 - GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch</summary>
+    <summary>🛠️GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch</summary>
 	
 # Day 4 - GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch
 ```
@@ -565,7 +565,7 @@ In summary because of the problem with sensitivity list RTL simulation does not 
 </details>
 
 <details>
-    <summary>🛠️Day 5 - Design for Testability</summary>
+    <summary>🛠️Design for Testability</summary>
 	
 # Day 5 - Design for Testability
 
@@ -672,7 +672,7 @@ MUX controls where to run functional data or a test pattern. When test data is e
 </details>
 
 <details>
-    <summary>🛠️Day 6 - Introduction to Synthesis Logic</summary>
+    <summary>🛠️Introduction to Synthesis Logic</summary>
 	
 # Day 6 - Introduction to Synthesis Logic
 ```
@@ -810,7 +810,7 @@ Initialization script all tasks needed for setup the tool: .synposis_dc.setup
 </details>
 
 <details>
-    <summary>🛠️Day 7 - TCL QUick refresher - Basics of STA</summary>
+    <summary>🛠️TCL QUick refresher - Basics of STA</summary>
 	
 ### TCL Quick refresher
 
@@ -968,7 +968,7 @@ List_attributes -app
 </details>
 
 <details>
-    <summary>🛠️Day 8 - Advanced SDC Constraints</summary>
+    <summary>🛠️Advanced SDC Constraints</summary>
 	
 ## Advanced Constraints
 
@@ -1769,7 +1769,7 @@ Timing is met. Same as previous method
 </details>
 
 <details>
-    <summary>🛠️Day 9/10 -Optimization in Syntheys- QOR</summary>
+    <summary>🛠️Optimization in Syntheys- QOR</summary>
 	
 ## OPTIMIZATIONS
 Optimization parameters: Tool will try to find the optimal way for the implementation so that the three parameters are meet (timing, area, power). Each parameter has its own cost function, all of them are analyzed and the best values are chosen.
@@ -1864,9 +1864,9 @@ netlist). Can create issues with Functional DV (design verifiation)
 </details>
 
 <details>
-    <summary>🛠️Day 11 - INTRODUCTION TO BABY SOC</summary>
+    <summary>🛠️Introduction to BABY SOC</summary>
 	
-# Day 11 - INTRODUCTION TO BABY SOC
+# Day 11 - Introduction to BABY SOC
 
 - SOC single die chip that has different IP cores
 - The design of an SOC includes a CPU, memory, IO's secondary storage devices and peripheral interfaces like timers, usb, bluetooth, uart
@@ -1907,9 +1907,9 @@ netlist). Can create issues with Functional DV (design verifiation)
 </details>
 
 <details>
-    <summary>🛠️Day 12 - BABYSOC MODELING</summary>
+    <summary>🛠️BABYSOC Modeling</summary>
 	
-# Day 12 - BABYSOC MODELING
+# Day 12 - BABYSOC Modeling
 ### Modeling Baby SoC (3 basic components)
 - PLL
 - - DAC
@@ -2023,9 +2023,9 @@ gtkwave test.vcd
 </details>
 
 <details>
-    <summary>🛠️Day 13 - POST-SYNTHESIS SIMULATION</summary>
+    <summary>🛠️Post-synthesis Simulation</summary>
 	
-# Day 13 - POST-SYNTHESIS SIMULATION
+# Day 13 - Post-synthesis Simulation
 `
 Pre-synthesis: Simulation is done according to the logic we designed it is only Functional Simulation. So, after synthesis we need to hook up again pll & dac and check again.
 
@@ -2307,7 +2307,7 @@ Total area:                 undefined
 </details>
 
 <details>
-    <summary>🛠️Day 14 - Inception of EDA and PDK</summary>
+    <summary>🛠️Inception of EDA and PDK</summary>
 	
 # Day 14 - Inception of EDA and PDK
 
@@ -2343,7 +2343,7 @@ make sta
 </details>
 
 <details>
-    <summary>🛠️Day 15 - FloorPlanning and Power Planning Labs using ICC2 tool</summary>
+    <summary>🛠️FloorPlanning and Power Planning Labs using ICC2 tool</summary>
 	
 # Day 15 - Floor Planning and Power Planning Labs using ICC2 tool
 
