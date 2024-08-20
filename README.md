@@ -1,4 +1,6 @@
-# Day 0 - Tools Installation
+<details>
+    <summary>🛠️Day 0 - Tools Installation</summary>
+## Day 0 - Tools Installation
 ### Yosys
 ```
 $ sudo apt-get update
@@ -190,10 +192,12 @@ make
 make test
 ```
 
+<details>
+    <summary>🛠️Day 1 - Introduction to Verilog Design an Synthesis</summary>
 # Day 1 - Introduction to Verilog Design an Synthesis
 
 RTL Design: Implementation of a spec. The design has the verilog code which implements the intended functionality to meet the specifications
-RTL simulation: Check the design for the adherance of the spec using the simulator
+RTL simulation: Check the design for the adherence of the spec using the simulator
 Simulator: Tools used to simulate the design
 Test Bench: Setup used (using some verilog code) to apply certain stimulus (test vectors) to check the design meets the required functionality
 
@@ -201,7 +205,7 @@ Test Bench: Setup used (using some verilog code) to apply certain stimulus (test
 ### Test bench (TB) set up: Simulator Tool looks only for changes in the inputs and show the corresponding changes in the outputs
 
 Design is instantiated in the test bench. Design can have more than one primary input and output.
-There are two other main end blocks in the test bench, the stimulus generator and the stimulus obseerver (checker)
+There are two other main end blocks in the test bench, the stimulus generator and the stimulus observer (checker)
 The TB itself does not have a primary input or primary output
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9f5a27d9-db4c-48b0-8708-c7dc489f2f0b)
@@ -230,7 +234,7 @@ Verifying the design. Using the Test becnh using in RTL phase (Using the same st
 ### Process to do RTL to gate level translation, a netlist is generated
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/002bff08-3c1a-48be-bd48-98d1037a289d)
 
-### .lib - Collection of different flaviors of stanadard cells, different functionalities, inputs, etc and different models (speed: slow, medium, high), they can implement any logic functionality
+### .lib - Collection of different flavors of standard cells, different functionalities, inputs, etc and different models (speed: slow, medium, high), they can implement any logic functionality
 
 ### Max clock = Propagation delay of FF + Tcombinatorial + setup time (data estable before clk arrives)
 
@@ -262,6 +266,8 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/512f664f-a24b-4e35-b146-dd878f64aa5d)
 
+<details>
+    <summary>🛠️Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</summary>
 # Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
 ### 3 Important parameters determine the operating condition:
@@ -302,7 +308,7 @@ ABC has implemented the design using a mux cell 3 inputs (io, i1, sel), 1 output
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/586789ad-8c18-43dc-95ae-b6bb26cbcf38)
 
 ### Flops and Flop coding styles
-#### Combinatorial circuits can generate glitches when cascading them in the circuit until settle to a final value. We need FLip FLops to store those final values and allow to change the value with an external signal calculated so that combinatorial logic has already settle to a value. The output Q of the Flip Flop is shielded from changes in on the input D. The Set/reset signals are used to initialize the value of the FF so at the beginning the intial output of Q is a known value.
+#### Combinatorial circuits can generate glitches when cascading them in the circuit until settle to a final value. We need FLip FLops to store those final values and allow to change the value with an external signal calculated so that combinatorial logic has already settle to a value. The output Q of the Flip Flop is shielded from changes in on the input D. The Set/reset signals are used to initialize the value of the FF so at the beginning the initial output of Q is a known value.
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/43e2994f-4406-4e09-aa39-9b9e80fd4593)
 
@@ -356,8 +362,9 @@ In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(syn
 #### final rtl also show the expected output for case b
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ec06f1bf-6d70-4473-9a50-61650afaa214)
 
-
-# Day 3 - Combinational and sequential optmizations
+<details>
+    <summary>🛠️Day 3 - Combinational and sequential optimizations</summary>
+# Day 3 - Combinational and sequential optimizations
 
 #### Constant propagation - One or mor inputs are stuck to a fixed logic value, equation can be simplified
 ```
@@ -377,7 +384,7 @@ equation is composed of 3 muxes, which is equivalent to:
 2nd mux /bac +bc
 3rd mux /a/c + a[bc + /bac]
 
-simpifying  y = /a/c + ac = a xor c (got reduced to an xor)
+simplifying  y = /a/c + ac = a xor c (got reduced to an xor)
 ```
 #### Sequential
 #### Basic - Sequential constant propagation
@@ -428,7 +435,7 @@ In this case D input of FF is stuck to high (simulation shown below) but changes
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f5542bbb-9e74-4d77-b252-6e77088a2d94)
 ```
-Running synthesis and mapping and showing result, a FF was infered
+Running synthesis and mapping and showing result, a FF was inferred
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1c8fbe5a-bc56-4274-b195-0ab8b890f482)
 
@@ -443,7 +450,7 @@ Third example - A cascade of two FF's on with D input stuck to high and the outp
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/09b06bba-9047-415b-8e45-ecf366115da5)
 ```
-In this case 2 FF's are infered 
+In this case 2 FF's are inferred 
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/0c8e8688-1a42-4069-a06d-c23ea9211374)
 ```
@@ -451,15 +458,15 @@ Fourth example - A cascade of two FF's on with D input stuck to high and both FF
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/dd880d64-eca7-4ffd-9157-31ed58b7dd52)
 ```
-In this case No FF's is infered 
+In this case No FF's is inferred 
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/3faef3a2-064e-46f9-b1db-d7533e5ee1a5)
 ```
-Fifth example - A cascade of two FF's being reset at the begining, one FF with D input tied to high and output Q cascading to the next FF. In this case we expect 2 FF's being inferred.
+Fifth example - A cascade of two FF's being reset at the beginning, one FF with D input tied to high and output Q cascading to the next FF. In this case we expect 2 FF's being inferred.
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1e00343a-3672-423a-96b0-6d96bb4f393e)
 ```
-In this case 2 FF's are infered 
+In this case 2 FF's are inferred 
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/290607ca-46c4-4796-9f0e-ffa21f04ea16)
 
@@ -469,7 +476,7 @@ State Optimization - Removing unused states
 Retiming - Improving performance of the circuit (frequency), by balancing intermediate combinatorial logic delays between paths of sequential pipelining
 Sequential logic cloning - replicating portions of sequential logic to reduce the fan out and creating parallel paths to ease meet timing
 ```
-#### Sequential optimzations for unused outputs lab
+#### Sequential optimizations for unused outputs lab
 ```
 In this example a 4 bit counter is modeled in RTL but the output only uses the LSB, the unused outputs will be optimized out. In this particular case the output will toggle at every clock cycle so /Q -> D. Synthesis shows only one FF is kept.
 ```
@@ -483,11 +490,13 @@ In this case all the 4 bits of the counter are required to formed the final outp
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/6d9fd49b-dc66-4be7-96df-768e0d656dd9)
 
+<details>
+    <summary>🛠️Day 4 - GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch</summary>
 # Day 4 - GLS (Gate level simulation), blocking vs non-blocking and Synthesis-Simulation mismatch
 ```
-Running the test bench using the Netlist (generated after syntheis) as Design under test (DUT)
+Running the test bench using the Netlist (generated after synthesis) as Design under test (DUT)
 Netlist is logically equivalent to RTL
-GLS is used to verify logical correctness of the design after syntheis and to verify timing is met (adding delay annotation to GLS). GLS flow using iverilog (If gate level models are time annotated then GLS can be used for timing verification)
+GLS is used to verify logical correctness of the design after synthesis and to verify timing is met (adding delay annotation to GLS). GLS flow using iverilog (If gate level models are time annotated then GLS can be used for timing verification)
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/712d3d5d-2afc-458a-8236-495e1af96164)
 
@@ -500,14 +509,14 @@ Simulator looks for activity (any change on the signals) and as result evaluate 
 ```
 #### Missing sensitivity list 
 ```I
-n simulation Always blocks are only evaluated when one of the signals in the sensitivity list changes. Wild characters can be used in case we need to evaluate the always block when any signal changes e.g always@(*) . Otherwise if a signal is not included in the senstivity list will not trigger the evaluation of the always block and acts as a latch (value does not change). 
-In synthesis the compiler looks for the functionality not the sensitivity list, so it will infer the right components. If a missing signal in the sensitiviy list exist there will be differences between the simulation and synthesis.
+n simulation Always blocks are only evaluated when one of the signals in the sensitivity list changes. Wild characters can be used in case we need to evaluate the always block when any signal changes e.g always@(*) . Otherwise if a signal is not included in the sensitivity list will not trigger the evaluation of the always block and acts as a latch (value does not change). 
+In synthesis the compiler looks for the functionality not the sensitivity list, so it will infer the right components. If a missing signal in the sensitivity list exist there will be differences between the simulation and synthesis.
 ```
-#### Blocking vs Non-blocking assigment
+#### Blocking vs Non-blocking assignment
 ```
 BlockingAndNonBlockingStatementsInVerilog (only when we use an always block)
-Using "=" to make assigments will create a Blocking statement and all the statements will be executed sequentially (like in C). so order where the statements are written is important. 
-Using "<=" to make assigments will create a non-Blocking statement and all the statements in RHS (right hand side) will be evaluated in parallel. Non blocking will be used everytime we want to create a sequential circuit
+Using "=" to make assignments will create a Blocking statement and all the statements will be executed sequentially (like in C). so order where the statements are written is important. 
+Using "<=" to make assignments will create a non-Blocking statement and all the statements in RHS (right hand side) will be evaluated in parallel. Non blocking will be used every time we want to create a sequential circuit
 Caveats with blocking statements
 ```
 #### Non standard verilog coding - using weird verilog constructions
@@ -520,7 +529,7 @@ synthesis also shows a mux is infered
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/194571b7-3a74-4bdd-89c1-2f0ec369d42d)
 ```
-GLS simulation. Write netlist and use iverilog to simulate the design using: this neetlist, the behavioral models of cells and the same test bench used with RTL. We see the same MUX behavior which confirms what was obsrved using RTL simulation
+GLS simulation. Write netlist and use iverilog to simulate the design using: this netlist, the behavioral models of cells and the same test bench used with RTL. We see the same MUX behavior which confirms what was obsrved using RTL simulation
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b9d60e7a-67e1-42a5-b27e-98406a6130e3)
 ```
@@ -540,6 +549,8 @@ GLS simulation shows the correct MUX behavior
 In summary because of the problem with sensitivity list RTL simulation does not match GLS simulation
 ```
 
+<details>
+    <summary>🛠️Day 5 - Design for Testability</summary>
 # Day 5 - Design for Testability
 
 #### Testability A characteristics of an item's design which allows to know the status (operable, inoperable, degraded) of that item to be confident we are in control of the operation of the circuit. In VLSI a design should be well controllable and observable
@@ -582,15 +593,15 @@ Observability -  Be able to observe each node and measure the logical value at t
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/54d6fd0a-eb5e-4fe8-b164-b08c0e54c869)
 
-In the snapshot a register was added to observe the value of the node if the circuitry that is located after the node fails and its output gets stuck to a certain value with this added register we can observe the internal behavior of the node and get a better idea of what is happening. This added-regisger does not affect the timing but the area and power of the entire module
+In the snapshot a register was added to observe the value of the node if the circuitry that is located after the node fails and its output gets stuck to a certain value with this added register we can observe the internal behavior of the node and get a better idea of what is happening. This added-register does not affect the timing but the area and power of the entire module
 
 
-Fault - stuck at a logic value becausse of a physical damage or a defect
+Fault - stuck at a logic value because of a physical damage or a defect
 Error - Caused by  fault. System goes into an error state condition
 Failure - The system does not provide the expected service
 Chain of events: A fault causes and error and that leads to a failure
 Fault coverage - Percentage of the total number of faults that can be tested with a given test set
-Defect Level - similar to yield. Fraction of shipped parts that are defective. The proportion of faulty chips that were missclasiffied as good ones
+Defect Level - similar to yield. Fraction of shipped parts that are defective. The proportion of faulty chips that were misclassified as good ones
 
 #### Scan chain Technique
 ```
@@ -618,13 +629,13 @@ Test the paths in the manufactured devices for delay - test if the path is worki
 ```
 
 FAQ for scan chain
-How long one single scan chain can be: (the numner of FF's in a single scan chain)
+How long one single scan chain can be: (the number of FF's in a single scan chain)
 The larger the chain the more number of cycles is required to shift the data in and out. Smaller chains means more number of input/output ports required.
 
 #### Try to keep all the chains more or less equal in size.
 
 Number of ports required = 2 x Number of scan chains (basically affecting overall area)
-Number of cycles required to run a pattern = lenght of the largest scan chain in the design.
+Number of cycles required to run a pattern = length of the largest scan chain in the design.
 As the number of pattern combinations grows exponentially when the number of FF's present in chain increases, in order to generate the test pattern we use the ATPG (Automatic test Pattern generator) and ATE (Automatic test equipment)
 
 
@@ -642,9 +653,11 @@ DFT compiler - tool used to insert the scan chains in the design - some commands
 
 MUX controls where to run functional data or a test pattern. When test data is enabled (scan_enable), Start sending data from FF which is furthest to the left and keep shifting that data to FF number 2 and number 3 (FF furthest to the right) then data can be captured on the output port. To test intermediate nodes de-assert scan_enable for one or two clock pulses depending on the output we want to capture (data will pass through the combinatorial logic associated to that FF and then it will be captured
 
-# Day 5 - Introduction to Synthosis Logic
+<details>
+    <summary>🛠️Day 6 - Introduction to Synthesis Logic</summary>
+# Day 6 - Introduction to Synthesis Logic
 ```
-FLOW  RTL Source -> Translatee (HDL compiler) -> Optimize & Mapping (Design Compiler)
+FLOW  RTL Source -> Translate (HDL compiler) -> Optimize & Mapping (Design Compiler)
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f4f15383-fea1-41ac-a554-2e68103577df)
 
@@ -653,12 +666,12 @@ Drsign Compiler (Synopsys tool)
 dc_shell (text)  Design Vision (GUI)
 Format used for libraries  .db
 Format design Information .ddc
-SDC (constraints file TCL) Power, timing and areaa constraints
+SDC (constraints file TCL) Power, timing and area constraints
 FLOW : sset and link .db -> Read verilog HDL -> Read constraints (SDC) - >  Integrate design Info & Cell Libraries -> Synthesize -> Obtain Reports -> QOR (Quality of Report) - > write Netlist
 
 ```
-The design is writen in terms of standard cells (gates, FF's mux's, etc)  .db format 
-The Target library (Standard cell library database) binary format locatedd in  cell area/ins/timing/data
+The design is written in terms of standard cells (gates, FF's mux's, etc)  .db format 
+The Target library (Standard cell library database) binary format located in  cell area/ins/timing/data
 (Specifie for specific Process, Temperature and Voltage) PVT corner
 Other libraries can be appended with  link library
 ```
@@ -681,21 +694,21 @@ RTL Translation to gate level + include libraries (Synthesis) -> includes all in
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/084d802a-3115-4042-a605-6a22f9a18d9a)
 ```
-.lib (collection of logical modules inchuding different flaviors of same gate
+.lib (collection of logical modules including different flavors of same gate
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ebe3f863-02a3-4e03-ac7b-02e80298d128)
 ```
-Dealing with different flaviors of libraries. In snapshot the max delay constraint path is shown
+Dealing with different flavors of libraries. In snapshot the max delay constraint path is shown
 ```
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d9bd8955-653f-4480-8276-6058e332597f)
 
 ```
-Timing labels: TCQ clock to Q delay   TCOMBI (delay combinatorial logic)   TSETUP (Setpup time FF)
+Timing labels: TCQ clock to Q delay   TCOMBI (delay combinatorial logic)   TSETUP (Setup time FF)
 Mosfet equation in all operating regios  ID ~ [W/L]
 For Setup -> fastest logic cells (Wider transistors, decrease delay, increase area, increase current and power)
-For Hold -> slowest logic cells(Narror transistors, increase delay, decrease area, decrease current and power)
+For Hold -> slowest logic cells(Narrow transistors, increase delay, decrease area, decrease current and power)
 
-Need to guide the Syntheesizer to select cells to optimize design using constraints
+Need to guide the Synthesizer to select cells to optimize design using constraints
 
 Goal of Design synthesis:  Logically and electrically correct and Meeting Timing
 ```
@@ -707,7 +720,7 @@ Comparing Different implementation of the same logic specification
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/28c26780-ae45-4f1b-af76-3007e5e87e45)
 
 Implementation 3 seems to be the better one but there would be cases where this design in in the critical hold path and required hold time is bigger than the propagation delay and buffers
-will have to added to meet hold time which at the same time will increase area, so, for this particular case maybe implementaion 2 might be the best one
+will have to added to meet hold time which at the same time will increase area, so, for this particular case maybe implementation 2 might be the best one
 
 #### Terminology used in DC compiler
     SDC (synopsys design constraints) used across EDA implementation tools
@@ -748,7 +761,7 @@ Responses for your_library.db (dummy pointers to Non existing library, need to i
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2e6dd3a9-95f2-47e6-a452-ac21d628089d)
 
-Libraries properly intialiazied (link command should show libraries used), {*  ] used to indicate to preserve previous existing licenses and do not overrride them with the new setting
+Libraries properly intialiazied (link command should show libraries used), {*  ] used to indicate to preserve previous existing licenses and do not override them with the new setting
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e0a89874-c732-401b-9716-e91cb3ced580)
 
@@ -761,7 +774,7 @@ Invoking the Synposis compiler GUI
 csh
 design_vision
 ```
-First writing synposis information file to open it up with GUI (DCC file has all the information required for the project including libraries)
+First writing synopsis information file to open it up with GUI (DCC file has all the information required for the project including libraries)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/f0901c4f-a0d9-4e63-9050-af882a3b37bd)
 
@@ -771,12 +784,14 @@ Loading the design in GUI, showing schematics and cells used
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/9e440368-908d-4840-a1b6-dfeb4fb13f5a)
 
-Intialization script all takss needed for setup the tool: .synposis_dc.setup
+Initialization script all tasks needed for setup the tool: .synposis_dc.setup
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ad147d04-eb91-4d8c-a259-5ae91358a915)
 
 
-### TCL QUick refresher
+<details>
+    <summary>🛠️Day 7 - TCL QUick refresher - Basics of STA</summary>
+### TCL Quick refresher
 
 ### BASIC COMMNANDS
 
@@ -784,7 +799,7 @@ Intialization script all takss needed for setup the tool: .synposis_dc.setup
 
 ## Basics of STA
 
-Edge Trigerred FF setup/hold time
+Edge Triggered FF setup/hold time
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d735672d-a67f-4f7f-9c47-f01afd6d1ded)
 
@@ -802,7 +817,7 @@ Timing ARCS
 Indicate where the different sources of delays can come from
 
 COMB LOGIC:  From any input or combination of inputs to output
-SEQ  LOGIC: Delay from CLK to Q from D to Q (for a latch)  A latch is level sensitive only operates when level is active (low or high) othrwise latch is transpararent
+SEQ  LOGIC: Delay from CLK to Q from D to Q (for a latch)  A latch is level sensitive only operates when level is active (low or high) otherwise latch is transparent
 
 Table for sequential elements indicating where to measure setup/hold (FF's LATCH)
 
@@ -819,41 +834,41 @@ tck2 < 0.5 + 0.7 + 0.5 = 1.7 ns
 
 tck1 > tck2  (tck1 critical path)
 
-To reduce the critical path and increase the frquency we use the constraints to tell the tool to choose logical cell with adequate delay to meet the require timning
+To reduce the critical path and increase the frequency we use the constraints to tell the tool to choose logical cell with adequate delay to meet the require timing
 
 TIMING PARTS
 
 Timing paths start at an input point and ends at an output port
 
 clk to D       -> reg to reg timing constraint (constraints by clk) 
-clk to output  -> input to output constraints  ReG 2 OUTPUT (IO constriants)
-input to D     -> input to output constraints  REG 2 INPUT (IO constriants)
+clk to output  -> input to output constraints  REG 2 OUTPUT (IO constraints)
+input to D     -> input to output constraints  REG 2 INPUT (IO constraints)
 input to Output -> IO PATH (ideally the y should not be part of the constraints)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/642a7b2b-8166-47df-bfdf-89f77c4993a0)
 
-Once the dessired frequency (period) of operation is set all the reg to reg path will be limited by that value
-To meet the perior the toll will try to optimize all the logic around (choose appropriate cells)
+Once the desired frequency (period) of operation is set all the reg to reg path will be limited by that value
+To meet the period the toll will try to optimize all the logic around (choose appropriate cells)
 
 All synchronous paths using the same clock needs to be constraint. Summary of constraints to apply
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/68b14d7e-7bcc-41ea-9b6a-ecefda7484bf)
 
 REG 2 OUT (output External Delay) In 2 REG (Input External Delay)
-External delays IO Delay Modeling -> Std Interface Speficication (coming from tht external module manufacturer)
+External delays IO Delay Modeling -> Std Interface Specification (coming from external module manufacturer)
 
 ## LAB  Timing .lib
 
 Checking library parameters (technology, delay/power model, capacity, fanout, , type). For every pin in the cell (power, timing information)
 For every cell
-Delay mode lookup table (LUT)  f(input transition, ouput capacitance)
+Delay mode lookup table (LUT)  f(input transition, output capacitance)
 Power consumed by the cell (input/output) LUT
 From tables real values are found by interpolation 
 
-Comparaison between similar cells, example cells nand2 -> nand_2 faster than nand_0 (bigger area, leakage, power consumption)
+Comparison between similar cells, example cells nand2 -> nand_2 faster than nand_0 (bigger area, leakage, power consumption)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/d15bd1ed-3db8-4d7b-91b2-a65ffa50f868)
 
-Unate concept: (Tool uses this concept to propagate the transition (indicated on the functionallity of output of cell) - Combinatorial cells (timing type combinatorial)
+Unate concept: (Tool uses this concept to propagate the transition (indicated on the functionality of output of cell) - Combinatorial cells (timing type combinatorial)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ca5d488f-22fa-4f4b-972a-0d80954c3c24)
 
 For sequential cells (rising/falling edge). Setup time will have to specify also if it is measure with respect to positive/negative edge
@@ -870,7 +885,7 @@ Cases of latches:
 
 ## LAB  Query Properties of libraries inside .dc_shell
 
-List different flaviors of and gates
+List different flavors of and gates
 
 list_lib
 get_lib_cells */*and*
@@ -930,6 +945,8 @@ List_attributes -app
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/eb7788bc-b984-419b-9b88-83e2f7c0067d)
 
 
+<details>
+    <summary>🛠️Day 8 - Advanced SDC Constraints</summary>
 ## Advanced Constraints
 
 ## Clock Tree Modelling - Uncertainty 
@@ -944,7 +961,7 @@ External Source
 
 To include jitter setup equation is modified:
 
-After CTS and buffer insertion CLK SKEW cnan happen, besides that to take into account the random nature of clk generation Tck - Tskew + Tjitter >= (Tcq + T combi + T setup)  
+After CTS and buffer insertion CLK SKEW can happen, besides that to take into account the random nature of clk generation Tck - Tskew + Tjitter >= (Tcq + T combi + T setup)  
 
 Synthesis ->  Jitter + Skew
 Post CTS  -> Only Jiteer
@@ -970,11 +987,11 @@ Querying cells:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/100e4a10-e175-4951-94bf-478d833f2959)
 
-When specifying Cells, in the example (combo logic) are specified indicating weather they are a phyisical cell (exist in design) or part of another block (hyerarchical cell), using  -hier  for that 
+When specifying Cells, in the example (combo logic) are specified indicating weather they are a physical cell (exist in design) or part of another block (hierarchical cell), using  -hier  for that 
 
 Writing Constraints:
 
-CLK: (Only on clock geenrated (PLL, OSC, External IO pins) (hierachical pins can be created)
+CLK: (Only on clock generated (PLL, OSC, External IO pins) (hierarchical pins can be created)
 create_clock -name my_clk -per 5 [get_ports CLK]
 set_clock_latency 3 my_clock
 set_clock_uncertainty 0.5 my_clk
@@ -1058,7 +1075,7 @@ remove a clock:  remove_clk clk_name
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/48f6b81b-0a77-4dc3-b68c-678eeedbb336)
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e17029c8-626f-4e70-879a-e5f8136a4887)
 
-After creating clock and adding uncertaintues, Timing slack got reduced
+After creating clock and adding uncertainties, Timing slack got reduced
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/35bc76f8-84c4-4996-8cf5-dfe9c4a39080)
 
@@ -1099,7 +1116,7 @@ Wire Load Model Mode: top
 dc_shell> 
 
 
-After defyning main clock
+After defining main clock
 
 
 dc_shell> create_clock -name MYCLK -per 10 [get_ports clk]
@@ -1215,7 +1232,7 @@ dc_shell>
 
 ```
 
-Comparing timing report for max and min delay (setup/hold) uncertainties substracted and added depending on the report chosen 
+Comparing timing report for max and min delay (setup/hold) uncertainties subtracted and added depending on the report chosen 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/b8d4777f-220e-436b-90c5-14ca33ca98f0)
 
@@ -1726,8 +1743,10 @@ Timing is met. Same as previous method
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/4af5eeab-69cd-47a7-aa04-df5a1d69a63a)
 
+<details>
+    <summary>🛠️Day 9/10 -Optimization in Syntheys- QOR</summary>
 ## OPTIMIZATIONS
-Optimiztion parameters: Tool will try to find the optimal way for the implementation so that the three parameters are meet (timing, area, power). Each parameter has its own cost function, all of them are analyzed and the best values are chosen.
+Optimization parameters: Tool will try to find the optimal way for the implementation so that the three parameters are meet (timing, area, power). Each parameter has its own cost function, all of them are analyzed and the best values are chosen.
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a35d3c92-e83c-45b9-bfa0-2d5de71a7ec1)
 
@@ -1738,10 +1757,10 @@ power  -> set value and related to the other 2
 Combinatorial Optimization
 - Constant propagation (use fix logic values and see how they propagate through out the design to reduce logic)
 - Boolean Optimization (Resource sharing, logic sharing, simplify equations)
-- Balance vs preferential implementation (Right impelementation will depend on what is acceptable and margens in term of parameters needed to meet)
+- Balance vs preferential implementation (Right implementation will depend on what is acceptable and margens in term of parameters needed to meet)
 
 Sequential Optimization
-- Sequential constant propagaton
+- Sequential constant propagation
 - Retiming
 - Unused FLop removal
 - Clock gating
@@ -1760,12 +1779,12 @@ Lab example -> Optimization of a mux and combo logic
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/61819682-ac3e-4bc7-839a-0049af88db94)
 
-After titghen the sel line the logic get spread - area increases a bit (set_max_delay 0.1 -from sel -to [all_outputs])
+After tighten the sel line the logic get spread - area increases a bit (set_max_delay 0.1 -from sel -to [all_outputs])
 select goes directly to the output instead of staying in the input stages a before  (mux are close to the output)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/53eff487-570e-4a55-b300-c7f47d837c83)
 
-Constrainng the area to 800 (set_max_area 800) Tool gives better results for are (sel still tight) and still meeting timing 
+Constraining the area to 800 (set_max_area 800) Tool gives better results for are (sel still tight) and still meeting timing 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/efc9246a-5e21-42d7-a263-ac06ce3dfdea)
 
@@ -1789,19 +1808,19 @@ In this case the FF's cells are present and D tied to a constant high using a TI
 
 ### Special optimizations
 
-- Retiming case -> Brake down a large combo logic into small pieces and distributted to sequential consecutive FF's (Disadvantage as we are braking the logic we are modifying the original 
+- Retiming case -> Brake down a large combo logic into small pieces and distributed to sequential consecutive FF's (Disadvantage as we are braking the logic we are modifying the original 
 netlist). Can create issues with Functional DV (design verifiation)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/be8ed823-75a2-43bc-b1f5-6ddbd3bd3f7e)
 
-- Boundary optimization (Disolve boundaries in modules and merge them) It changes the hierarchie and netlist.  Can create issues with Functional DV (design verifiation)
+- Boundary optimization (Dissolve boundaries in modules and merge them) It changes the hierarchy and netlist.  Can create issues with Functional DV (design verifiation)
    set_boundary_optimization module_1 false/true
   
 - Multicycle paths
 
 - In this particular design the enable to the MUX (D input of FF) comes also from another FF, this enable will last for one entire clock cycle (inputs A and B are supposed to be estable all that time)
-- In this case we do not expect any changes on main FF (PROD_REG) adter the next cycle so effecively we can expect a response after the second clock cycle. This is indicated in the constraint showing 
-   multicyle 2 cycles (logic is sampled only once every 2 clock samples). Otherwise the tool will try to over=optimize that path in just one cycle.
+- In this case we do not expect any changes on main FF (PROD_REG) after the next cycle so effectively we can expect a response after the second clock cycle. This is indicated in the constraint showing 
+   multicycle 2 cycles (logic is sampled only once every 2 clock samples). Otherwise the tool will try to over=optimize that path in just one cycle.
 
   ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/a217ab02-f27c-4837-a00a-d7aaeba33cdb)
 
@@ -1811,12 +1830,13 @@ netlist). Can create issues with Functional DV (design verifiation)
     ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ac0b9752-b2ee-4c89-8a0d-5983e278f059)
 
 - External loads vs Internal loads
-- In the cuitcuit shown, if an external module is added, it will increase the overall load of output and increase the delay. A consraint (set isolate_ports -type buffer [get_ports OUT_Y]) can be added to 
+- In the circuit shown, if an external module is added, it will increase the overall load of output and increase the delay. A constraint (set isolate_ports -type buffer [get_ports OUT_Y]) can be added to 
   isolate the output, adding a buffer to prevent the load to affect the timing path of the circuit.
 - 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8596432a-e7b3-44c3-8a1a-dd8b4a2dae16)
 
-
+<details>
+    <summary>🛠️Day 11 - INTRODUCTION TO BABY SOC</summary>
 # Day 11 - INTRODUCTION TO BABY SOC
 
 - SOC single die chip that has different IP cores
@@ -1824,8 +1844,8 @@ netlist). Can create issues with Functional DV (design verifiation)
 - Depending on the requirements in summary it can consist of a digital/analog mixed signal units, fixed/floating point unit
   Used on mobile computing, communications, control
 
-- Functional comoponents: Processor cores, memories DSP's 
-- Intermodule communication:  Bus-based communication, netowrk on a chip. Network interface module
+- Functional components: Processor cores, memories DSP's 
+- Intermodule communication:  Bus-based communication, network on a chip. Network interface module
 
   Basic flow to build an SoC
   - Specification requirements
@@ -1844,25 +1864,26 @@ netlist). Can create issues with Functional DV (design verifiation)
 ### Types of SOC
 - SOC build around a microcontroller
 - SOC's build around microprocessors, often found in cell  phones
-- Spsciaalized ASIC's SOC's designed for very specific applications
+- Specialized ASIC's SOC's designed for very specific applications
 
 ### Baby SoC components:
 
 - Wrapper SoC
 - RVMYTH: Simple RISC SOC core
 - PLL : Phase-lock loop, generates an output whose phase is in sync with input phase. It is used for Clock generation, synchronization and distribution
-- DAC: Converts a digital signal into an analog one used in communiction systems
+- DAC: Converts a digital signal into an analog one used in communication systems
 
   ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/45f0e00d-5464-4967-af97-090258311986)
 
-
+<details>
+    <summary>🛠️Day 12 - BABYSOC MODELING</summary>
 # Day 12 - BABYSOC MODELING
 ### Modeling Baby SoC (3 basic components)
 - PLL
 - - DAC
 RVMYTH
 
-### Modeling uses of physical and logical represention on a system that helps to generate data and help determine decisions nd predictions about the system
+### Modeling uses of physical and logical representation on a system that helps to generate data and help determine decisions, predictions about the system
 
 ### Purpose of modeling:
 
@@ -1873,7 +1894,7 @@ Validation,
 Generate documentation
 
 ### Why we model: 
-Give intial vector signals to our circuit and see how it reacts. e.g PLL will start and clock will be applied to all rvmyth which will do all computations and generate output values, some will be analog values generated by a DAC
+Give initial vector signals to our circuit and see how it reacts. e.g PLL will start and clock will be applied to all rvmyth which will do all computations and generate output values, some will be analog values generated by a DAC
 
 ### RVMYTH - Risc V
 Reduced set computer architecture
@@ -1899,13 +1920,13 @@ Are dependencies which disrupt the normal execution in the pipeline. When a haza
 - Data Hazards
 
 ### PLL
-Phase locked loop, electronic cirtcuit with a voltage driver oscillator (VCO) that constantly match the frequency/phase of an output signal with input signal using a control loop, an error phase is generated and that varies the voltage on vco to adjust the output value. A divided down value of frequency can also be obtained with this PLL by using a frequency counter in control loop. PLL's are used to generate, synchronize, stabilize external clock frequencies. Reduce jitter delays due to long wires, adjust ppm error values (parts per million e.g 20ppm quarts translates to 20/1e6 = 2e-5 =1.73 sec per day)
+Phase locked loop, electronic circuit with a voltage driver oscillator (VCO) that constantly match the frequency/phase of an output signal with input signal using a control loop, an error phase is generated and that varies the voltage on vco to adjust the output value. A divided down value of frequency can also be obtained with this PLL by using a frequency counter in control loop. PLL's are used to generate, synchronize, stabilize external clock frequencies. Reduce jitter delays due to long wires, adjust ppm error values (parts per million e.g 20ppm quarts translates to 20/1e6 = 2e-5 =1.73 sec per day)
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/2b1feb07-4ffe-4593-a25b-5f6c4320da44)
 
 ### DAC (Digital to Analog converter) - 2 types of DAC
 
-- Wieghed resgister DAC (resisters and switches are tuened on/off to obtain the voltage required), R values could be 
+- Weighed DAC register (resisters and switches are tuned on/off to obtain the voltage required), R values could be 
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e921ec17-4be6-4717-9895-5738674c88a5)
 
@@ -1915,7 +1936,7 @@ Produces an analog output, which is equal to the digital input representation us
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/91e2d804-d910-4fa0-b3b4-d528c373eb6f)
 
-Verilog can't synthesize analog design, we will use real data constructions non-synthesisable to represent analog modules. We will simulate logical correctness of the design using iverlog -Icarus (compile) and check waveforms with gtkwave
+Verilog can't synthesize analog design, we will use real data constructions non-synthesizable to represent analog modules. We will simulate logical correctness of the design using iverlog -Icarus (compile) and check waveforms with gtkwave
 
 Here the repo we used as a reference to model the RVMYTH.
 https://github.com/shivanishah269/risc-v-core
@@ -1968,19 +1989,20 @@ gtkwave test.vcd
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/65e1d000-31af-4951-adfc-d8c23cab6fcf)
 
 
-
-# Day 12 - POST-SYNTHESIS
+<details>
+    <summary>🛠️Day 13 - POST-SYNTHESIS SIMULATION</summary>
+# Day 12 - POST-SYNTHESIS SIMULATION
 `
-Pre-synthesis: Simulatiom is done according to the logic we designed it is only Functional Simulation. So, after synthesis we need to hook up again pll & dac and check again.
+Pre-synthesis: Simulation is done according to the logic we designed it is only Functional Simulation. So, after synthesis we need to hook up again pll & dac and check again.
 
-Post syntheesis simulation or gate level simulation (GLS) is done after synthesis considering each and every gate delays into account, it reports violations in functionality and timing. It shows also the mismatches due to wrong usage of operators and the inference of latches. 
-Nomencalture: Using X in simulation and Unknown/Don't care in synthesis.
+Post synthesis simulation or gate level simulation (GLS) is done after synthesis considering each and every gate delays into account, it reports violations in functionality and timing. It shows also the mismatches due to wrong usage of operators and the inference of latches. 
+Nomenclature: Using X in simulation and Unknown/Don't care in synthesis.
 
-Gate level refers to the netlist view of a circuit produced by logic synthesis. So RTL simulation is pre-synthesis, GLS is post-synthesis. The netlsit view is a list showing the complete connection of gates and IP models with full functionality and timing behavior.
+Gate level refers to the netlist view of a circuit produced by logic synthesis. So RTL simulation is pre-synthesis, GLS is post-synthesis. The netlist view is a list showing the complete connection of gates and IP models with full functionality and timing behavior.
 
-RTL simulation is a zero delay simulation, GLS can be also zero delay but it is mostly used in unit delay or full timing mode Gate level simulation. Bassically improves the confidence we have in the implementation of a design and it can help verify dynamic behavior, thing that can not be achieved using static methods.
+RTL simulation is a zero delay simulation, GLS can be also zero delay but it is mostly used in unit delay or full timing mode Gate level simulation. Basically improves the confidence we have in the implementation of a design and it can help verify dynamic behavior, thing that can not be achieved using static methods.
 
-We will use design compier for post-synthesis simulation
+We will use design compiler for post-synthesis simulation
 
 e.g rvmyth_avsddac.v
 
@@ -2031,7 +2053,7 @@ Compiling with Synopsys DC Compiler
  compile_ultra #Problem found only compile seems to work (fixed)
  write_file -format verilog -hierarchy -output /home/jose/VSDBabySoC/output/vsdbabysoc_net.v # write out netlist file in verilog format at specified output location
 ```
- when using compile_ultra an issue is found -> power optimiztion kicks in and a insufficient physical memory error happens
+ when using compile_ultra an issue is found -> power optimization kicks in and a insufficient physical memory error happens
 
  ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8c14518b-32ac-4539-b211-3a8ea178bbfc)
 
@@ -2068,7 +2090,7 @@ Simulations for post-synthesis seem similar to the ones obtained in pre-synthesi
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/e269dd30-8b00-4aaa-9273-313e9ccee008)
 
-# Day 13 - Synposys DC And timing Analysis
+# Day 13 - Synopsys DC And timing Analysis
 
 ### TCL scripts were created to facilitate the repetitive work:
 
@@ -2083,7 +2105,7 @@ foreach f $libfiles {
 }
 
 ```
-The second script runs on dc_shell and genrates the synthesis, apply the constraint and generate the reports:
+The second script runs on dc_shell and generates the synthesis, apply the constraint and generate the reports:
 
 ```
 set libfiles [glob /home/jose/VSDBabySoC/src/lib/sky*.db]
@@ -2249,7 +2271,8 @@ Total area:                 undefined
 ```
 
 
-
+<details>
+    <summary>🛠️Day 14 - Inception of EDA and PDK</summary>
 # Day 14 - Inception of EDA and PDK
 
 Reviewing BabySOC process using opencore tools
@@ -2282,6 +2305,8 @@ make sta
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/8341f8df-b6fb-49e9-b0c2-333a9069ea02)
 
 
+<details>
+    <summary>🛠️Day 15 - FloorPlanning and Power Planning Labs using ICC2 tool</summary>
 # Day 15 - Floor Planning and Power Planning Labs using ICC2 tool
 
 ### ASIC Design flow
@@ -2292,9 +2317,9 @@ Starting the cycle with Design specification -> customer input -> functionality 
 
 ### Basically two cycles types in this flow are identified:
 ```
-• Front end design -> design spec, rtl descriotion, rtl verification
+• Front end design -> design spec, rtl description, rtl verification
 • Backend design   -> logic design (logic synthesis gate level) , physical design
-  (used open source tools in previous course, now using synposys) -> ncluding floorplaning and Place and Route
+  (used open source tools in previous course, now using synposys) -> including floorplaning and Place and Route
 ```
 
 Figure showing areas included in physical design flow:
@@ -2311,26 +2336,26 @@ Synopsys IC Compiler™ II is the industry leading place and route solution that
 • Technology file (.tf or .db, mostly describing parasitics resistances, cpacitamces in the components ..etc)
 • Physical Libraries (In general Lef of GDS file for all design elements like macro, std Cell, IO pads etc)
 • Timing, Logical and Power Libraries
-• TDF file (.tdf or .io mostly describing pads pin arragements) 
+• TDF file (.tdf or .io mostly describing pads pin arrangements) 
 • Constraints (.sdc : time, area) 
 
-• Physical Design Exchange Format –PDEF (optional)  (describing some placemnnt locations)
+• Physical Design Exchange Format –PDEF (optional)  (describing some placement locations)
 • Design Exchange Format –DEF (optional)
 
 • Outputs:
-• Standard delay format (.sdf -> timing detais information, reference libraires)
-• Parasitic format (.spef, .dspf -> (resitance and cpacitances of cells nets))
+• Standard delay format (.sdf -> timing details information, reference libraires)
+• Parasitic format (.spef, .dspf -> (resistance and capacitances of cells nets))
 • Post routed Netlist (.v -> (connectivity information of all the cells, it can be flatten or unflatten)
 • Physical Layout (.gds -> files to foundry)
-• Design Excahnge format (.def -> raw placemeent locations)
+• Design Exchange format (.def -> raw placement locations)
 
 Libraries uses in Physical Design:
 • Technology File Libraries (describes the basic characteristic of cell library pertaining to a particular technology)
 • Standard Cell Libraries, I/O Cell Libraries, Special Cell Libraries (collection of pre designed layout of basic logic gates like inverters, buffers, ANDs, ORs, NANDs etc)
 
-### Floorplaong Goal
+### Floorplaning Goal
 
-Plan the sillicon area and create a robust and clear power distribution network to power every component (input to this stage is the syntheisized netlist including macos, libs, etc). To achieve that purpose power routing includes thr creation of Power ring, Stripes, Rails
+Plan the silicon area and create a robust and clear power distribution network to power every component (input to this stage is the synthesized netlist including macos, libs, etc). To achieve that purpose power routing includes the creation of Power ring, Stripes, Rails
 
   In Summary Power Planning involves:
 • Calculating number of power pins required
@@ -2352,7 +2377,7 @@ When the IO's are not switching it is called Static IR Drop and when the IO's ar
 
 • Issues with Bad Floor plan: Congestion, IR Drop, Reduced lifespan of IC, Noise, Increased Area, Routing, etc 
 
-Floorplaning main parameters: 
+Floorplanning main parameters: 
 • Aspect ratio   (Horizontal routing resources/vertical routing resources)
 • Core utilization (Area of STD cells + macros + PAD's)/Area of the Chip
 
@@ -2388,9 +2413,9 @@ Files involved in this flow:
 
 • LEF file - The LEF file is the abstract view of cells. It only gives the idea about PR boundary, pin position and metal layer information of a cell.
 • Milkyway file/ Technology file.
-• Interconnet technology file(.itf) - It defines cross section profile of the process this is an ordered list of conductor and dielectric layer definition statements the layers are defined from topmost dielectric layer to the bottom most dielectric layer excluding substrate.
+• Interconnect technology file(.itf) - It defines cross section profile of the process this is an ordered list of conductor and dielectric layer definition statements the layers are defined from topmost dielectric layer to the bottom most dielectric layer excluding substrate.
 • Technology file(.tf) - Technology File is the most critical input for physical design tools. It provides technology-specific information like the names and physical and electrical characteristics of each metal/via layers and the routing design rules.
-• TLU/TLU+ files - These modles are set of models contains advanced process effects that can be used by parasitic extractor in PnR tools for modelling these are generated from ITF filesTLUPlus is a binary table format that stores the RC coefficients. The TLUPlus models enable accurate RC extraction results by including the effects of width, space, density, and temperature on the resistance coefficients.(.itf is used to generate these files)
+• TLU/TLU+ files - These models are set of models contains advanced process effects that can be used by parasitic extractor in PnR tools for modelling these are generated from ITF filesTLUPlus is a binary table format that stores the RC coefficients. The TLUPlus models enable accurate RC extraction results by including the effects of width, space, density, and temperature on the resistance coefficients.(.itf is used to generate these files)
 
 ### Getting files needed:
 
@@ -2420,11 +2445,11 @@ I Was playing before with floorplaning parameters, last one used a rectangular s
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/cd6d7c92-32b7-401b-9e7b-cad6caadbc0b)
 
-After several changes in the scripts, it looks like script is not brealing and tool is still running for more than one hour ...last snapshot taken
+After several changes in the scripts, it looks like script is not breaking and tool is still running for more than one hour ...last snapshot taken
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/5c142b7c-a096-405b-a8f0-1c23e20ce750)
 
-Lots of violations in this long run, still not finished ..Prof. Kunal suggessted lower utilization factor to 0.3. So will modify scripts and run again.
+Lots of violations in this long run, still not finished ..Prof. Kunal suggested lower utilization factor to 0.3. So will modify scripts and run again.
 
 In the next try main script top.tcl seems to finish completely. Continue doing more experiments
 
@@ -2651,7 +2676,7 @@ Date   : Wed Jun 26 01:16:47 2024
 
 ```
 
-### Doing more experiments with floorplan command. In theory if directed correctly the tool itslef should be able to provide a much better floorplan, for larger designs we will not be able to manually generate the layout (in this case by specifying better dimension in rect command)
+### Doing more experiments with floorplan command. In theory if directed correctly the tool itself should be able to provide a much better floorplan, for larger designs we will not be able to manually generate the layout (in this case by specifying better dimension in rect command)
 
 ```
 initialize_floorplan -control_type core -shape Rect -side_length {1700 900} -core_utilization 0.07  -coincident_boundary false -core_offset {20}
@@ -2692,7 +2717,7 @@ This seems to show coordinates relatives to 1
 
 Checking another report file located in:  /home/jose/VSDBabySoC_ICC2/standaloneFlow/write_data_dir/vsdbabysoc/vsdbabysoc.icc2.floorplan
 
-That file shows more precise locations where the macros and IO's were included after floorplaning command, that file seems to show the tool is using the dimensions indicated in the floorplan command:
+That file shows more precise locations where the macros and IO's were included after floorplanning command, that file seems to show the tool is using the dimensions indicated in the floorplan command:
 
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/1fc2e031-2298-4615-a3c9-8aeaf15dce52)
 
@@ -2704,7 +2729,7 @@ That file shows more precise locations where the macros and IO's were included a
 ## Modifying flow to generate parasitics file (SPEF) on final routed design:
 ## First approach : Calculating parastics inside icc2 flow (top.tcl script)
 
--  Added route_opt, write parastiis (in this first try just one corner will be investigated)
+-  Added route_opt, write parastics (in this first try just one corner will be investigated)
 ```  
 route_auto -max_detail_route_iterations 10 
 write_parasitics -corner func1 -output vsdbabysoc_parasitics
@@ -2804,8 +2829,8 @@ Date   : Thu Jun 27 04:28:54 2024
   Startpoint: core/CPU_is_addi_a3_reg (rising edge-triggered flip-flop clocked by clk)
   Endpoint: core/CPU_Xreg_value_a4_reg[24][31] (rising edge-triggered flip-flop clocked by clk)
   Mode: func1
-  Corner: estimated_corner
-  Scenario: func1::estimated_corner
+  Corner: estimated corner
+  Scenario: func1::estimated corner
   Path Group: clk
   Path Type: max
 
@@ -3970,7 +3995,7 @@ No paths
 
 Prime time is one of the most accurate timing tools available in the industry to analyze static timing and in case of timing violations, it provides hints and also allows designers to test them using the tool and later create eco's to modify the design netlist so timing can be met.
 
-Reading design files and parasitics using primetime tool:
+Reading design files and parasitic using primetime tool:
 ```
 set target_library  /home/jose/synopsys_ICC2flow_130nm/synopsys_skywater_flow_nominal/collateral/sky130_fd_sc_hd__tt_025C_1v80.db
 set link_library [concat * $target_library \ /home/jose/VSDBabySoC/src/lib/avsdpll.db \  /home/jose/VSDBabySoC/src/lib/avsddac.db]
@@ -4191,7 +4216,7 @@ Showing for example spurious ports e.g in pll instantiation: VDD#2, VDD#3, GND#2
 
 ![image](https://github.com/user-attachments/assets/539d5ac3-a65f-4ece-956e-8372904f875e)
 
-In this exercise we will not compile individually using icc2 each library ( which would imply, changes in tcl script, fix ports in netlist, etc). We will use the dominant corner to calculate the netlist and the run the script we were using for Primetime to calculage set up/hold time slacks
+In this exercise we will not compile individually using icc2 each library ( which would imply, changes in tcl script, fix ports in netlist, etc). We will use the dominant corner to calculate the netlist and the run the script we were using for Primetime to calculate set up/hold time slacks
 n
 ### PVT Corner Table obtained with PrimeTime
    
@@ -4207,7 +4232,7 @@ The main differences between post-route STA  and initial STA done after synthesi
  	Tools - DC (Synthesis tool, preliminary STA) , icc2 (P & R tool) uses PrimeTime as STA engine
 
 
-### ICC2 Experimet
+### ICC2 Experiment
 
 Using the values obtained from previous corner table,  compiling directly with icc2 for the values where the timing failures were bigger. 
 In this case, running icc2 compiler directly using the correct libraries other than ff_25 (only for n40 1v76 the timing errors are very small), then exporting the environment to Primetime to calculate setup/hold time:
