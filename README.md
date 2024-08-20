@@ -363,6 +363,7 @@ In this case the sync reset is implemented as NOR(sync_reset, NOT(d)) = (NOT(syn
 #### final rtl also show the expected output for case b
 ![image](https://github.com/joses-bot/sfal-vsd/assets/83429049/ec06f1bf-6d70-4473-9a50-61650afaa214)
 
+</details>
 <details>
     <summary>🛠️Day 3 - Combinational and sequential optimizations</summary>
 # Day 3 - Combinational and sequential optimizations
