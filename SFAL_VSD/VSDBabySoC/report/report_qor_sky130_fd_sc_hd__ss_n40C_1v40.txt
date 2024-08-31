@@ -1,0 +1,97 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : qor
+Design : vsdbabysoc
+Version: T-2022.03-SP5-6
+Date   : Tue Aug 27 10:16:12 2024
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              12.00
+  Critical Path Length:          8.66
+  Critical Path Slack:           0.02
+  Critical Path Clk Period:     10.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'default'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.69
+  Critical Path Slack:           9.31
+  Critical Path Clk Period:       n/a
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          1
+  Hierarchical Port Count:         12
+  Leaf Cell Count:               3390
+  Buf/Inv Cell Count:             383
+  Buf Cell Count:                   7
+  Inv Cell Count:                 376
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      2714
+  Sequential Cell Count:          676
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    14518.924491
+  Noncombinational Area: 13550.495573
+  Buf/Inv Area:           1438.879955
+  Total Buffer Area:            27.53
+  Total Inverter Area:        1411.35
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:             28069.420064
+  Design Area:           28069.420064
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          3396
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: sfalvsd
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    4.64
+  Logic Optimization:                 10.03
+  Mapping Optimization:                8.43
+  -----------------------------------------
+  Overall Compile Time:               46.59
+  Overall Compile Wall Clock Time:    47.23
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

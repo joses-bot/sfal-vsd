@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : clocks
+Design : vsdbabysoc
+Version: T-2022.03-SP5-6
+Date   : Tue Aug 27 10:18:23 2024
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clk             10.00   {0 5}                         {pll/CLK}
+--------------------------------------------------------------------------------
+1

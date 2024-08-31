@@ -1,0 +1,10 @@
+#@ # 
+#@ # Running lc_shell Version T-2022.03-SP5 for linux64 -- Oct 13, 2022
+#@ # Date:   Sat Jun 15 05:25:21 2024
+#@ # Run by: jose@sfalvsd
+#@ 
+
+pwd
+source lib_conv.tcl
+ls
+exit
