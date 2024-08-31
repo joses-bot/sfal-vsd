@@ -1,0 +1,245 @@
+[icc2-lic Tue Aug 27 10:57:59 2024] Command 'report_timing' requires licenses
+[icc2-lic Tue Aug 27 10:57:59 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Tue Aug 27 10:57:59 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Tue Aug 27 10:57:59 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Tue Aug 27 10:57:59 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Tue Aug 27 10:57:59 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Tue Aug 27 10:57:59 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Tue Aug 27 10:57:59 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Tue Aug 27 10:57:59 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Tue Aug 27 10:57:59 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Tue Aug 27 10:57:59 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Tue Aug 27 10:57:59 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : timing
+        -path_type full_clock_expanded
+        -delay_type max
+        -max_paths 1
+        -report_by design
+        -transition_time
+        -capacitance
+        -physical
+        -process
+        -voltage
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Tue Aug 27 10:57:59 2024
+****************************************
+
+  Startpoint: core/CPU_is_sub_a3_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: core/CPU_Xreg_value_a4_reg[18][31] (rising edge-triggered flip-flop clocked by clk)
+  Mode: func1
+  Corner: func1
+  Scenario: func1
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Cap      Trans      Incr      Path          Location        Voltage         Process
+  ----------------------------------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                0.00      0.00
+  source latency                                                       0.00      0.00
+  pll/CLK (avsdpll)                                0.02      0.00      0.00      0.00 r ~  (502.31,29.00)      5.00~       1.0 (pane 0)
+  core/ZCTSBUF_30582_1148/X (sky130_fd_sc_hd__clkbuf_1)
+                                                   0.01      0.17      0.15      0.15 r    (505.98,206.32)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1597/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.07      0.17      0.32 r    (508.66,315.12)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1598/X (sky130_fd_sc_hd__buf_1)
+                                                   0.01      0.09      0.12      0.44 r    (509.22,472.88)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_30234_1147/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.07      0.15      0.59 r    (508.20,524.56)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_29861_1146/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.07      0.14      0.73 r    (554.66,666.00)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_21403_1101/X (sky130_fd_sc_hd__buf_2)
+                                                   0.01      0.04      0.12      0.84 r    (651.85,682.32)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1690/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.06      0.12      0.97 r    (653.10,655.12)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_21312_1093/X (sky130_fd_sc_hd__clkbuf_4)
+                                                   0.02      0.09      0.17      1.14 r    (656.18,633.41)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_18980_1086/X (sky130_fd_sc_hd__buf_6)
+                                                   0.02      0.06      0.13      1.27 r    (701.12,619.76)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_18908_1085/X (sky130_fd_sc_hd__clkbuf_1)
+                                                   0.02      0.24      0.22      1.49 r    (690.90,627.92)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/CPU_is_sub_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_4)      0.24      0.00      1.49 r    (689.57,625.26)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+
+  core/CPU_is_sub_a3_reg/CLK (sky130_fd_sc_hd__dfxtp_4)      0.24      0.00      1.49 r    (689.57,625.26)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/CPU_is_sub_a3_reg/Q (sky130_fd_sc_hd__dfxtp_4)
+                                                   0.01      0.04      0.39      1.89 r    (697.12,625.21)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U464/X (sky130_fd_sc_hd__and2_1)            0.03      0.26      0.26      2.15 r    (694.46,636.08)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_4445/X (sky130_fd_sc_hd__a21o_1)
+                                                   0.03      0.23      0.25      2.40 r    (691.84,636.08)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/gre_mt_inst_4581/X (sky130_fd_sc_hd__buf_2)
+                                                   0.03      0.17      0.25      2.65 r    (659.67,641.52)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_594/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.01      0.07      0.09      2.75 f    (657.56,685.04)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_2_595/Y (sky130_fd_sc_hd__xnor2_1)
+                                                   0.00      0.06      0.14      2.89 f    (654.86,682.28)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U41/X (sky130_fd_sc_hd__or2_0)              0.01      0.11      0.28      3.17 f    (652.01,679.47)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_643/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.01      0.14      0.20      3.36 r    (650.67,668.89)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U565/Y (sky130_fd_sc_hd__o21ai_1)           0.01      0.10      0.12      3.48 f    (651.98,663.21)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_648/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.01      0.19      0.21      3.69 r    (654.81,665.83)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U197/Y (sky130_fd_sc_hd__o21ai_1)           0.01      0.11      0.14      3.83 f    (662.10,693.27)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_653/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.01      0.16      0.20      4.03 r    (667.21,690.66)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U195/Y (sky130_fd_sc_hd__o21ai_1)           0.02      0.20      0.19      4.21 f    (679.25,690.41)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_654/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.01      0.15      0.22      4.44 r    (673.19,750.50)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U196/Y (sky130_fd_sc_hd__o21ai_1)           0.01      0.10      0.12      4.56 f    (663.61,747.67)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_655/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.01      0.15      0.19      4.75 r    (663.09,752.87)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U337/Y (sky130_fd_sc_hd__o21ai_1)           0.01      0.11      0.13      4.88 f    (665.77,763.99)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_656/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.01      0.14      0.19      5.06 r    (667.69,774.62)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U336/Y (sky130_fd_sc_hd__o21ai_1)           0.01      0.10      0.12      5.19 f    (675.89,777.45)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_657/Y (sky130_fd_sc_hd__a21boi_2)
+                                                   0.01      0.13      0.17      5.36 r    (686.09,777.70)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U90/Y (sky130_fd_sc_hd__o21ai_0)            0.01      0.12      0.14      5.50 f    (687.43,782.95)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_658/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.00      0.05      0.09      5.59 r    (692.99,782.96)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_2_659/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.01      0.06      0.07      5.66 f    (697.59,782.96)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U934/COUT (sky130_fd_sc_hd__fa_2)           0.01      0.08      0.35      6.01 f    (709.53,780.27)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_660/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.00      0.05      0.07      6.08 r    (714.14,780.24)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_2_661/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.01      0.06      0.07      6.15 f    (715.07,782.96)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U898/COUT (sky130_fd_sc_hd__fa_2)           0.01      0.07      0.34      6.49 f    (714.15,777.49)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U880/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.09      0.40      6.89 f    (725.43,780.24)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U1362/COUT (sky130_fd_sc_hd__fa_1)          0.01      0.09      0.39      7.28 f    (729.08,780.24)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U82/COUT (sky130_fd_sc_hd__fa_1)            0.01      0.11      0.43      7.71 f    (726.78,777.52)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U80/Y (sky130_fd_sc_hd__clkinv_1)           0.00      0.04      0.07      7.78 r    (719.68,769.36)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U600/Y (sky130_fd_sc_hd__o21ai_1)           0.02      0.20      0.16      7.93 f    (719.26,763.99)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U344/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.09      0.44      8.38 f    (721.75,646.96)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U812/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.09      0.40      8.78 f    (719.88,638.80)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U784/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.09      0.40      9.18 f    (723.10,633.36)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U756/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.10      0.41      9.59 f    (723.10,625.20)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_1_662/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.00      0.06      0.09      9.68 r    (722.42,627.92)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctmTdsLR_2_663/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.00      0.04      0.05      9.73 f    (720.58,633.36)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U341/COUT (sky130_fd_sc_hd__fah_1)          0.01      0.09      0.27     10.01 f    (723.25,630.63)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U343/COUT (sky130_fd_sc_hd__fa_1)           0.01      0.09      0.39     10.40 f    (740.12,622.48)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U606/X (sky130_fd_sc_hd__xor2_1)            0.01      0.22      0.22     10.62 r    (734.51,617.07)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U607/Y (sky130_fd_sc_hd__nand2_1)           0.03      0.20      0.22     10.84 f    (751.39,622.48)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/HFSBUF_382_82/X (sky130_fd_sc_hd__buf_2)    0.01      0.04      0.21     11.05 f    (779.19,644.24)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/gre_mt_inst_4644/X (sky130_fd_sc_hd__buf_2)
+                                                   0.03      0.09      0.17     11.22 f    (780.65,663.28)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/U645/Y (sky130_fd_sc_hd__o22ai_1)           0.00      0.14      0.13     11.36 r    (788.66,663.09)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/CPU_Xreg_value_a4_reg[18][31]/D (sky130_fd_sc_hd__dfxtp_4)
+                                                             0.14      0.00     11.36 r    (782.88,655.12)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  data arrival time                                                             11.36
+
+  clock clk (rise edge)                                               10.00     10.00
+  source latency                                                       0.00     10.00
+  pll/CLK (avsdpll)                                0.02      0.00      0.00     10.00 r ~  (502.31,29.00)      5.00~       1.0 (pane 0)
+  core/ZCTSBUF_30582_1148/X (sky130_fd_sc_hd__clkbuf_1)
+                                                   0.01      0.17      0.15     10.15 r    (505.98,206.32)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1597/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.07      0.17     10.32 r    (508.66,315.12)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1598/X (sky130_fd_sc_hd__buf_1)
+                                                   0.01      0.09      0.12     10.44 r    (509.22,472.88)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_30234_1147/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.07      0.15     10.59 r    (508.20,524.56)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_29861_1146/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.07      0.14     10.73 r    (554.66,666.00)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_21403_1101/X (sky130_fd_sc_hd__buf_2)
+                                                   0.01      0.04      0.12     10.84 r    (651.85,682.32)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1690/X (sky130_fd_sc_hd__buf_4)
+                                                   0.02      0.06      0.12     10.97 r    (653.10,655.12)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ZCTSBUF_21312_1093/X (sky130_fd_sc_hd__clkbuf_4)
+                                                   0.02      0.09      0.17     11.14 r    (656.18,633.41)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1699/X (sky130_fd_sc_hd__buf_2)
+                                                   0.02      0.12      0.18     11.32 r    (741.55,630.64)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/ctosc_drc_inst_1711/X (sky130_fd_sc_hd__clkbuf_1)
+                                                   0.02      0.19      0.20     11.52 r    (776.00,625.20)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+  core/CPU_Xreg_value_a4_reg[18][31]/CLK (sky130_fd_sc_hd__dfxtp_4)
+                                                             0.19      0.00     11.52 r    (781.57,655.06)     1.80 (rail VPWR)
+                                                                                                                           1.0 (pane 0)
+
+  clock uncertainty                                                   -0.10     11.42
+  library setup time                                                  -0.06     11.36
+  data required time                                                            11.36
+  ----------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                            11.36
+  data arrival time                                                            -11.36
+  ----------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                    0.00
+
+
+1

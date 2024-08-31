@@ -1,0 +1,95 @@
+[icc2-lic Tue Aug 27 10:49:55 2024] Command 'report_qor' requires licenses
+[icc2-lic Tue Aug 27 10:49:55 2024] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Tue Aug 27 10:49:55 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Tue Aug 27 10:49:55 2024] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Tue Aug 27 10:49:55 2024] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Tue Aug 27 10:49:55 2024] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Tue Aug 27 10:49:55 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Tue Aug 27 10:49:55 2024] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Tue Aug 27 10:49:55 2024] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Tue Aug 27 10:49:55 2024] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Tue Aug 27 10:49:55 2024] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Tue Aug 27 10:49:55 2024] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : qor
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Tue Aug 27 10:49:55 2024
+****************************************
+
+
+Scenario           'func1::estimated_corner'
+Timing Path Group  'clk'
+----------------------------------------
+Levels of Logic:                     40
+Critical Path Length:              9.71
+Critical Path Slack:               0.10
+Critical Path Clk Period:         10.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              1
+Hierarchical Port Count:             14
+Leaf Cell Count:                   2744
+Buf/Inv Cell Count:                 580
+Buf Cell Count:                       4
+Inv Cell Count:                     576
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:          2068
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              676
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       676
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          2
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            11417.20
+Noncombinational Area:         13536.73
+Buf/Inv Area:                   2182.09
+Total Buffer Area:                17.52
+Total Inverter Area:            2164.58
+Macro/Black Box Area:         671652.37
+Net Area:                             0
+Net XLength:                   43458.00
+Net YLength:                   42376.38
+----------------------------------------
+Cell Area (netlist):                         696606.31
+Cell Area (netlist and physical only):       696606.31
+Net Length:                    85834.37
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:              2994
+Nets with Violations:               139
+Max Trans Violations:                37
+Max Cap Violations:                 139
+----------------------------------------
+
+1

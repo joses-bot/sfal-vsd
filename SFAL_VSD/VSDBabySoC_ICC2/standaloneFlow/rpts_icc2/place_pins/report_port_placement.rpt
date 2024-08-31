@@ -1,0 +1,13 @@
+****************************************
+Report : report_pin_placement
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Tue Aug 27 10:49:52 2024
+****************************************
+block vsdbabysoc pin OUT layer met3 side 3 offset 384.48
+block vsdbabysoc pin reset layer met2 side 2 offset 947.82
+block vsdbabysoc pin VCO_IN layer met2 side 4 offset 1224.28
+block vsdbabysoc pin ENb_CP layer met2 side 4 offset 1244.52
+block vsdbabysoc pin ENb_VCO layer met2 side 4 offset 1246.82
+block vsdbabysoc pin REF layer met2 side 4 offset 1243.6
+block vsdbabysoc pin VREFH layer met2 side 2 offset 529.22

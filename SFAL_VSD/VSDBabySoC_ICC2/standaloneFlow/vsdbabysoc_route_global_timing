@@ -1,0 +1,15 @@
+****************************************
+Report : global timing
+        -format { narrow }
+Design : vsdbabysoc
+Version: T-2022.03-SP5
+Date   : Tue Aug 27 10:57:59 2024
+****************************************
+
+No setup violations found.
+
+
+No hold violations found.
+
+
+1

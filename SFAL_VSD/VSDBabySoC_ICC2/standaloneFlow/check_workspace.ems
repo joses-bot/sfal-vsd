@@ -1,0 +1,17 @@
+<Database>
+Name/home/jose/VSDBabySoC_ICC2/standaloneFlow/check_workspace.ems
+Creation TimeTue Aug 27 10:48:49 2024
+Modified TimeTue Aug 27 10:48:49 2024
+Design Name
+Library Name
+</Database>
+<RuleCount>
+LM-0501
+LMUI-0091
+</RuleCount>
+<UserDefinedRules>
+</UserDefinedRules>
+<Messages>
+LMUI-009para1-allow_missing10para2option10para3physical_only10
+LM-050para1910para2s10
+</Messages>
